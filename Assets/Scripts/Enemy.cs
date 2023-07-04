@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 1;
+    public float health;
     public float fadeDuration = 1f; // Duration of each fade
     public int fadeIterations = 3; // Number of fade iterations
     private SpriteRenderer spriteRenderer;

@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed;
     public Rigidbody2D rb;
 
+
+
     private Vector2 moveDirection;
     private Animator animator;
 
