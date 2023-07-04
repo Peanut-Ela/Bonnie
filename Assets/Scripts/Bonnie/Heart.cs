@@ -39,6 +39,14 @@ public class Heart : MonoBehaviour
 
         for (int i = 0; i < hearts.Length; i++)
         {
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
             // Check if current heart index represents a full heart
             if (i * 2 < health - 1)
             {
@@ -61,14 +69,7 @@ public class Heart : MonoBehaviour
                 heartTransforms[i].rotation = initialRotations[i];
             }
 
-            if (i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
+
         }
     }
 

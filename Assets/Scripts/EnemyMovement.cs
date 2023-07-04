@@ -92,6 +92,8 @@ public class EnemyMovement : MonoBehaviour
             float angle = Vector2.Angle(transform.up, playerDirection);
             isPlayerInFront = Mathf.Abs(angle) <= 45f; // Check if the player is within a 90-degree cone in front of the NPC
 
+            //Change to distance range - owen
+
             // Check if the player is within the charge stopping distance
             float distanceToPlayer = playerDirection.magnitude;
             if (isPlayerInFront && distanceToPlayer <= chargeStoppingDistance)
@@ -148,9 +150,11 @@ public class EnemyMovement : MonoBehaviour
             transform.position = newPosition;
         }
 
+        rb.velocity = moveDirection.normalized * moveSpeed * Time.deltaTime;
+
         if (moveDirection.magnitude > 0)
         {
-            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+            //transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
             if (moveDirection.x < 0)
             {
                 spriteRenderer.flipX = true;

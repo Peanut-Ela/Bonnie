@@ -94,7 +94,8 @@ public class NPC : MonoBehaviour
             }
 
             typingSound.Play(); // Play the typing sound effect
-            yield return new WaitForSeconds(wordSpeed);
+            //yield return new WaitForSeconds(wordSpeed);
+            yield return new WaitForSecondsRealtime(wordSpeed);
         }
     }
 

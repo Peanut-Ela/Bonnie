@@ -105,7 +105,8 @@ public class NPCMovement : MonoBehaviour
             transform.position = newPosition;
         }
 
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        //transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        rb.velocity = moveDirection.normalized * moveSpeed * Time.deltaTime;
         if (moveDirection.x < 0)
         {
             spriteRenderer.flipX = true;
