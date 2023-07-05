@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : StateMachine
 {
     public float health;
     public float fadeDuration = 1f; // Duration of each fade
     public int fadeIterations = 3; // Number of fade iterations
     private SpriteRenderer spriteRenderer;
-
     public float Health
     {
         set
