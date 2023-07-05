@@ -1,10 +1,12 @@
+using NPCStates;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour
+public class NPC : StateMachine
 {
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
@@ -12,6 +14,11 @@ public class NPC : MonoBehaviour
     public float wordSpeed;
     public bool playerIsClose;
     public GameObject contButton;
+
+    internal SpriteRenderer sr;
+    internal Animator animator;
+    internal Rigidbody2D rb;
+    internal Vector2 moveDirection;
 
     public AudioSource typingSound; // Reference to the audio source for the typing sound effect
     public float pitchIncreaseInterval = 3; // Number of letters after which the pitch should increase
@@ -23,7 +30,37 @@ public class NPC : MonoBehaviour
     private int index;
     private Coroutine typingCoroutine;
 
-    [System.Serializable]
+    [Header("Idle Settings")]
+    public float idleDurationMin = 1f;
+    public float idleDurationMax = 3f;
+
+    [Header("Wander Settings")]
+    public float moveSpeed = 5f;
+
+    #region Animation Keys
+    public static readonly int IdleKey = Animator.StringToHash("Idle");
+    public static readonly int WalkKey = Animator.StringToHash("Walk");
+    public static readonly int LoveKey = Animator.StringToHash("Love");
+
+    public static readonly int NomKey = Animator.StringToHash("Nom");
+    public static readonly int ChewKey = Animator.StringToHash("Chew");
+
+    public static readonly int DownKey = Animator.StringToHash("Down");
+    public static readonly int Down_IdleKey = Animator.StringToHash("Down_Idle");
+    public static readonly int Down_SleepKey = Animator.StringToHash("Down_Sleep");
+    public static readonly int[] IdleKeys = new int[]
+    {
+        Animator.StringToHash("Idle"),
+        Animator.StringToHash("Nom"),
+        Animator.StringToHash("Chew"),
+        Animator.StringToHash("Down"),
+        Animator.StringToHash("Down_Idle"),
+        Animator.StringToHash("Down_Sleep")
+    };
+    #endregion
+    public override BaseState StartState => new IdleState(this);
+    public override BaseState DefaultState => new IdleState(this);
+    [Serializable]
     public class DialogueData
     {
         public string text;
@@ -31,9 +68,16 @@ public class NPC : MonoBehaviour
     }
 
     // Add any additional functions or variables you need here
-
-    void Update()
+    protected override void Awake()
     {
+        base.Awake();
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+    protected override void Update()
+    {
+        base.Update();
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
             if (dialoguePanel.activeInHierarchy)
@@ -47,10 +91,10 @@ public class NPC : MonoBehaviour
             }
         }
 
-        if (dialogueText.text == dialogueDataList[index].text)
-        {
-            contButton.SetActive(true);
-        }
+        //if (dialogueText.text == dialogueDataList[index].text)
+        //{
+        //    contButton.SetActive(true);
+        //}
     }
 
     public void zeroText()
@@ -84,7 +128,7 @@ public class NPC : MonoBehaviour
         foreach (char letter in dialogueDataList[index].text.ToCharArray())
         {
             dialogueText.text += letter;
-            typingSound.pitch = Random.Range(1f - pitchVariance, 1f + pitchVariance); // Randomize the pitch
+            typingSound.pitch = UnityEngine.Random.Range(1f - pitchVariance, 1f + pitchVariance); // Randomize the pitch
             letterCount++;
 
             // Check if the letter count is a multiple of the pitch increase interval
@@ -114,20 +158,20 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = true;
-        }
-    }
+    //protected override void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerIsClose = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerIsClose = false;
-            zeroText();
-        }
-    }
+    //protected override void OnTriggerExit2D(Collider2D other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerIsClose = false;
+    //        zeroText();
+    //    }
+    //}
 }

@@ -20,4 +20,7 @@ namespace EnemyStates
     // attack
     // damaged - take knockback
     // death
+    // explode - later
+    // shoot - later
+    // 
 }

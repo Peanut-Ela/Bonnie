@@ -208,7 +208,10 @@ namespace PlayerStates
         {
             base.OnEnter();
             player.animator.PlayInFixedTime(Player.RunKey);
-            dashDir = player.moveDirection.normalized;
+            if (player.moveDirection == Vector2.zero)
+                dashDir = player.lastAnimDir;
+            else
+                dashDir = player.moveDirection.normalized;
             player.StartCoroutine(player.SpawnGhost());
         }
         public override void FixedUpdate()
