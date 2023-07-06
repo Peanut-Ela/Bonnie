@@ -8,10 +8,14 @@ using UnityEngine.UI;
 
 public class NPC : StateMachine
 {
+    [Header("Visual Cue")]
+    [SerializeField] private GameObject visualCue;
+
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueName;
     public Image speakerImage;
-    public float wordSpeed;
+    public float wordSpeed; 
     public bool playerIsClose;
     public GameObject contButton;
 
@@ -19,6 +23,8 @@ public class NPC : StateMachine
     internal Animator animator;
     internal Rigidbody2D rb;
     internal Vector2 moveDirection;
+
+
 
     public AudioSource typingSound; // Reference to the audio source for the typing sound effect
     public float pitchIncreaseInterval = 3; // Number of letters after which the pitch should increase
@@ -64,6 +70,7 @@ public class NPC : StateMachine
     public class DialogueData
     {
         public string text;
+        public string dialogueName;
         public Sprite speakerSprite;
     }
 
@@ -71,6 +78,7 @@ public class NPC : StateMachine
     protected override void Awake()
     {
         base.Awake();
+        visualCue.SetActive(false);
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -78,28 +86,46 @@ public class NPC : StateMachine
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+
+        if (playerIsClose)
         {
-            if (dialoguePanel.activeInHierarchy)
+            visualCue.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                zeroText();
+                QueueState(new IdleState(this)); // Enter the Idle state when the dialogue ends
+                visualCue.SetActive(false);
+                if (dialoguePanel.activeInHierarchy)
+                {
+                    zeroText();
+                    if (sr.flipX != playerIsClose) // Face the player if not already facing the player
+                    {
+                        sr.flipX = playerIsClose;
+                    }
+                }
+                else
+                {
+                    dialoguePanel.SetActive(true);
+                    StartTyping();
+                }
             }
-            else
+
+            if (dialogueText.text == dialogueDataList[index].text)
             {
-                dialoguePanel.SetActive(true);
-                StartTyping();
+                contButton.SetActive(true);
             }
         }
-
-        //if (dialogueText.text == dialogueDataList[index].text)
-        //{
-        //    contButton.SetActive(true);
-        //}
+        else
+        {
+            visualCue.SetActive(false);
+        }
     }
+
 
     public void zeroText()
     {
         dialogueText.text = "";
+        dialogueName.text = "";
         index = 0;
         speakerImage.sprite = null; // Clear the speaker image when dialogue is not active
         if (typingCoroutine != null)
@@ -118,6 +144,7 @@ public class NPC : StateMachine
         }
 
         dialogueText.text = "";
+        dialogueName.text = dialogueDataList[index].dialogueName;
         speakerImage.sprite = dialogueDataList[index].speakerSprite; // Set the speaker image for this dialogue element
         typingCoroutine = StartCoroutine(Typing());
     }
@@ -158,20 +185,20 @@ public class NPC : StateMachine
         }
     }
 
-    //protected override void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerIsClose = true;
-    //    }
-    //}
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = true;
+        }
+    }
 
-    //protected override void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerIsClose = false;
-    //        zeroText();
-    //    }
-    //}
+    protected override void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
+            zeroText();
+        }
+    }
 }
