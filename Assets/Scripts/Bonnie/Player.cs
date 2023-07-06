@@ -5,6 +5,7 @@ using PlayerStates;
 
 public class Player : StateMachine
 {
+    public static Player instance;
     internal Rigidbody2D rb;
     internal SpriteRenderer sr;
     internal Animator animator;
@@ -25,6 +26,10 @@ public class Player : StateMachine
     [Header("Ghost Settings")]
     public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     public PlayerGhost ghostPrefab;
+    public System.Action OnTakeDamage;
+
+    public int currentHealth;
+    public int maxHealth;
     #region Animation Keys
     public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
     public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
@@ -41,6 +46,12 @@ public class Player : StateMachine
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        instance = this;
+    }
+    protected override void Start()
+    {
+        base.Start();
+        currentHealth = maxHealth;
     }
     public IEnumerator SpawnGhost()
     {
@@ -49,6 +60,22 @@ public class Player : StateMachine
             yield return new WaitForSeconds(ghostSpawnInterval);
             var ghost = Instantiate(ghostPrefab, transform.position, transform.rotation);
             ghost.SetSprite(sr.sprite);
+        }
+    }
+
+    public void ApplyKnockback(Vector3 direction)
+    {
+        rb.AddForce(direction * 5f, ForceMode2D.Impulse);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        OnTakeDamage?.Invoke(); // ? is used for if event is null
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            // Player is dead, handle game over or respawn logic here
         }
     }
 }
