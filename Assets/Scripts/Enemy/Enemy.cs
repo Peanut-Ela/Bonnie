@@ -80,7 +80,7 @@ public class Enemy : StateMachine
                 if (distanceToPlayer <= detectionRange && canCharge)
                 {
                     // Play ChargeState if player is in range
-                    QueueState(new ChargeState(this));
+                    QueueState(new ChargeWindupState(this));
 
                 // Disable charging until cooldown is over
                 canCharge = false;
@@ -143,19 +143,13 @@ public class Enemy : StateMachine
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        isPlayerInRange = true;
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        isPlayerInRange = false;
-    //    }
-    //}
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+        if (other.CompareTag("PlayerAttack"))
+        {
+            // do check if enemy is not alreadyy in damaged state
+            // take damage and change to damaged state
+        }
+    }
 }

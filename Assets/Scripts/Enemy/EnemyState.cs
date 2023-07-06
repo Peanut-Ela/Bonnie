@@ -48,6 +48,7 @@ namespace EnemyStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
             enemy.hand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetHandPosition, Mathf.Clamp01(1 - age / duration));
         }
 
@@ -86,6 +87,8 @@ namespace EnemyStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+
             enemy.outerhand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetPos, Mathf.Clamp01(1 - age / duration));
         }
 
@@ -182,41 +185,39 @@ namespace EnemyStates
     public class ChargeState : EnemyState
     {
         private float chargeSpeed = 10f;
-        private Vector3 targetPosition;
-        private float attackRange = 1f; // Range for performing the attack
+        Vector2 targetDir;
 
         public ChargeState(Enemy sm) : base(sm)
         {
-            targetPosition = Player.instance.transform.position;
-            duration = Vector3.Distance(enemy.transform.position, targetPosition) / chargeSpeed;
+            duration = Vector3.Distance(enemy.transform.position, Player.instance.transform.position) / chargeSpeed;
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
-
             // Play charge animation
+            targetDir = (Player.instance.transform.position - enemy.transform.position).normalized;
             enemy.animator.PlayInFixedTime(Enemy.ChargeKey);
+            FlipSprite(targetDir.x < 0);
+
+            enemy.bufferedState = new FirstPunchState(enemy);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-
+            enemy.rb.velocity = targetDir * chargeSpeed;
             // Move towards the target position at charge speed
-            LerpPosition(enemy.transform, targetPosition, chargeSpeed);
+            //LerpPosition(enemy.transform, targetPosition, chargeSpeed);
 
             // Flip sprite if necessary
-            FlipSprite(targetPosition.x < enemy.transform.position.x);
 
-            // Check if enemy has reached the attack range
-            if (Vector3.Distance(enemy.transform.position, targetPosition) <= attackRange)
-            {
-                // Perform the attack
-                PerformAttack();
-            }
         }
-
+        public override void OnExit()
+        {
+            base.OnExit();
+            enemy.rb.velocity = Vector2.zero;
+        }
         private void PerformAttack()
         {
             // Do whatever actions are needed for the attack
