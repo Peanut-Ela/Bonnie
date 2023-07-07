@@ -103,7 +103,7 @@ namespace EnemyStates
 
             // Deal damage to the player
             Player.instance.TakeDamage(enemy.damage);
-        }
+        }   
     }
 
     // States to make:
@@ -126,7 +126,6 @@ namespace EnemyStates
         public override void OnEnter()
         {
             base.OnEnter();
-            //enemy.animator.PlayInFixedTime(enemy.IdleKeys[Random.Range(0, enemy.IdleKeys.Length)]);
             enemy.animator.PlayInFixedTime(Enemy.IdleKey);
         }
         public override void FixedUpdate()
@@ -208,9 +207,6 @@ namespace EnemyStates
             base.FixedUpdate();
             enemy.rb.velocity = targetDir * chargeSpeed;
             // Move towards the target position at charge speed
-            //LerpPosition(enemy.transform, targetPosition, chargeSpeed);
-
-            // Flip sprite if necessary
 
         }
         public override void OnExit()
@@ -228,6 +224,57 @@ namespace EnemyStates
         }
     }
 
+    public class HurtState : EnemyState
+    {
+        private float hurtDuration = 0.5f; // Duration of the hurt animation
 
+        public HurtState(Enemy sm) : base(sm)
+        {
+            // Set the duration of the hurt state
+            duration = hurtDuration;
+        }
 
-}
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            // Play hurt animation
+            enemy.animator.PlayInFixedTime(Enemy.HurtKey);
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            // Transition to the appropriate state after the hurt state
+            enemy.QueueState(new IdleState(enemy));
+        }
+    }
+        public class DeathState : EnemyState
+        {
+            private float fadeDuration = 1f;
+            private int fadeIterations = 3;
+
+            public DeathState(Enemy sm) : base(sm)
+            {
+                // Set the duration of the death state
+                duration = fadeDuration * fadeIterations * 2; // Fade in and out iterations
+            }
+
+            public override void OnEnter()
+            {
+                base.OnEnter();
+                enemy.animator.PlayInFixedTime(Enemy.HurtKey);
+                // Play death animation or perform any necessary actions
+                // Example: enemy.animator.PlayInFixedTime(Enemy.DeathKey);
+                // You can also disable any colliders or gameplay components
+
+                // Start the coroutine to handle the death sequence
+                enemy.StartCoroutine(enemy.Defeated());
+            }
+        }
+    }

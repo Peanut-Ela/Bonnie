@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   detectionRange: 3
-  health: 10
+  health: 5
   damage: 1
   fadeDuration: 0.15
   fadeIterations: 3
@@ -59010,6 +59010,7 @@ MonoBehaviour:
   runSpeed: 6.5
   attackDuration: 0.5
   attackWindupDuration: 0.3
+  damage: 1
   dashSpeed: 10
   dashDuration: 0.25
   dashCoolDown: 1

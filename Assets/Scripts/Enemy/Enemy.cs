@@ -37,9 +37,11 @@ public class Enemy : StateMachine
     public static readonly int IdleKey = Animator.StringToHash("Idle");
     public static readonly int WalkKey = Animator.StringToHash("Walk");
     public static readonly int ChargeKey = Animator.StringToHash("Charge");
+    public static readonly int HurtKey = Animator.StringToHash("Hurt");
     #endregion
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
+
     public float Health
     {
         set
@@ -96,12 +98,29 @@ public class Enemy : StateMachine
         canCharge = true;
     }
 
+    //public void TakeDamage(float damage)
+    //{
+    //    Health -= damage;
+    //}
+
     public void TakeDamage(float damage)
     {
-        Health -= damage;
+        // Subtract the damage from the enemy's health
+        health -= damage;
+
+        if (health <= 0)
+        {
+            // Enemy is dead, transition to death state
+            QueueState(new DeathState(this));
+        }
+        else
+        {
+            // Enemy is hurt, transition to hurt state
+            QueueState(new HurtState(this));
+        }
     }
 
-    private IEnumerator Defeated()
+    public IEnumerator Defeated()
     {
         // Perform fading effect
         for (int i = 0; i < fadeIterations; i++)
@@ -114,7 +133,7 @@ public class Enemy : StateMachine
         Destroy(gameObject);
     }
 
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         float startTime = Time.time;
         Color originalColor = sr.color;
@@ -129,7 +148,7 @@ public class Enemy : StateMachine
         }
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         float startTime = Time.time;
         Color originalColor = sr.color;

@@ -17,6 +17,7 @@ public class Player : StateMachine
     [Header("Attack Settings")]
     public float attackDuration = 0.5f;
     public float attackWindupDuration = 0.3f;
+    public float damage;
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
     [Header("Dash Settings")]
     public float dashSpeed;
@@ -76,6 +77,23 @@ public class Player : StateMachine
         if (currentHealth <= 0)
         {
             // Player is dead, handle game over or respawn logic here
+        }
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+
+        if (other.CompareTag("Enemy"))
+        {
+            // Get the enemy component from the collided object
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                // Deal damage to the enemy
+                enemy.TakeDamage(damage);
+            }
         }
     }
 }
