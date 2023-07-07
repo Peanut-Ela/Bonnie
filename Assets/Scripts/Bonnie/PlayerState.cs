@@ -178,25 +178,6 @@ namespace PlayerStates
             player.weaponHitbox.gameObject.SetActive(false);
         }
     }
-    //public class DashWindupState : BaseAbilityState
-    //{
-    //    Vector2 windupDir;
-    //    public DashWindupState(Player sm) : base(sm)
-    //    {
-    //        duration = 0.25f;
-    //    }
-    //    public override void OnEnter()
-    //    {
-    //        base.OnEnter();
-    //        windupDir = -player.moveDirection;
-    //        player.bufferedState = new DashState(player);
-    //    }
-    //    public override void FixedUpdate()
-    //    {
-    //        base.FixedUpdate();
-    //        player.rb.velocity = windupDir * 3f;
-    //    }
-    //}
     public class DashState : BaseAbilityState
     {
         Vector2 dashDir;
