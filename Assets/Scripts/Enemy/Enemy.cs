@@ -44,6 +44,10 @@ public class Enemy : StateMachine
 
     public float Health
     {
+        get
+        {
+            return health;
+        }
         set
         {
             health = value;
@@ -52,10 +56,6 @@ public class Enemy : StateMachine
             {
                 StartCoroutine(Defeated());
             }
-        }
-        get
-        {
-            return health;
         }
     }
 
@@ -103,12 +103,13 @@ public class Enemy : StateMachine
     //    Health -= damage;
     //}
 
-    public void TakeDamage(float damage)
+    public void TakeDamage()
     {
         // Subtract the damage from the enemy's health
-        health -= damage;
+        if (currentState is HurtState) return;
+        //Health -= damage;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             // Enemy is dead, transition to death state
             QueueState(new DeathState(this));
@@ -169,6 +170,7 @@ public class Enemy : StateMachine
         {
             // do check if enemy is not alreadyy in damaged state
             // take damage and change to damaged state
+            TakeDamage();
         }
     }
 }

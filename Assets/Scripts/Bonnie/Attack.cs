@@ -60,7 +60,7 @@ public class Attack : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage();
             }
         }
     }

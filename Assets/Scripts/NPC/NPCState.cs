@@ -13,6 +13,7 @@ namespace NPCStates
         // eat
         // 
         protected NPC npc;
+        bool requestedTalk = false;
         public NPCState(NPC sm) : base(sm)
         {
             npc = sm;
@@ -20,8 +21,14 @@ namespace NPCStates
         public override void Update()
         {
             base.Update();
-
-
+            if (npc.playerIsClose && Input.GetKeyDown(KeyCode.E))
+                requestedTalk = true;
+        }
+        public override void StateUpdate()
+        {
+            base.StateUpdate();
+            if (requestedTalk)
+                npc.QueueState(new DialogueState(npc));
         }
     }
     public class IdleState : NPCState
@@ -35,6 +42,12 @@ namespace NPCStates
             base.OnEnter();
             npc.animator.PlayInFixedTime(NPC.IdleKeys[Random.Range(0, NPC.IdleKeys.Length)]);
             //npc.animator.PlayInFixedTime(NPC.IdleKey);
+        }
+        public override void Update()
+        {
+            base.Update();
+            npc.visualCue.SetActive(npc.playerIsClose);
+
         }
         public override void FixedUpdate()
         {
@@ -62,10 +75,46 @@ namespace NPCStates
             if ((npc.sr.flipX && walkDir.x > 0) || (!npc.sr.flipX && walkDir.x < 0))
                 npc.sr.flipX = !npc.sr.flipX;
         }
+        public override void Update()
+        {
+            base.Update();
+            npc.visualCue.SetActive(npc.playerIsClose);
+
+        }
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             npc.rb.velocity = walkDir * npc.moveSpeed;
         }
     }
+
+    public class DialogueState : NPCState
+    {
+        public DialogueState(NPC sm) : base(sm)
+        {
+            duration = 1;
+        }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            npc.animator.PlayInFixedTime(NPC.IdleKey);
+            npc.visualCue.SetActive(false);
+            npc.dialoguePanel.SetActive(true);
+            npc.StartTyping();
+        }
+        public override void Update()
+        {
+            base.Update();
+            if (!npc.playerIsClose)
+            {
+                npc.zeroText();
+            }
+        }
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            npc.rb.velocity = Vector2.zero;
+        }
+    }
+
 }

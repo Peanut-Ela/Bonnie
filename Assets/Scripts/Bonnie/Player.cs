@@ -92,7 +92,9 @@ public class Player : StateMachine
             if (enemy != null)
             {
                 // Deal damage to the enemy
-                enemy.TakeDamage(damage);
+                Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+                Player.instance.ApplyKnockback(knockbackDirection);
+                TakeDamage(enemy.damage);
             }
         }
     }
