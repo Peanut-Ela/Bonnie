@@ -55,8 +55,6 @@ public class PlayerMovement : MonoBehaviour
     public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     private List<GameObject> ghostInstances = new List<GameObject>();
 
-    public CoinManager coinManager;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -256,14 +254,5 @@ public class PlayerMovement : MonoBehaviour
         attack.StopAttack();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            Destroy(other.gameObject);
-            coinManager.coinCount++;
-        }
-
-    }
 
 }
