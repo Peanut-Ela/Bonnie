@@ -75,6 +75,7 @@ public class NPC : StateMachine
         public Sprite speakerSprite;
         public List<string> choices; // List of choices for the dialogue line
         public Action<int> onChoiceSelected; // Action to be called when a choice is selected
+        public List<string> choiceResponses; // List of responses corresponding to each choice
     }
 
     protected override void Awake()
@@ -138,10 +139,16 @@ public class NPC : StateMachine
             typingSound.Play();
             yield return new WaitForSecondsRealtime(wordSpeed);
         }
+
+        // Check if the current dialogue line has choices
         if (dialogueDataList[index].choices != null && dialogueDataList[index].choices.Count > 0)
+        {
             ShowChoiceBox();
+        }
         else
+        {
             contButton.SetActive(true);
+        }
 
         yield return null;
     }
@@ -160,23 +167,6 @@ public class NPC : StateMachine
             zeroText();
         }
     }
-
-    //protected override void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerIsClose = true;
-    //    }
-    //}
-
-    //protected override void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerIsClose = false;
-    //        zeroText();
-    //    }
-    //}
 
     private void ShowChoiceBox()
     {
@@ -201,18 +191,27 @@ public class NPC : StateMachine
         }
     }
 
-    private void OnChoiceSelected()
+    private void OnChoiceSelected(int choiceIndex)
     {
+        Debug.Log("Choice selected. Choice index: " + choiceIndex);
         HideChoiceBox();
 
-        //Action<int> onChoiceSelected = dialogueDataList[index].onChoiceSelected;
-        //if (onChoiceSelected != null)
-        //{
-            //onChoiceSelected.Invoke(choiceIndex);
-        //}
+        // Get the selected dialogue data
+        DialogueData currentDialogue = dialogueDataList[index];
+
+        // Check if the selected choice index is within the valid range
+        if (choiceIndex >= 0 && choiceIndex < currentDialogue.choices.Count)
+        {
+            // Check if there is a corresponding response for the selected choice
+            if (choiceIndex < currentDialogue.choiceResponses.Count)
+            {
+                string response = currentDialogue.choiceResponses[choiceIndex];
+                // Display the response in the dialogue panel
+                dialogueText.text = response;
+            }
+        }
 
         NextLine();
-
-
     }
+
 }

@@ -10,9 +10,9 @@ public class ChoiceBox : MonoBehaviour
     public Transform buttonContainer;
 
     private List<Button> choiceButtons = new List<Button>();
-    private Action choiceCallback;
+    private Action<int> choiceCallback;
 
-    public void SetChoices(List<string> choices, Action callback)
+    public void SetChoices(List<string> choices, Action<int> callback)
     {
         choiceCallback = callback;
 
@@ -33,18 +33,20 @@ public class ChoiceBox : MonoBehaviour
             choiceText.text = choice;
 
             // Add a click listener to each button
-            button.onClick.AddListener(() => OnChoiceClicked(i));
+            int choiceIndex = i; // Store the choice index in a local variable
+            button.onClick.AddListener(() => OnChoiceClicked(choiceIndex));
 
             choiceButtons.Add(button);
         }
     }
+
 
     private void OnChoiceClicked(int choiceIndex)
     {
         Debug.Log("Choice button clicked. Choice index: " + choiceIndex);
         if (choiceCallback != null)
         {
-            choiceCallback.Invoke();
+            choiceCallback.Invoke(choiceIndex);
         }
     }
 }
