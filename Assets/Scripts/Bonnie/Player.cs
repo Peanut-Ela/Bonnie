@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerStates;
+using Bonnie.CharacterStats;
 
 public class Player : StateMachine
 {
@@ -18,6 +19,7 @@ public class Player : StateMachine
     public float attackDuration = 0.5f;
     public float attackWindupDuration = 0.3f;
     public float damage;
+    public CharacterStats Strength;
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
     [Header("Dash Settings")]
     public float dashSpeed;
@@ -92,7 +94,9 @@ public class Player : StateMachine
             if (enemy != null)
             {
                 // Deal damage to the enemy
-                enemy.TakeDamage(damage);
+                Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+                Player.instance.ApplyKnockback(knockbackDirection);
+                TakeDamage(enemy.damage);
             }
         }
     }

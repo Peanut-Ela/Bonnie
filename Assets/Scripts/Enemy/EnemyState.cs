@@ -57,12 +57,12 @@ namespace EnemyStates
             base.OnExit();
             enemy.hand.gameObject.SetActive(false);
 
-            // Apply knockback to the player
-            Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
-            Player.instance.ApplyKnockback(knockbackDirection);
+            //// Apply knockback to the player
+            //Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+            //Player.instance.ApplyKnockback(knockbackDirection);
 
-            // Deal damage to the player
-            Player.instance.TakeDamage(enemy.damage);
+            //// Deal damage to the player
+            //Player.instance.TakeDamage(enemy.damage);
         }
     }
 
@@ -239,6 +239,7 @@ namespace EnemyStates
             base.OnEnter();
             // Play hurt animation
             enemy.animator.PlayInFixedTime(Enemy.HurtKey);
+            enemy.Health -= Player.instance.damage;
         }
 
         public override void FixedUpdate()
