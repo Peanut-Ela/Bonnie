@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class Bullet : MonoBehaviour
 {
     public float delay;
@@ -14,12 +13,14 @@ public class Bullet : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip fireSound;
     public AudioClip hitSound;
+    public GameObject explosionPrefab;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private CircleCollider2D col;
     private TrailRenderer tr;
     private float travelledDistance = 0f;
+    private bool exploded = false;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class Bullet : MonoBehaviour
         travelledDistance += bulletSpeed * Time.fixedDeltaTime;
         if (travelledDistance > maxDistance)
         {
-            Destroy(gameObject);
+            DestroyBullet();
         }
     }
 
@@ -66,19 +67,33 @@ public class Bullet : MonoBehaviour
             // Handle collision with the player
             if (audioSource != null && hitSound != null)
             {
+                Debug.Log("Playing hit sound");
                 audioSource.PlayOneShot(hitSound);
             }
-            StartCoroutine(WaitForSound());
-            sr.enabled = false;
-            col.enabled = false;
-            tr.enabled = false;
-            target = null;
+            if (!exploded)
+            {
+                Explode();
+                exploded = true;
+            }
+            DestroyBullet();
         }
     }
 
-    public IEnumerator WaitForSound()
+    private void Explode()
     {
-        yield return new WaitForSeconds(hitSound.length);
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, explosion.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        }
+    }
+
+    private void DestroyBullet()
+    {
+        sr.enabled = false;
+        col.enabled = false;
+        tr.enabled = false;
+        target = null;
         Destroy(gameObject);
     }
 }
