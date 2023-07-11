@@ -706,7 +706,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2274739924670107732, guid: 777c5808af1ff454d961c39b371f78fc, type: 3}
   m_PrefabInstance: {fileID: 2274739924569555753}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &100815750
+--- !u!114 &100815757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -715,14 +715,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100815741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d851676ffd33d7d4484fb94a50eadb1e, type: 3}
+  m_Script: {fileID: 11500000, guid: f87813697e689d94bbf15435a04c4c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
-  detectionRange: 3
+  detectionRange: 5
   health: 5
-  damage: 0
-  fadeDuration: 0.15
+  damage: 1
+  fadeDuration: 1
   fadeIterations: 3
   hand: {fileID: 22883078}
   outerhand: {fileID: 1991667629}
@@ -730,7 +730,7 @@ MonoBehaviour:
   idleDurationMax: 3
   moveSpeed: 2
   chargeCooldown: 2
-  attackRange: 1
+  attackRange: 0
   attackDur: 0.5
 --- !u!1 &137618791
 GameObject:
@@ -4165,7 +4165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddba77d494c8e72478a20cb9779e86d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -54484,6 +54483,39 @@ Transform:
   m_Father: {fileID: 667079902}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1097723787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7258738066029621804, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
+  m_PrefabInstance: {fileID: 8875829848369950194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097723788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097723787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c047ce6672d6f408dfd94448eb9f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logStateTransfer: 0
+  detectionRange: 5
+  health: 5
+  damage: 1
+  fadeDuration: 1
+  fadeIterations: 3
+  hand: {fileID: 0}
+  outerhand: {fileID: 0}
+  idleDurationMin: 1
+  idleDurationMax: 3
+  moveSpeed: 5
+  chargeCooldown: 2
+  attackRange: 0
+  attackDur: 0.5
+  explosionPrefab: {fileID: 1622360875227932693, guid: 8aca513fbe19d3c42975a01901ffdb81, type: 3}
+  enemy: {fileID: 8875829849345843836, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
 --- !u!1 &1114611857
 GameObject:
   m_ObjectHideFlags: 0
@@ -56754,14 +56786,19 @@ MonoBehaviour:
     choices:
     - No
     - Yes
+    choiceResponses:
+    - AAAAAAAAAAAAA
+    - Meh
   - text: Please tell me it is
     dialogueName: Bonnie
     speakerSprite: {fileID: -468323467, guid: 6145628e31b6f2a4f849ce23b80c3a20, type: 3}
     choices: []
+    choiceResponses: []
   - text: OMG
     dialogueName: Bonnie
     speakerSprite: {fileID: -468323467, guid: 6145628e31b6f2a4f849ce23b80c3a20, type: 3}
     choices: []
+    choiceResponses: []
   idleDurationMin: 1
   idleDurationMax: 3
   moveSpeed: 2
@@ -68813,8 +68850,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_3
       objectReference: {fileID: 0}
+    - target: {fileID: 1033543066695106548, guid: 3f69c8451133f1846b230925a5295591, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f69c8451133f1846b230925a5295591, type: 3}
+--- !u!1 &1280884977052380235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1033543066695106548, guid: 3f69c8451133f1846b230925a5295591, type: 3}
+  m_PrefabInstance: {fileID: 1280884977052380234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1280884977052380236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280884977052380235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174d4ca6e9a3bf24da82df628e607d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logStateTransfer: 0
+  detectionRange: 10
+  health: 0
+  damage: 0
+  fadeDuration: 1
+  fadeIterations: 3
+  hand: {fileID: 0}
+  outerhand: {fileID: 0}
+  idleDurationMin: 1
+  idleDurationMax: 3
+  moveSpeed: 5
+  chargeCooldown: 2
+  attackRange: 0
+  attackDur: 0.5
+  bulletPrefab: {fileID: 7485333954661269909, guid: d8cd891eb5b220d4981cbbd0fed302db, type: 3}
+  enemy: {fileID: 1280884978463518174, guid: 3f69c8451133f1846b230925a5295591, type: 3}
 --- !u!1001 &2274739924569555753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68942,17 +69016,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7258738066029621804, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7258738066029621972, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7258738066029621972, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 7258738066029621972, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.14
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 7258738066029621972, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68990,5 +69068,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8875829849345843836, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 954dca083e49ef543814ff6d0d92a9e1, type: 3}
