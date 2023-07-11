@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1033543066695106548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d851676ffd33d7d4484fb94a50eadb1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 174d4ca6e9a3bf24da82df628e607d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
@@ -291,6 +291,8 @@ MonoBehaviour:
   chargeCooldown: 2
   attackRange: 1
   attackDur: 0.5
+  bulletPrefab: {fileID: 7485333954661269909, guid: d8cd891eb5b220d4981cbbd0fed302db, type: 3}
+  enemy: {fileID: 1280884978463518174}
 --- !u!1 &8789071201028457253
 GameObject:
   m_ObjectHideFlags: 0

@@ -172,7 +172,7 @@ namespace EnemyStates
         {
             base.OnEnter();
             windupDir = -enemy.moveDirection;
-            enemy.bufferedState = new ChargeState(enemy);
+            enemy.bufferedState = enemy.AttackState;
         }
         public override void FixedUpdate()
         {
@@ -278,4 +278,31 @@ namespace EnemyStates
                 enemy.StartCoroutine(enemy.Defeated());
             }
         }
+
+    public class ShootState : EnemyState
+    {
+        Enemy_3 shootingEnemy;
+        private float shootDuration = 0.5f; // Duration of the shooting animation
+
+        public ShootState(Enemy sm) : base(sm)
+        {
+            shootingEnemy = sm as Enemy_3;
+            duration = shootDuration;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            // Play shooting animation
+            enemy.animator.PlayInFixedTime(Enemy_3.ShootKey);
+            shootingEnemy.DoAttack();
+            // Spawn a bullet prefab at the shoot point position and rotation
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+        }
     }
+}
