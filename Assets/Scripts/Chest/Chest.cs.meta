@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Chest/Chest.cs.meta
 guid: b7d5179148e9bf44ebcedc35bf3621a6
+========
+guid: ddba77d494c8e72478a20cb9779e86d4
+>>>>>>>> main:Assets/Scripts/Inventory/Slot.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
