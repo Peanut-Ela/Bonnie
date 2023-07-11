@@ -33,6 +33,9 @@ public class Player : StateMachine
 
     public int currentHealth;
     public int maxHealth;
+
+    public CoinManager coinManager;
+
     #region Animation Keys
     public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
     public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
@@ -99,7 +102,19 @@ public class Player : StateMachine
                 TakeDamage(enemy.damage);
             }
         }
+
+        else
+        {
+            if (other.gameObject.CompareTag("Coin"))
+            {
+                Destroy(other.gameObject);
+                coinManager.coinCount++;
+            }
+        }
+
     }
+
+    
 
 
 }
