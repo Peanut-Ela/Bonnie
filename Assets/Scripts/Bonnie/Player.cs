@@ -103,8 +103,6 @@ public class Player : StateMachine
             }
         }
     }
-<<<<<<< Updated upstream
-=======
 
     public void EquipWeapon(Weapon weapon)
     {
@@ -140,7 +138,4 @@ public class Player : StateMachine
     {
         get { return damage + (equippedWeapon != null ? equippedWeapon.damageIncreaseAmount : 0f); }
     }
-
-
->>>>>>> Stashed changes
 }
