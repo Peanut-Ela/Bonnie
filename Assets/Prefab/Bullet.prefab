@@ -111,7 +111,9 @@ MonoBehaviour:
   audioSource: {fileID: 9143027443436909573}
   fireSound: {fileID: 8300000, guid: a4b90c41f1dd6ce4f8683933301274c8, type: 3}
   hitSound: {fileID: 8300000, guid: 193410e68111e1d48af9164a0375703d, type: 3}
-  explosionPrefab: {fileID: 8136215835306300111, guid: 61cd5f80edba20049878e9c346bf34de, type: 3}
+  explosionPrefab: {fileID: 9096252704182602034, guid: 61cd5f80edba20049878e9c346bf34de, type: 3}
+  damage: 2
+  radius: 5
 --- !u!82 &9143027443436909573
 AudioSource:
   m_ObjectHideFlags: 0

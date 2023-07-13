@@ -291,7 +291,7 @@ MonoBehaviour:
   chargeCooldown: 2
   attackRange: 1
   attackDur: 0.5
-  bulletPrefab: {fileID: 7485333954661269909, guid: d8cd891eb5b220d4981cbbd0fed302db, type: 3}
+  bulletPrefab: {fileID: 1696116066575391173, guid: d8cd891eb5b220d4981cbbd0fed302db, type: 3}
   enemy: {fileID: 1280884978463518174}
 --- !u!1 &8789071201028457253
 GameObject:

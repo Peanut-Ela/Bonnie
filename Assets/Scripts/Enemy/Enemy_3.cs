@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy_3 : Enemy
 {
-    public GameObject bulletPrefab;
+    public Bullet bulletPrefab;
     public Enemy enemy; // Reference to the Enemy component
     public static readonly int ShootKey = Animator.StringToHash("Shoot");
 
@@ -19,8 +19,7 @@ public class Enemy_3 : Enemy
     {
         yield return new WaitForSeconds(1f);
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(Vector3.forward, moveDirection));
-        Bullet bulletComponent = bullet.GetComponent<Bullet>();
-        bulletComponent.target = Player.instance.transform; // singleton - access player by using Player.instance
+        Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(Vector3.forward, moveDirection));
+        bullet.target = Player.instance.transform; // singleton - access player by using Player.instance
     }
 }

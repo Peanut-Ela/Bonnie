@@ -175,29 +175,29 @@ namespace EnemyStates
             enemy.QueueState(new IdleState(enemy));
         }
     }
-        public class DeathState : EnemyState
+    public class DeathState : EnemyState
+    {
+        private float fadeDuration = 1f;
+        private int fadeIterations = 3;
+
+        public DeathState(Enemy sm) : base(sm)
         {
-            private float fadeDuration = 1f;
-            private int fadeIterations = 3;
-
-            public DeathState(Enemy sm) : base(sm)
-            {
-                // Set the duration of the death state
-                duration = fadeDuration * fadeIterations * 2; // Fade in and out iterations
-            }
-
-            public override void OnEnter()
-            {
-                base.OnEnter();
-                enemy.animator.PlayInFixedTime(Enemy.HurtKey);
-                // Play death animation or perform any necessary actions
-                // Example: enemy.animator.PlayInFixedTime(Enemy.DeathKey);
-                // You can also disable any colliders or gameplay components
-
-                // Start the coroutine to handle the death sequence
-                enemy.StartCoroutine(enemy.Defeated());
-            }
+            // Set the duration of the death state
+            duration = fadeDuration * fadeIterations * 2; // Fade in and out iterations
         }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            enemy.animator.PlayInFixedTime(Enemy.HurtKey);
+            // Play death animation or perform any necessary actions
+            // Example: enemy.animator.PlayInFixedTime(Enemy.DeathKey);
+            // You can also disable any colliders or gameplay components
+
+            // Start the coroutine to handle the death sequence
+            enemy.Die();
+        }
+    }
 
     public class FirstPunchState : EnemyState
     {
@@ -299,12 +299,15 @@ namespace EnemyStates
             enemy.animator.PlayInFixedTime(Enemy_3.ShootKey);
             shootingEnemy.DoAttack();
             // Spawn a bullet prefab at the shoot point position and rotation
+
         }
+
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             enemy.rb.velocity = Vector2.zero;
+
         }
     }
 
@@ -315,18 +318,74 @@ namespace EnemyStates
         public ExplodeState(Enemy sm) : base(sm)
         {
             explodingEnemy = sm as Enemy_2;
-            duration = 0f; // The explosion state doesn't have a specific duration
+            duration = 0.5f; // The explosion state doesn't have a specific duration
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
-            explodingEnemy.DoAttack();
+            AudioSource.PlayClipAtPoint(explodingEnemy.explosionSound, enemy.transform.position);
+
+            enemy.rb.simulated = false;
+            enemy.animator.PlayInFixedTime(Enemy_2.ExplodeKey);
+
+            // Check if the enemy has collided with the player during the attack sequence
+            Collider2D collision = Physics2D.OverlapCircle(enemy.transform.position, enemy.detectionRange, LayerMask.GetMask("Player"));
+            if (collision != null)
+            {
+                // Perform explode effect on collision with the player
+                Player.instance.ApplyKnockback((Player.instance.transform.position - enemy.transform.position).normalized);
+                Player.instance.TakeDamage(enemy.damage);
+            }
+
+        }
+
+        //public override void OnExit()
+        //{
+        //    base.OnExit();
+
+
+        //}
+
+        public override void OnStateExpired()
+        {
+            base.OnStateExpired();
+            enemy.Despawn();
+        }
+    }
+    public class ChargeExplosion : EnemyState
+    {
+        private float chargeSpeed = 10f;
+        Vector2 targetDir;
+
+        public ChargeExplosion(Enemy sm) : base(sm)
+        {
+            duration = Vector3.Distance(enemy.transform.position, Player.instance.transform.position) / chargeSpeed;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+
+            // Play charge animation
+            targetDir = (Player.instance.transform.position - enemy.transform.position).normalized;
+            enemy.animator.PlayInFixedTime(Enemy.ChargeKey);
+            FlipSprite(targetDir.x < 0);
+
+            enemy.bufferedState = new ExplodeState(enemy);
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            enemy.rb.velocity = targetDir * chargeSpeed;
+            // Move towards the target position at charge speed
+
+        }
+        public override void OnExit()
+        {
+            base.OnExit();
+            enemy.rb.velocity = Vector2.zero;
         }
     }
 }

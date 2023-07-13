@@ -31,6 +31,9 @@ public class Player : StateMachine
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
 
+    private Weapon equippedWeapon;
+    //private float baseDamage;
+
     public int currentHealth;
     public int maxHealth;
     #region Animation Keys
@@ -100,4 +103,44 @@ public class Player : StateMachine
             }
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public void EquipWeapon(Weapon weapon)
+    {
+        if (equippedWeapon != null)
+        {
+            // Unequip the previously equipped weapon and remove its damage amount
+            UnequipWeapon();
+        }
+
+        equippedWeapon = weapon;
+        weapon.transform.SetParent(transform);
+        weapon.transform.localPosition = Vector3.zero;
+        damage = weapon.damageIncreaseAmount;
+    }
+
+    public void UnequipWeapon()
+    {
+        if (equippedWeapon != null)
+        {
+            equippedWeapon.transform.SetParent(null);
+            equippedWeapon = null;
+        }
+    }
+
+    public void IncreaseDamage(float amount)
+    {
+        damage = amount;
+    }
+
+
+    // New property name to avoid naming conflict
+    public float TotalDamage
+    {
+        get { return damage + (equippedWeapon != null ? equippedWeapon.damageIncreaseAmount : 0f); }
+    }
+
+
+>>>>>>> Stashed changes
 }

@@ -5,8 +5,7 @@ public class ExplodeEffect : MonoBehaviour
     public float explosionForce = 10f;
     public float explosionRadius = 5f;
     public Animator animator;
-    public AudioSource audioSource;
-    public AudioClip explosionSound;
+    
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -32,10 +31,7 @@ public class ExplodeEffect : MonoBehaviour
         //enemy.animator.PlayInFixedTime(Enemy.HurtKey);
 
         // Play explosion sound if available
-        if (audioSource != null && explosionSound != null)
-        {
-            audioSource.PlayOneShot(explosionSound);
-        }
+        
 
         // Apply explosion force to nearby objects
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
