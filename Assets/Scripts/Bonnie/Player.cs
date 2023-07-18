@@ -11,7 +11,7 @@ public class Player : StateMachine
     internal SpriteRenderer sr;
     internal Animator animator;
     public GameObject weaponHitbox;
-    public GameObject mouseSprite;
+    //public GameObject mouseSprite;
     internal Vector2 moveDirection;
     internal Vector2 lastAnimDir; // Locked to 4 direction
 
@@ -220,16 +220,5 @@ public class Player : StateMachine
         get { return damage + (equippedWeapon != null ? equippedWeapon.damageIncreaseAmount : 0f); }
     }
 
-    private void UpdateMouseSpritePosition()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseSprite.transform.position = mousePosition;
-    }
 
-    protected override void Update()
-    {
-        base.Update();
-
-        UpdateMouseSpritePosition();
-    }
 }
