@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 4510494668251583266}
   - component: {fileID: 4510494668251583265}
   - component: {fileID: 4510494668251583264}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_Red
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4510494668251583295
 Transform:
   m_ObjectHideFlags: 0
@@ -52,18 +52,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 4510494668836345027}
-  walkSpeed: 5
-  runSpeed: 6.5
+  walkSpeed: 7
+  runSpeed: 8.5
   attackDuration: 0.5
   attackWindupDuration: 0.3
-  damage: 1
-  dashSpeed: 10
+  damage: 1.5
+  dashSpeed: 15
   dashDuration: 0.25
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
   currentHealth: 0
-  maxHealth: 6
+  maxHealth: 2
 --- !u!212 &4510494668251583268
 SpriteRenderer:
   m_ObjectHideFlags: 0

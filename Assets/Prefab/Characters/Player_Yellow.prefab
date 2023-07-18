@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1166069064060400148}
   - component: {fileID: 1166069064060400147}
   - component: {fileID: 1166069064060400146}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_Yellow
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -114,14 +114,14 @@ MonoBehaviour:
   runSpeed: 6.5
   attackDuration: 0.5
   attackWindupDuration: 0.3
-  damage: 1
-  dashSpeed: 10
+  damage: 1.25
+  dashSpeed: 12.5
   dashDuration: 0.25
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
   currentHealth: 0
-  maxHealth: 6
+  maxHealth: 4
 --- !u!212 &1166069064060400150
 SpriteRenderer:
   m_ObjectHideFlags: 0

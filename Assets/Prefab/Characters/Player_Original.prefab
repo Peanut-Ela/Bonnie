@@ -79,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9076447006763734342
 Transform:
   m_ObjectHideFlags: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 9076447006679909639}
-  walkSpeed: 5
-  runSpeed: 6.5
+  walkSpeed: 3.5
+  runSpeed: 5
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1
