@@ -20,17 +20,6 @@ public class Heart : MonoBehaviour
         Player.instance.OnTakeDamage += UpdateHearts;
         SetTotalHearts();
 
-
-        // Initialize arrays
-        //heartTransforms = new RectTransform[hearts.Length];
-        //initialRotations = new Quaternion[hearts.Length];
-
-        //for (int i = 0; i < hearts.Length; i++)
-        //{
-        //    // Get the RectTransform component and initial rotation
-        //    heartTransforms[i] = hearts[i].GetComponent<RectTransform>();
-        //    initialRotations[i] = heartTransforms[i].rotation;
-        //}
     }
     public void SetTotalHearts()
     {
