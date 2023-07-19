@@ -24,87 +24,6 @@ namespace EnemyStates
             enemy.sr.flipX = flip;
         }
     }
-    public class FirstPunchState : EnemyState
-    {
-        private Vector3 targetHandPosition;
-
-        public FirstPunchState(Enemy sm) : base(sm)
-        {
-            duration = enemy.attackDur * 0.5f;
-        }
-
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            FlipSprite(enemy.sr.flipX);
-            enemy.hand.gameObject.SetActive(true);
-            enemy.hand.transform.localPosition = Vector2.zero;
-            enemy.hand.flipX = enemy.sr.flipX;
-
-            targetHandPosition = enemy.moveDirection * 1f; // Calculate the target position for the hand movement
-            enemy.bufferedState = new SecondPunchState(enemy, targetHandPosition);
-        }
-
-        public override void FixedUpdate()
-        {
-            base.FixedUpdate();
-            enemy.rb.velocity = Vector2.zero;
-            enemy.hand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetHandPosition, Mathf.Clamp01(1 - age / duration));
-        }
-
-        public override void OnExit()
-        {
-            base.OnExit();
-            enemy.hand.gameObject.SetActive(false);
-
-            //// Apply knockback to the player
-            //Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
-            //Player.instance.ApplyKnockback(knockbackDirection);
-
-            //// Deal damage to the player
-            //Player.instance.TakeDamage(enemy.damage);
-        }
-    }
-
-    public class SecondPunchState : EnemyState
-    {
-        Vector2 targetPos;
-
-        public SecondPunchState(Enemy sm, Vector2 targetPos) : base(sm)
-        {
-            duration = enemy.attackDur * 0.5f;
-            this.targetPos = targetPos;
-        }
-
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            enemy.outerhand.gameObject.SetActive(true);
-            enemy.outerhand.transform.localPosition = Vector2.zero;
-            enemy.outerhand.flipX = enemy.sr.flipX;
-        }
-
-        public override void FixedUpdate()
-        {
-            base.FixedUpdate();
-            enemy.rb.velocity = Vector2.zero;
-
-            enemy.outerhand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetPos, Mathf.Clamp01(1 - age / duration));
-        }
-
-        public override void OnExit()
-        {
-            base.OnExit();
-            enemy.outerhand.gameObject.SetActive(false);
-
-            // Apply knockback to the player
-            Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
-            Player.instance.ApplyKnockback(knockbackDirection);
-
-            // Deal damage to the player
-            Player.instance.TakeDamage(enemy.damage);
-        }   
-    }
 
     // States to make:
     // idle
@@ -171,8 +90,9 @@ namespace EnemyStates
         public override void OnEnter()
         {
             base.OnEnter();
+
             windupDir = -enemy.moveDirection;
-            enemy.bufferedState = new ChargeState(enemy);
+            enemy.bufferedState = enemy.AttackState;
         }
         public override void FixedUpdate()
         {
@@ -255,27 +175,217 @@ namespace EnemyStates
             enemy.QueueState(new IdleState(enemy));
         }
     }
-        public class DeathState : EnemyState
+    public class DeathState : EnemyState
+    {
+        private float fadeDuration = 1f;
+        private int fadeIterations = 3;
+
+        public DeathState(Enemy sm) : base(sm)
         {
-            private float fadeDuration = 1f;
-            private int fadeIterations = 3;
+            // Set the duration of the death state
+            duration = fadeDuration * fadeIterations * 2; // Fade in and out iterations
+        }
 
-            public DeathState(Enemy sm) : base(sm)
-            {
-                // Set the duration of the death state
-                duration = fadeDuration * fadeIterations * 2; // Fade in and out iterations
-            }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            enemy.animator.PlayInFixedTime(Enemy.HurtKey);
+            // Play death animation or perform any necessary actions
+            // Example: enemy.animator.PlayInFixedTime(Enemy.DeathKey);
+            // You can also disable any colliders or gameplay components
 
-            public override void OnEnter()
-            {
-                base.OnEnter();
-                enemy.animator.PlayInFixedTime(Enemy.HurtKey);
-                // Play death animation or perform any necessary actions
-                // Example: enemy.animator.PlayInFixedTime(Enemy.DeathKey);
-                // You can also disable any colliders or gameplay components
-
-                // Start the coroutine to handle the death sequence
-                enemy.StartCoroutine(enemy.Defeated());
-            }
+            // Start the coroutine to handle the death sequence
+            enemy.Die();
         }
     }
+
+    public class FirstPunchState : EnemyState
+    {
+        private Vector3 targetHandPosition;
+
+        public FirstPunchState(Enemy sm) : base(sm)
+        {
+            duration = enemy.attackDur * 0.5f;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            FlipSprite(enemy.sr.flipX);
+            enemy.hand.gameObject.SetActive(true);
+            enemy.hand.transform.localPosition = Vector2.zero;
+            enemy.hand.flipX = enemy.sr.flipX;
+
+            targetHandPosition = enemy.moveDirection * 1f; // Calculate the target position for the hand movement
+            enemy.bufferedState = new SecondPunchState(enemy, targetHandPosition);
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+            enemy.hand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetHandPosition, Mathf.Clamp01(1 - age / duration));
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            enemy.hand.gameObject.SetActive(false);
+
+            //// Apply knockback to the player
+            //Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+            //Player.instance.ApplyKnockback(knockbackDirection);
+
+            //// Deal damage to the player
+            //Player.instance.TakeDamage(enemy.damage);
+        }
+    }
+
+    public class SecondPunchState : EnemyState
+    {
+        Vector2 targetPos;
+
+        public SecondPunchState(Enemy sm, Vector2 targetPos) : base(sm)
+        {
+            duration = enemy.attackDur * 0.5f;
+            this.targetPos = targetPos;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            enemy.outerhand.gameObject.SetActive(true);
+            enemy.outerhand.transform.localPosition = Vector2.zero;
+            enemy.outerhand.flipX = enemy.sr.flipX;
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+
+            enemy.outerhand.transform.localPosition = Vector2.Lerp(Vector2.zero, targetPos, Mathf.Clamp01(1 - age / duration));
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            enemy.outerhand.gameObject.SetActive(false);
+
+            // Apply knockback to the player
+            Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+            Player.instance.ApplyKnockback(knockbackDirection);
+
+            // Deal damage to the player
+            Player.instance.TakeDamage(enemy.damage);
+        }
+    }
+
+    public class ShootState : EnemyState
+    {
+        Enemy_3 shootingEnemy;
+        private float shootDuration = 0.5f; // Duration of the shooting animation
+
+        public ShootState(Enemy sm) : base(sm)
+        {
+            shootingEnemy = sm as Enemy_3;
+            duration = shootDuration;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            // Play shooting animation
+            enemy.animator.PlayInFixedTime(Enemy_3.ShootKey);
+            shootingEnemy.DoAttack();
+            // Spawn a bullet prefab at the shoot point position and rotation
+
+        }
+
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = Vector2.zero;
+
+        }
+    }
+
+    public class ExplodeState : EnemyState
+    {
+        Enemy_2 explodingEnemy;
+
+        public ExplodeState(Enemy sm) : base(sm)
+        {
+            explodingEnemy = sm as Enemy_2;
+            duration = 0.5f; // The explosion state doesn't have a specific duration
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            AudioSource.PlayClipAtPoint(explodingEnemy.explosionSound, enemy.transform.position);
+
+            enemy.rb.simulated = false;
+            enemy.animator.PlayInFixedTime(Enemy_2.ExplodeKey);
+
+            // Check if the enemy has collided with the player during the attack sequence
+            Collider2D collision = Physics2D.OverlapCircle(enemy.transform.position, enemy.detectionRange, LayerMask.GetMask("Player"));
+            if (collision != null)
+            {
+                // Perform explode effect on collision with the player
+                Player.instance.ApplyKnockback((Player.instance.transform.position - enemy.transform.position).normalized);
+                Player.instance.TakeDamage(enemy.damage);
+            }
+
+        }
+
+        //public override void OnExit()
+        //{
+        //    base.OnExit();
+
+
+        //}
+
+        public override void OnStateExpired()
+        {
+            base.OnStateExpired();
+            enemy.Despawn();
+        }
+    }
+    public class ChargeExplosion : EnemyState
+    {
+        private float chargeSpeed = 10f;
+        Vector2 targetDir;
+
+        public ChargeExplosion(Enemy sm) : base(sm)
+        {
+            duration = Vector3.Distance(enemy.transform.position, Player.instance.transform.position) / chargeSpeed;
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+
+            // Play charge animation
+            targetDir = (Player.instance.transform.position - enemy.transform.position).normalized;
+            enemy.animator.PlayInFixedTime(Enemy.ChargeKey);
+            FlipSprite(targetDir.x < 0);
+
+            enemy.bufferedState = new ExplodeState(enemy);
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            enemy.rb.velocity = targetDir * chargeSpeed;
+            // Move towards the target position at charge speed
+
+        }
+        public override void OnExit()
+        {
+            base.OnExit();
+            enemy.rb.velocity = Vector2.zero;
+        }
+    }
+}

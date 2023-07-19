@@ -38,10 +38,11 @@ public class Enemy : StateMachine
     public static readonly int WalkKey = Animator.StringToHash("Walk");
     public static readonly int ChargeKey = Animator.StringToHash("Charge");
     public static readonly int HurtKey = Animator.StringToHash("Hurt");
+    //public static readonly int ShootKey = Animator.StringToHash("Shoot");
     #endregion
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
-
+    public virtual BaseState AttackState => new IdleState(this);
     public float Health
     {
         get
@@ -120,8 +121,15 @@ public class Enemy : StateMachine
             QueueState(new HurtState(this));
         }
     }
-
-    public IEnumerator Defeated()
+    public void Die()
+    {
+        StartCoroutine(Defeated());
+    }
+    public void Despawn()
+    {
+        Destroy(gameObject);
+    }
+    IEnumerator Defeated()
     {
         // Perform fading effect
         for (int i = 0; i < fadeIterations; i++)
@@ -162,7 +170,6 @@ public class Enemy : StateMachine
             yield return null;
         }
     }
-
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
