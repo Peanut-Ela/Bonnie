@@ -16,11 +16,21 @@ namespace PlayerStates
     {
         bool requestedAttack;
         bool requestedDash;
+
         public BaseMovementState(Player sm) : base(sm) { }
+
         public override void Update()
         {
             base.Update();
+
             player.moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+            if (player.moveDirection == Vector2.zero && Input.GetMouseButtonDown(0))
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                player.moveDirection = (mousePosition - (Vector2)player.transform.position).normalized;
+            }
+
             if (player.moveDirection != Vector2.zero)
             {
                 player.lastAnimDir = player.moveDirection;
@@ -39,15 +49,15 @@ namespace PlayerStates
 
             player.currentDashCooldown -= Time.deltaTime;
         }
+
         public override void StateUpdate()
         {
             base.StateUpdate();
+
             if (requestedAttack)
                 player.QueueState(new AttackState(player));
             if (requestedDash)
                 player.QueueState(new DashState(player));
-            //player.QueueState(new DashWindupState(player));
-
         }
     }
     public class IdleState : BaseMovementState
