@@ -32,7 +32,7 @@ public class NPC : StateMachine
 
     [SerializeField]
     [Header("Dialogue Data")]
-    private List<DialogueData> dialogueDataList = new List<DialogueData>();
+    public List<DialogueData> dialogueDataList = new List<DialogueData>();
     private int index;
     private Coroutine typingCoroutine;
 
@@ -70,12 +70,14 @@ public class NPC : StateMachine
     [Serializable]
     public class DialogueData
     {
+        public string id;
+        public string nextLineid;
         public string text;
         public string dialogueName;
         public Sprite speakerSprite;
         public List<string> choices; // List of choices for the dialogue line
-        public Action<int> onChoiceSelected; // Action to be called when a choice is selected
-        public List<string> choiceResponses; // List of responses corresponding to each choice
+        public List<string> choiceNextLineIds; // List of nextLineids corresponding to each choice
+        public List<Color> choiceColors; // List of colors for each choice
     }
 
     protected override void Awake()
@@ -107,6 +109,7 @@ public class NPC : StateMachine
         HideChoiceBox(); // Hide the choice box when resetting the dialogue
 
         QueueState(DefaultState);
+        StopAllCoroutines();
     }
 
     public void StartTyping()
@@ -115,7 +118,6 @@ public class NPC : StateMachine
         {
             StopCoroutine(typingCoroutine);
         }
-
         dialogueText.text = "";
         dialogueName.text = dialogueDataList[index].dialogueName;
         speakerImage.sprite = dialogueDataList[index].speakerSprite;
@@ -125,19 +127,33 @@ public class NPC : StateMachine
     IEnumerator Typing()
     {
         int letterCount = 0;
+        bool skip = false;
         foreach (char letter in dialogueDataList[index].text.ToCharArray())
         {
+            if (letter == '<')
+                skip = true;
+            if (letter == '>')
+                skip = false;
+
             dialogueText.text += letter;
-            typingSound.pitch = UnityEngine.Random.Range(1f - pitchVariance, 1f + pitchVariance);
-            letterCount++;
 
-            if (letterCount % pitchIncreaseInterval == 0)
+            if (skip)
             {
-                typingSound.pitch = 1f;
+                continue;
             }
+            else
+            {
+                typingSound.pitch = UnityEngine.Random.Range(1f - pitchVariance, 1f + pitchVariance);
+                letterCount++;
+                if (letterCount % pitchIncreaseInterval == 0)
+                {
+                    typingSound.pitch = 1f;
+                }
 
-            typingSound.Play();
-            yield return new WaitForSecondsRealtime(wordSpeed);
+                typingSound.Play();
+                yield return new WaitForSecondsRealtime(wordSpeed);
+            }
+            //Skip when it starts at < until >
         }
 
         // Check if the current dialogue line has choices
@@ -157,23 +173,78 @@ public class NPC : StateMachine
     {
         contButton.SetActive(false);
 
-        if (index < dialogueDataList.Count - 1)
+        if (index >= 0 && index < dialogueDataList.Count)
         {
-            index++;
-            StartTyping();
+            DialogueData currentDialogue = dialogueDataList[index];
+            string nextLineid = currentDialogue.nextLineid;
+
+            if (!string.IsNullOrEmpty(nextLineid))
+            {
+                index = GetIndexFromNextLineId(nextLineid);
+            }
+            else
+            {
+                index++;
+            }
+
+            if (index >= 0 && index < dialogueDataList.Count)
+            {
+                StartTyping();
+            }
+            else
+            {
+                zeroText();
+            }
         }
         else
         {
-            zeroText();
+            dialoguePanel.SetActive(false);
         }
     }
+
+
+    private int GetIndexFromNextLineId(string nextLineid)
+    {
+        for (int i = 0; i < dialogueDataList.Count; i++)
+        {
+            if (dialogueDataList[i].id == nextLineid)
+            {
+                return i;
+            }
+        }
+        return -1; // Invalid nextLineid
+    }
+
+    //private void ShowChoiceBox()
+    //{
+    //    if (choiceBox != null)
+    //    {
+    //        choiceBox.SetActive(true);
+    //        // Set choice button texts and callbacks
+    //        ChoiceBox choiceBoxComponent = choiceBox.GetComponent<ChoiceBox>();
+    //        if (choiceBoxComponent != null)
+    //        {
+    //            List<string> coloredChoices = new List<string>();
+    //            DialogueData currentDialogue = dialogueDataList[index];
+
+    //            for (int i = 0; i < currentDialogue.choices.Count; i++)
+    //            {
+    //                string choice = currentDialogue.choices[i];
+    //                Color choiceColor = currentDialogue.choiceColors[i];
+    //                string coloredChoice = $"<color=#{ColorUtility.ToHtmlStringRGB(choiceColor)}>{choice}</color>";
+    //                coloredChoices.Add(coloredChoice);
+    //            }
+
+    //            choiceBoxComponent.SetChoices(coloredChoices, OnChoiceSelected);
+    //        }
+    //    }
+    //}
 
     private void ShowChoiceBox()
     {
         if (choiceBox != null)
         {
             choiceBox.SetActive(true);
-
             // Set choice button texts and callbacks
             ChoiceBox choiceBoxComponent = choiceBox.GetComponent<ChoiceBox>();
             if (choiceBoxComponent != null)
@@ -202,12 +273,43 @@ public class NPC : StateMachine
         // Check if the selected choice index is within the valid range
         if (choiceIndex >= 0 && choiceIndex < currentDialogue.choices.Count)
         {
-            // Check if there is a corresponding response for the selected choice
-            if (choiceIndex < currentDialogue.choiceResponses.Count)
+            // Check if there is a corresponding nextLineid for the selected choice
+            if (choiceIndex < currentDialogue.choiceNextLineIds.Count)
             {
-                string response = currentDialogue.choiceResponses[choiceIndex];
-                // Display the response in the dialogue panel
-                dialogueText.text = response;
+                string nextLineid = currentDialogue.choiceNextLineIds[choiceIndex];
+
+                if (!string.IsNullOrEmpty(nextLineid))
+                {
+                    index = GetIndexFromNextLineId(nextLineid);
+
+                    if (index == -1)
+                    {
+                        dialoguePanel.SetActive(false);
+                        return;
+                    }
+
+                    // Use the selected choice in the next line
+                    string choice = currentDialogue.choices[choiceIndex];
+                    DialogueData nextDialogue = dialogueDataList[index];
+                    string nextLineText = nextDialogue.text;
+
+                    // Check if the choice has a specified color
+                    if (choiceIndex < currentDialogue.choiceColors.Count)
+                    {
+                        Color choiceColor = currentDialogue.choiceColors[choiceIndex];
+                        string colorHex = ColorUtility.ToHtmlStringRGB(choiceColor);
+                        nextLineText = nextLineText.Replace("[choice]", "<color=#" + colorHex + ">" + choice + "</color>");
+                    }
+                    else
+                    {
+                        nextLineText = nextLineText.Replace("[choice]", choice);
+                    }
+
+                    nextDialogue.text = nextLineText;
+
+                    StartTyping();
+                    return;
+                }
             }
         }
 
