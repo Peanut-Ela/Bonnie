@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip fireSound;
     public AudioClip hitSound;
-    public GameObject explosionPrefab;
+    public Bullet_Explode explosionPrefab;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -21,6 +21,9 @@ public class Bullet : MonoBehaviour
     private TrailRenderer tr;
     private float travelledDistance = 0f;
     private bool exploded = false;
+
+    public int damage;
+    public float radius;
 
     private void Awake()
     {
@@ -59,7 +62,6 @@ public class Bullet : MonoBehaviour
             DestroyBullet();
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -68,7 +70,7 @@ public class Bullet : MonoBehaviour
             if (audioSource != null && hitSound != null)
             {
                 Debug.Log("Playing hit sound");
-                audioSource.PlayOneShot(hitSound);
+
             }
             if (!exploded)
             {
@@ -83,8 +85,9 @@ public class Bullet : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, explosion.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            var explode = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            explode.damage = damage;
+            explode.radius = radius;
         }
     }
 

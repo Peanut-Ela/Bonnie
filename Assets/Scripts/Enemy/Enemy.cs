@@ -121,8 +121,15 @@ public class Enemy : StateMachine
             QueueState(new HurtState(this));
         }
     }
-
-    public IEnumerator Defeated()
+    public void Die()
+    {
+        StartCoroutine(Defeated());
+    }
+    public void Despawn()
+    {
+        Destroy(gameObject);
+    }
+    IEnumerator Defeated()
     {
         // Perform fading effect
         for (int i = 0; i < fadeIterations; i++)

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
-    public int health;
-    public int numOfHearts;
     public Image heartPrefab;
     public GridLayoutGroup heartGroup;
     public List<Image> hearts;
@@ -22,20 +20,10 @@ public class Heart : MonoBehaviour
         Player.instance.OnTakeDamage += UpdateHearts;
         SetTotalHearts();
 
-
-        // Initialize arrays
-        //heartTransforms = new RectTransform[hearts.Length];
-        //initialRotations = new Quaternion[hearts.Length];
-
-        //for (int i = 0; i < hearts.Length; i++)
-        //{
-        //    // Get the RectTransform component and initial rotation
-        //    heartTransforms[i] = hearts[i].GetComponent<RectTransform>();
-        //    initialRotations[i] = heartTransforms[i].rotation;
-        //}
     }
     public void SetTotalHearts()
     {
+        currentHealthDisplayed = Player.instance.maxHealth;
         int heartCount = Mathf.CeilToInt(Player.instance.maxHealth * 0.5f);
         for (int i = 0; i < heartCount; i++)
         {

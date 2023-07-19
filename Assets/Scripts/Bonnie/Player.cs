@@ -11,26 +11,41 @@ public class Player : StateMachine
     internal SpriteRenderer sr;
     internal Animator animator;
     public GameObject weaponHitbox;
+    //public GameObject mouseSprite;
     internal Vector2 moveDirection;
     internal Vector2 lastAnimDir; // Locked to 4 direction
+
+    [Header("Speed Settings")]
     public float walkSpeed;
     public float runSpeed;
+
+    [Header("Defense Settings")]
+    public float defense;
+
     [Header("Attack Settings")]
     public float attackDuration = 0.5f;
     public float attackWindupDuration = 0.3f;
     public float damage;
     //public CharacterStats Strength;
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
+
     [Header("Dash Settings")]
     public float dashSpeed;
     public float dashDuration;
     public float dashCoolDown;
     internal float currentDashCooldown;
+
     [Header("Ghost Settings")]
     public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
 
+    public Shield equippedShield;
+    public Weapon equippedWeapon;
+    public Speed milkDrank;
+    //private float baseDamage;
+
+    [Header("Health Settings")]
     public int currentHealth;
     public int maxHealth;
 
@@ -74,10 +89,18 @@ public class Player : StateMachine
         rb.AddForce(direction * 5f, ForceMode2D.Impulse);
     }
 
+    public int CalculateDamageReceived(int damage)
+    {
+        float damageReduction = defense / 100f; // Convert defense level to a decimal between 0 and 1
+        int damageReceived = Mathf.RoundToInt(damage * (1f - damageReduction)); // Calculate the damage after applying defense reduction
+        return damageReceived;
+    }
+
     public void TakeDamage(int damage)
     {
-        OnTakeDamage?.Invoke(); // ? is used for if event is null
-        currentHealth -= damage;
+        OnTakeDamage?.Invoke();
+        int damageReceived = CalculateDamageReceived(damage);
+        currentHealth -= damageReceived;
 
         if (currentHealth <= 0)
         {
@@ -115,6 +138,101 @@ public class Player : StateMachine
     }
 
     
+    public void EquipWeapon(Weapon weapon)
+    {
+        if (equippedWeapon != null)
+        {
+            // Unequip the previously equipped weapon and remove its damage amount
+            UnequipWeapon();
+        }
+
+        equippedWeapon = weapon;
+        weapon.transform.SetParent(transform);
+        weapon.transform.localPosition = Vector3.zero;
+        damage = weapon.damageIncreaseAmount;
+    }
+
+    public void UnequipWeapon()
+    {
+        if (equippedWeapon != null)
+        {
+            equippedWeapon.transform.SetParent(null);
+            equippedWeapon = null;
+        }
+    }
+
+    public void IncreaseDamage(float amount)
+    {
+        damage = amount;
+    }
+
+    public void EquipShield(Shield shield)
+    {
+        if (equippedShield != null)
+        {
+            // Unequip the previously equipped weapon and remove its damage amount
+            UnequipShield();
+        }
+
+        equippedShield = shield;
+        shield.transform.SetParent(transform);
+        shield.transform.localPosition = Vector3.zero;
+        defense = shield.defenseIncreaseAmount;
+    }
+
+    public void UnequipShield()
+    {
+        if (equippedShield != null)
+        {
+            equippedShield.transform.SetParent(null);
+            equippedShield = null;
+        }
+    }
+
+    public void IncreaseDefense(float amount)
+    {
+        defense = amount;
+    }
+
+    public void DrinkMilk(Speed speed)
+    {
+        if (milkDrank != null)
+        {
+            // Unequip the previously equipped milk and remove its speed increase
+            UnequipMilk();
+        }
+
+        milkDrank = speed;
+        speed.transform.SetParent(transform);
+        speed.transform.localPosition = Vector3.zero;
+        IncreaseSpeed(speed.walkSpeedIncreaseAmount, speed.runSpeedIncreaseAmount);
+    }
+
+    public void IncreaseSpeed(float walkAmount, float runAmount)
+    {
+        walkSpeed += walkAmount;
+        runSpeed += runAmount;
+    }
+
+
+    public void UnequipMilk()
+    {
+        if (milkDrank != null)
+        {
+            milkDrank.transform.SetParent(null);
+            milkDrank = null;
+            //// Reset to default speed values or apply any desired logic
+            //walkSpeed = defaultWalkSpeed;
+            //runSpeed = defaultRunSpeed;
+        }
+    }
+
+
+    // New property name to avoid naming conflict
+    public float TotalDamage
+    {
+        get { return damage + (equippedWeapon != null ? equippedWeapon.damageIncreaseAmount : 0f); }
+    }
 
 
 }
