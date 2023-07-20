@@ -65,34 +65,6 @@ public class Heart : MonoBehaviour
             }
         }
 
-        //}
-        //for (int i = 0; i < hearts.Count; i++)
-        //{
-        //    if (i < numOfHearts)
-        //    {
-        //        hearts[i].enabled = true;
-        //    }
-        //    else
-        //    {
-        //        hearts[i].enabled = false;
-        //    }
-        //    // Check if current heart index represents a full heart
-        //    if (i * 2 < health - 1)
-        //    {
-        //        hearts[i].sprite = fullHeart;
-        //    }
-        //    // Check if current heart index represents a half heart
-        //    else if (i * 2 == health - 1)
-        //    {
-        //        hearts[i].sprite = halfHeart;
-        //    }
-        //    // Current heart index represents an empty heart
-        //    else
-        //    {
-        //        hearts[i].sprite = emptyHeart;
-        //        // Reset rotation if previously shaken
-        //    }
-        //}
 
         // loop from currentdisplayed to targethearts
         currentHealthDisplayed = targetHealth;

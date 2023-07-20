@@ -5,6 +5,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
 
+    public delegate void OnItemPickupEvent(Sprite itemSprite);
+    public static event OnItemPickupEvent OnItemPickup;
+
+    public Sprite itemSprite; // Assign the sprite of the item to this variable in the Inspector
+
     public GameObject itemButton;
     public Pickup_Effect effectPrefab;
 
@@ -12,7 +17,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Check if the 'effect' variable is assigned before using it
+            // Trigger the event when an item is picked up
             if (effectPrefab != null)
             {
                 // The rest of your code remains unchanged
@@ -22,7 +27,11 @@ public class Pickup : MonoBehaviour
                     { // check whether the slot is EMPTY
                         Instantiate(effectPrefab, transform.position, Quaternion.identity);
                         Player.instance.items[i] = 1; // makes sure that the slot is now considered FULL
-                        Instantiate(itemButton, Player.instance.transform, false); // spawn the button so that the player can interact with it
+
+                        // Trigger the event passing the item sprite
+                        OnItemPickup?.Invoke(itemSprite);
+
+                        // Instantiate(itemButton, Player.instance.transform, false); // spawn the button so that the player can interact with it
                         Destroy(gameObject);
                         break;
                     }

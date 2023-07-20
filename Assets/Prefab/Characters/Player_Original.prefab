@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 9076447006763734338}
   - component: {fileID: 9076447006763734339}
   - component: {fileID: 9076447006763734340}
-  - component: {fileID: 9076447006763734341}
   m_Layer: 3
   m_Name: Player_Original
   m_TagString: Player
@@ -110,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 9076447006679909639}
+  inventorySlots: 7
   items: 00000000000000000000000000000000000000000000000000000000
   slots:
   - {fileID: 0}
@@ -245,15 +245,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &9076447006763734341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9076447006763734343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63f07a0c82503645b3e2f159ac94e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

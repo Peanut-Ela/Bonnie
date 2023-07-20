@@ -16,8 +16,8 @@ public class Player : StateMachine
     internal Vector2 lastAnimDir; // Locked to 4 direction
 
     [Header("Inventory Settings")]
+    public int inventorySlots;
     public int[] items;
-    public GameObject[] slots;
 
     [Header("Speed Settings")]
     public float walkSpeed;
@@ -72,6 +72,8 @@ public class Player : StateMachine
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         instance = this;
+
+        items = new int[inventorySlots];
     }
     protected override void Start()
     {
@@ -237,6 +239,10 @@ public class Player : StateMachine
     {
         get { return damage + (equippedWeapon != null ? equippedWeapon.damageIncreaseAmount : 0f); }
     }
-
+    public void DropItem(int index)
+    {
+        items[index] = 0;
+        //convert index to item - Excel 
+    }
 
 }
