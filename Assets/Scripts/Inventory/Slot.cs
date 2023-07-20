@@ -7,51 +7,47 @@ public class Slot : MonoBehaviour
 {
     public int index;
     public Image itemImage;
+    private bool isItemCollected = false;
+
+    private void Start()
+    {
+        // Disable the item image sprite at the start
+        itemImage.enabled = false;
+    }
 
     // Check if the slot is empty (has no item)
     public bool IsEmpty()
     {
-        return itemImage.sprite == null;
+        return !isItemCollected;
     }
 
     // Set the icon of the item in this slot
     public void SetItemIcon(Sprite itemSprite)
     {
+        // Enable the item image sprite when an item is collected
         itemImage.sprite = itemSprite;
+        itemImage.enabled = true;
+        isItemCollected = true;
     }
 
     // Clear the icon of the item in this slot
     public void ClearItemIcon()
     {
+        // Disable the item image sprite when the item is removed
         itemImage.sprite = null;
+        itemImage.enabled = false;
+        isItemCollected = false;
     }
 
     private void Update()
     {
-        //if (transform.childCount <= 0) {
-        //    Player.instance.items[index] = 0;
-        //}
+        // You can add any additional logic here if needed for updates
     }
 
     public void Cross()
     {
         ClearItemIcon();
         Player.instance.DropItem(index);
-        //foreach (Transform child in transform)
-        //{
-        //    var spawnComponent = child.GetComponent<Spawn>();
-        //    if (spawnComponent != null)
-        //    {
-        //        // Spawn the item near the player
-        //        spawnComponent.SpawnItem();
-        //        // Destroy the item image in the slot
-        //        // Destroy the item GameObject in the slot
-        //        Destroy(child.gameObject);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Null item in the slot.");
-        //    }
-        //}
+        // Additional logic for Cross() method
     }
 }

@@ -6,9 +6,7 @@ public class Spawn : MonoBehaviour
 {
     private Transform playerPos;
     public GameObject itemPrefab; // Assign the item prefab in the Inspector
-
-    // Define the range within which the item can be spawned from the player
-    public float spawnRadius;
+    public float spawnRadius; // Define the range within which the item can be spawned from the player
 
     private void Start()
     {

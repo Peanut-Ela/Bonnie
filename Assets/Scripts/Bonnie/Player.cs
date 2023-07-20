@@ -2,7 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerStates;
+using static UnityEditor.Progress;
 //using Bonnie.CharacterStats;
+
+// Define a struct to store player stats
+[System.Serializable]
+public struct PlayerStats
+{
+    [Header("Speed Settings")]
+    public float walkSpeed;
+    public float runSpeed;
+
+    [Header("Defense Settings")]
+    public float defense;
+
+    [Header("Attack Settings")]
+    public float attackDuration;
+    public float attackWindupDuration;
+    public float damage;
+
+    [Header("Dash Settings")]
+    public float dashSpeed;
+    public float dashDuration;
+    public float dashCoolDown;
+
+    [Header("Ghost Settings")]
+    public float ghostSpawnInterval;
+}
 
 public class Player : StateMachine
 {
@@ -15,32 +41,36 @@ public class Player : StateMachine
     internal Vector2 moveDirection;
     internal Vector2 lastAnimDir; // Locked to 4 direction
 
-    [Header("Inventory Settings")]
-    public int inventorySlots;
-    public int[] items;
+    public PlayerStats playerStats; // Store player stats using the defined struct
 
-    [Header("Speed Settings")]
-    public float walkSpeed;
-    public float runSpeed;
 
-    [Header("Defense Settings")]
-    public float defense;
+    //[Header("Inventory Settings")]
+    //public Spawn spawnComponent;
+    //public int inventorySlots;
+    //public int[] items;
 
-    [Header("Attack Settings")]
-    public float attackDuration = 0.5f;
-    public float attackWindupDuration = 0.3f;
-    public float damage;
+    //[Header("Speed Settings")]
+    //public float walkSpeed;
+    //public float runSpeed;
+
+    //[Header("Defense Settings")]
+    //public float defense;
+
+    //[Header("Attack Settings")]
+    //public float attackDuration = 0.5f;
+    //public float attackWindupDuration = 0.3f;
+    //public float damage;
     //public CharacterStats Strength;
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
-    [Header("Dash Settings")]
-    public float dashSpeed;
-    public float dashDuration;
-    public float dashCoolDown;
+    //[Header("Dash Settings")]
+    //public float dashSpeed;
+    //public float dashDuration;
+    //public float dashCoolDown;
     internal float currentDashCooldown;
 
-    [Header("Ghost Settings")]
-    public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
+    //[Header("Ghost Settings")]
+    //public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
 
@@ -49,9 +79,9 @@ public class Player : StateMachine
     public Speed milkDrank;
     //private float baseDamage;
 
-    [Header("Health Settings")]
-    public int currentHealth;
-    public int maxHealth;
+    //[Header("Health Settings")]
+    //public int currentHealth;
+    //public int maxHealth;
 
     public CoinManager coinManager;
 
@@ -242,7 +272,48 @@ public class Player : StateMachine
     public void DropItem(int index)
     {
         items[index] = 0;
-        //convert index to item - Excel 
+        //// Spawn the dropped item near the player
+        //if (index < items.Length)
+        //{
+        //    //GameObject droppedItemPrefab = GetItemPrefab(index);
+        //    if (droppedItemPrefab != null)
+        //    {
+        //        // Spawn the dropped item near the player
+        //        if (spawnComponent != null)
+        //        {
+        //            spawnComponent.itemPrefab = droppedItemPrefab;
+        //            spawnComponent.SpawnItem();
+        //        }
+        //        else
+        //        {
+        //            Debug.LogError("Spawn component not found on Player.");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("Item prefab for index " + index + " is not defined.");
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.LogError("Index out of range in the player's items array.");
+        //}
     }
+
+    //public static Item GetItem(int index) => instance.itemPrefabs[index];
+
+    //private GameObject GetItemPrefab(int index)
+    //{
+    //    if (index >= 0 && index < ItemManager.instance.itemPrefabs.Length)
+    //    {
+    //        return ItemManager.instance.itemPrefabs[index];
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("Item prefab for index " + index + " is not defined.");
+    //        return null;
+    //    }
+    //}
+
 
 }

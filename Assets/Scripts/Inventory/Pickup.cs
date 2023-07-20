@@ -13,6 +13,8 @@ public class Pickup : MonoBehaviour
     public GameObject itemButton;
     public Pickup_Effect effectPrefab;
 
+    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
