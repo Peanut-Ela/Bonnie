@@ -413,6 +413,7 @@ MonoBehaviour:
   weaponHitbox: {fileID: 2070141976}
   walkSpeed: 5
   runSpeed: 6.5
+  defense: 0
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1
@@ -421,6 +422,9 @@ MonoBehaviour:
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
+  equippedShield: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
   coinManager: {fileID: 0}
@@ -3610,8 +3614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1a829157c24b648bd9199bbcb382fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
-  numOfHearts: 3
   heartPrefab: {fileID: 0}
   heartGroup: {fileID: 0}
   hearts:
@@ -4621,7 +4623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c6e52693f80cd4c9ea2c49c7ebf6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1853273886}
 --- !u!1001 &526312776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53202,6 +53203,7 @@ MonoBehaviour:
   weaponHitbox: {fileID: 1937746089}
   walkSpeed: 5
   runSpeed: 6.5
+  defense: 0
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1
@@ -53210,6 +53212,9 @@ MonoBehaviour:
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
+  equippedShield: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
   coinManager: {fileID: 0}
@@ -55101,6 +55106,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 667079902}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1098218630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098218631}
+  m_Layer: 0
+  m_Name: CoinPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098218631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098218630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114611857
 GameObject:
@@ -59888,6 +59924,7 @@ MonoBehaviour:
   weaponHitbox: {fileID: 480981821}
   walkSpeed: 5
   runSpeed: 6.5
+  defense: 0
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1
@@ -59896,6 +59933,9 @@ MonoBehaviour:
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
+  equippedShield: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
   coinManager: {fileID: 1835360381}
@@ -60055,11 +60095,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ccbb99b087a5c4a9e5ab2271974396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droplist: []
 --- !u!4 &1876285764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3047592587289275133, guid: d4dae8c92079ce549a7f471b4f4ebac5, type: 3}
   m_PrefabInstance: {fileID: 199263971}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1876285767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876285759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d5179148e9bf44ebcedc35bf3621a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootList: []
+  itemHolder: {fileID: 1835360380}
+  isInRange: 1
+  interactKey: 101
+  triggerChest: {fileID: 1876285761}
+  chestItemPrefab: {fileID: 0}
+  chestItems:
+  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
+  - {fileID: 8315037207353444210, guid: 321da680f4e38304e877cd287fc84925, type: 3}
+  - {fileID: 8315037207353444210, guid: 38f7da8ffe9f472479958de2f6dcb7e9, type: 3}
+--- !u!114 &1876285770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876285759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0b4db814e4fa643a3f0c755c7839f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891267960
 GameObject:
   m_ObjectHideFlags: 0
@@ -61622,8 +61697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1a829157c24b648bd9199bbcb382fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  numOfHearts: 0
   heartPrefab: {fileID: 5587278371195517303, guid: c9c822f8210b39a4a9fd8edb7f5c0af4, type: 3}
   heartGroup: {fileID: 2067539714}
   hearts: []

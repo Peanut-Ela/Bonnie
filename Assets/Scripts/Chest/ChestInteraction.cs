@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ChestInteraction : MonoBehaviour
 {
-    public bool isInRange;
+    /*public bool isInRange;
     public KeyCode interactKey;
-    public UnityEvent interactAction;
+    public Action OnOpenChest;
+
+    //public ChestRandomDropList<GameObject> dropList; // Added this line
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class ChestInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
-                interactAction.Invoke();
+                OnOpenChest?.Invoke();
             }
         }
     }
@@ -41,5 +43,5 @@ public class ChestInteraction : MonoBehaviour
             isInRange = false;
             Debug.Log("Player now not in range");
         }
-    }
+    }*/
 }

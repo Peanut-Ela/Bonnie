@@ -1,62 +1,85 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random; // Add this line
 
 public class Chest : MonoBehaviour
 {
-    public ChestRandomDropList<Transform> dropList;
-    public Transform itemHolder;
+    public List<GameObject> LootList = new List<GameObject>(); // List of coin prefabs
 
-    public bool isOpen;
-    public Animator animator;
-    void Start()
+    public GameObject itemHolder;
+
+    public bool isInRange;
+    public KeyCode interactKey;
+    public TriggerChest triggerChest;
+    public GameObject chestItemPrefab;
+    public List<GameObject> chestItems;
+
+    private bool isOpen;
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
+        triggerChest = GetComponent<TriggerChest>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (!isOpen)
+        if (isInRange)
         {
-            isOpen = true;
-            Debug.Log("Chest is now open");
-            animator.SetBool("IsOpen", isOpen);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (IsOpen())
+            if (Input.GetKeyDown(interactKey))
             {
-                animator.SetTrigger("close");
-                //HideItem();
-            }
-            else
-            {
-                animator.SetTrigger("open");
-                //ShowItem();
+                if (isOpen)
+                {
+                    triggerChest.CloseChest();
+                    HideItem();
+                }
+                else
+                {
+                    triggerChest.OpenChest();
+                    ShowItem();
+                }
+                isOpen = !isOpen;
             }
         }
     }
 
-    bool IsOpen()
+    private void HideItem()
     {
-        return animator.GetCurrentAnimatorStateInfo(0).IsName("ChestOpen");
-    }
+        itemHolder.SetActive(false);
 
-    /*void HideItem()
-    {
-        itemHolder.localScale = Vector3.zero;
-        itemHolder.gameObject.SetActive(false);
-
-        foreach (Transform t in itemHolder)
+        foreach (Transform child in itemHolder.transform)
         {
-            Destroy(t.gameObject);
+            Destroy(child.gameObject);
         }
     }
 
-    void ShowItem()
+    private void ShowItem()
     {
-        Transform item = dropList.GetRandom();
-        Instantiate(item, itemHolder);
-        itemHolder.gameObject.SetActive(true);
-    }*/
+        if (LootList.Count > 0)
+        {
+            int randomIndex = Random.Range(0, LootList.Count);
+            GameObject itemPrefab = LootList[randomIndex];
+            GameObject item = Instantiate(itemPrefab, itemHolder.transform);
+            itemHolder.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = true;
+            Debug.Log("Player now in range");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = false;
+            Debug.Log("Player now not in range");
+        }
+    }
 }

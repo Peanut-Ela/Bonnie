@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9dcc8ef09ce9f24eb5d1aab6305d5aa, type: 3}
+  m_Name: Coin Loot 2
+  m_EditorClassIdentifier: 
+  dropList:
+  - {fileID: 8315037207353444210, guid: 321da680f4e38304e877cd287fc84925, type: 3}
+  itemHolder: {fileID: 8315037207353444210, guid: 321da680f4e38304e877cd287fc84925, type: 3}
+  isOpen: 0
+  animator: {fileID: 0}
+  dropSprite: {fileID: 0}
+  dropName: Coin 2
+  dropType: Costume
+  dropChance: 20
