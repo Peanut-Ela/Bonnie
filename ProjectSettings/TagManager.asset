@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PlayerAttack
   - Coin
+  - PlayerPos
   layers:
   - Default
   - TransparentFX

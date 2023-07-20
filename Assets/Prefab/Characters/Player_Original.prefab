@@ -110,8 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 9076447006679909639}
+  items: 00000000000000000000000000000000000000000000000000000000
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   walkSpeed: 3.5
   runSpeed: 5
+  defense: 0
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1
@@ -120,8 +130,12 @@ MonoBehaviour:
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
+  equippedShield: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
+  coinManager: {fileID: 0}
 --- !u!212 &9076447006763734337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -243,12 +257,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63f07a0c82503645b3e2f159ac94e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFull: 00000000000000
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

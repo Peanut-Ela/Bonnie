@@ -32,8 +32,8 @@ public class NPC : StateMachine
 
     [SerializeField]
     [Header("Dialogue Data")]
+    public int index;
     public List<DialogueData> dialogueDataList = new List<DialogueData>();
-    private int index;
     private Coroutine typingCoroutine;
 
     [Header("Idle Settings")]

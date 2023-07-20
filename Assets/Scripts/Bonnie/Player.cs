@@ -15,6 +15,10 @@ public class Player : StateMachine
     internal Vector2 moveDirection;
     internal Vector2 lastAnimDir; // Locked to 4 direction
 
+    [Header("Inventory Settings")]
+    public int[] items;
+    public GameObject[] slots;
+
     [Header("Speed Settings")]
     public float walkSpeed;
     public float runSpeed;
@@ -137,7 +141,7 @@ public class Player : StateMachine
 
     }
 
-    
+
     public void EquipWeapon(Weapon weapon)
     {
         if (equippedWeapon != null)
