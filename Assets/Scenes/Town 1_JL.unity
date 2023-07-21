@@ -56510,6 +56510,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5728887917656876562, guid: d4dae8c92079ce549a7f471b4f4ebac5, type: 3}
+      propertyPath: itemSpawnDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728887917656876562, guid: d4dae8c92079ce549a7f471b4f4ebac5, type: 3}
+      propertyPath: maxSpawnCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728887917656876562, guid: d4dae8c92079ce549a7f471b4f4ebac5, type: 3}
+      propertyPath: minSpawnCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6589477493666046552, guid: d4dae8c92079ce549a7f471b4f4ebac5, type: 3}
       propertyPath: m_Name
       value: Chest (1)

@@ -36,8 +36,9 @@ public class Chest : StateMachine
             GameObject itemPrefab = dropList[randomIndex]; // Use dropListScript.dropList instead of LootList
 
             Vector2 randomDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            float randomDist = Random.value * itemSpawnDist;
 
-            Instantiate(itemPrefab.gameObject, (Vector2)transform.position + randomDir * itemSpawnDist, Quaternion.identity);
+            Instantiate(itemPrefab.gameObject, (Vector2)transform.position + randomDir * randomDist, Quaternion.identity);
         }
     }
 }

@@ -1,0 +1,4 @@
+playerId,playerName,walkSpeed,runSpeed,defense,attackDuration,attackWindupDuration,damage,dashSpeed,dashDuration,dashCooldown,ghostSpawnInterval
+0,Bonnie,3.5,5,0,0.5,0.3,1,10,0.25,1,0.05
+1,Bonnie 2,7,8.5,0,0.5,0.3,1.5,15,0.25,1,0.05
+2,Bonnie 3,5,6.5,0,0.5,0.3,1.25,12.5,0.25,1,0.05
