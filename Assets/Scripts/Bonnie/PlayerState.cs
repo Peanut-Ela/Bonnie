@@ -25,11 +25,6 @@ namespace PlayerStates
 
             player.moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
-            if (player.moveDirection == Vector2.zero && Input.GetMouseButtonDown(0))
-            {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                player.moveDirection = (mousePosition - (Vector2)player.transform.position).normalized;
-            }
 
             if (player.moveDirection != Vector2.zero)
             {
