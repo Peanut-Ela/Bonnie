@@ -8,6 +8,7 @@ public class TriggerChest : MonoBehaviour
 {
     //private string ChestOpenAnimatorParaName = "ChestOpen";
 
+    public List<GameObject> droplist = new List< GameObject > ();
     Animator animator;
 
     void Start()

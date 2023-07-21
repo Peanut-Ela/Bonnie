@@ -115,7 +115,1225 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 279
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e2504e0b2be274c83c42c6bf3ab685
+      internalID: -1839120800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 279
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc7a0a1fc449c04c9b74591cd8e1489
+      internalID: 347668116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 279
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2dcda6c5e6216d4ba4e79ccbe1fd78e
+      internalID: 340026304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 279
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c249ba31eb8447143b1fe05017c779ad
+      internalID: -844764188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_4
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 254
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6890f33c94d14274caf99523c44442ca
+      internalID: 2026664007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_5
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 254
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bfbc7bdce6173489ba17bbc467851f
+      internalID: 849479306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_6
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 254
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61b6c441e191724a97451b6a10e69f5
+      internalID: 1597712986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 229
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f67e4921f2d194b8531ebfe5ce372e
+      internalID: 486075067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_8
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 229
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a878c36644132594c8452c01f181e234
+      internalID: 1555219205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 229
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9c77444c65edb49ab80239ba5affc2
+      internalID: -312466636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_10
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 229
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d150f70c7fe387242b44806c7639b239
+      internalID: 2085289299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_11
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 204
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa547cbc5fc910418e17e87ca4c0c67
+      internalID: -1477939336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_12
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 204
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d776a7e1f776cf444be7a2db84797de8
+      internalID: 357551962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_13
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 204
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938d45b74dd06a94a8b0c68e13def277
+      internalID: -199929286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce514653c002dd439717ba79459fce9
+      internalID: 247337012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_15
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 179
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f1f3ab48bfd1c43bc9d1160bb0081c
+      internalID: -955850823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 179
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d89156163ec2546833387faef09a6c
+      internalID: 1461113023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 179
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad9a0648fe256a4c900e19f21a2ac5a
+      internalID: -628629899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_18
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 154
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86f9e66222c29f45b9c56776d916a42
+      internalID: 1688019489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_19
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 154
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f197026cfd2b04a8d25d859bd3a7fb
+      internalID: -1825228361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_20
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 154
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1960f8dd1d9d9a14bb924f8411d7f847
+      internalID: 1468308842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 129
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fe9e7d3fd22da4292c240281bfb9bf
+      internalID: 863664372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_22
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 129
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b7db7942679744bacd2799a86f588b
+      internalID: -1363981775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_23
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 129
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e45ed298b118c2544a59b80f17a895ef
+      internalID: -1546697288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_24
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 129
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37fc7696222ba443abc9b301c71b097
+      internalID: -1911298100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_25
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 104
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620ae47f2fc08184693ff5ae35e7626d
+      internalID: 692898785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_26
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 104
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4dc6121b5402cb4daabc8a6e44cc1ed
+      internalID: 1075103962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_27
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 104
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9b584105c2bb244933767b84769d8a
+      internalID: -1033731432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 79
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ce540fb5f24bb4f91b2a707167d409
+      internalID: 323750804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_29
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 79
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670e0a22d67c3de469d415dca5a88dc7
+      internalID: -1438354121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_30
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 79
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf997c55ca522a4ab7f97b987369f4c
+      internalID: -2071173592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_31
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 79
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0557616129d21a647bf6f52b02df05a3
+      internalID: 1237520105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_32
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2161f3dfc3df2bf44b4549d848928075
+      internalID: 1907800806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_33
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb606304c1829c4c9aedf806387f005
+      internalID: -1003170651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_34
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfeb9bb7fbacc1641b45189f9cd98e27
+      internalID: -539912857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb7b584ac26eefb4ab2ffce819091b5e
+      internalID: 1709804932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_36
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 29
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce94b93d29ee6544b0bc069066491ee
+      internalID: 1139775008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_37
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 29
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38aadcd10bcf170499aaf645d13a66f4
+      internalID: 721862167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_38
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 29
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3843d779bcdbc419ec09dc06c409eb
+      internalID: -618413938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_39
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 4
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: da01136e17f587345bc01047ccd94970
+      internalID: 773553093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_40
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 4
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d54d72fde76c244a4d906e9a508a69
+      internalID: 384809362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Color pallete in aseprite - screenshot_41
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 4
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      physicsShape:
+      - - {x: 0, y: -25}
+        - {x: 25, y: 0}
+        - {x: 0, y: 25}
+        - {x: -25, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89437af7fa359f4985293c840fec017
+      internalID: -1058899286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +1344,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Color pallete in aseprite - screenshot_31: 1237520105
+      Color pallete in aseprite - screenshot_33: -1003170651
+      Color pallete in aseprite - screenshot_9: -312466636
+      Color pallete in aseprite - screenshot_5: 849479306
+      Color pallete in aseprite - screenshot_39: 773553093
+      Color pallete in aseprite - screenshot_7: 486075067
+      Color pallete in aseprite - screenshot_36: 1139775008
+      Color pallete in aseprite - screenshot_19: -1825228361
+      Color pallete in aseprite - screenshot_6: 1597712986
+      Color pallete in aseprite - screenshot_10: 2085289299
+      Color pallete in aseprite - screenshot_20: 1468308842
+      Color pallete in aseprite - screenshot_15: -955850823
+      Color pallete in aseprite - screenshot_29: -1438354121
+      Color pallete in aseprite - screenshot_23: -1546697288
+      Color pallete in aseprite - screenshot_28: 323750804
+      Color pallete in aseprite - screenshot_0: -1839120800
+      Color pallete in aseprite - screenshot_8: 1555219205
+      Color pallete in aseprite - screenshot_37: 721862167
+      Color pallete in aseprite - screenshot_24: -1911298100
+      Color pallete in aseprite - screenshot_2: 340026304
+      Color pallete in aseprite - screenshot_14: 247337012
+      Color pallete in aseprite - screenshot_17: -628629899
+      Color pallete in aseprite - screenshot_27: -1033731432
+      Color pallete in aseprite - screenshot_32: 1907800806
+      Color pallete in aseprite - screenshot_38: -618413938
+      Color pallete in aseprite - screenshot_34: -539912857
+      Color pallete in aseprite - screenshot_12: 357551962
+      Color pallete in aseprite - screenshot_11: -1477939336
+      Color pallete in aseprite - screenshot_40: 384809362
+      Color pallete in aseprite - screenshot_22: -1363981775
+      Color pallete in aseprite - screenshot_18: 1688019489
+      Color pallete in aseprite - screenshot_4: 2026664007
+      Color pallete in aseprite - screenshot_21: 863664372
+      Color pallete in aseprite - screenshot_25: 692898785
+      Color pallete in aseprite - screenshot_41: -1058899286
+      Color pallete in aseprite - screenshot_16: 1461113023
+      Color pallete in aseprite - screenshot_1: 347668116
+      Color pallete in aseprite - screenshot_13: -199929286
+      Color pallete in aseprite - screenshot_26: 1075103962
+      Color pallete in aseprite - screenshot_30: -2071173592
+      Color pallete in aseprite - screenshot_35: 1709804932
+      Color pallete in aseprite - screenshot_3: -844764188
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

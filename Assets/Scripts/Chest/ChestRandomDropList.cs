@@ -1,53 +1,100 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ChestRandomDropList<T>
+
+public class ChestRandomDropList : MonoBehaviour
 {
-    [System.Serializable]
-    public struct Pair
-    {
-        public T item;
-        public float weight;
+    public List<GameObject> dropList = new List<GameObject>();
 
-        public Pair(T item, float weight)
-        {
-            this.item = item;
-            this.weight = weight;
-        }
+    public GameObject itemHolder;
+
+    public bool isOpen;
+    public Animator animator;
+
+    
+    public Animation dropSprite;
+    public string dropName;
+    public string dropType;
+    public int dropChance;
+    
+    void Start()
+    {
+        
     }
 
-    public List<Pair> list = new List<Pair>();
-
-    public int count
+    void Update()
     {
-        get => list.Count;
-    }
-
-    public T GetRandom()
-    {
-        float totalWeight = 0f;
-
-        foreach (Pair p in list)
+        if (!isOpen)
         {
-            totalWeight += p.weight;
+            isOpen = true;
+            Debug.Log("Chest is now open");
+            animator.SetBool("IsOpen", isOpen);
         }
-
-        float value = Random.value * totalWeight;
-
-        float sumWeight = 0;
-
-        foreach (Pair p in list)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            sumWeight += p.weight;
-
-            if (sumWeight >= value)
+            if (IsOpen())
             {
-                return p.item;
+                animator.SetTrigger("close");
+                HideItem();
+            }
+            else
+            {
+                animator.SetTrigger("open");
+                ShowItem();
             }
         }
-
-        return default(T);
     }
+
+    bool IsOpen()
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName("ChestOpen");
+    }
+
+    void HideItem()
+    {
+
+        itemHolder.transform.localScale = Vector3.zero;
+        itemHolder.SetActive(false);
+
+        foreach (GameObject child in itemHolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+    }
+
+    public ChestRandomDropList (Animation dropSprite, string dropName, string dropType, int dropChance)
+    {
+        this.dropSprite = dropSprite;
+        this.dropName = dropName;
+        this.dropChance = dropChance;
+
+    }
+    public void ShowItem()
+    {
+        //int randomIndex = UnityEngine.Random.Range(0, dropList.Count);
+        //GameObject item = dropList[randomIndex];
+        //Instantiate(item, itemHolder.transform);
+        //itemHolder.SetActive(true);
+
+    /*int totalChance = 0;
+    foreach (ChestLootItem lootItem in dropList)
+    {
+        totalChance += lootItem.dropChance;
+    }
+
+    int randomChance = Random.Range(0, totalChance);
+    foreach (ChestLootItem lootItem in dropList)
+    {
+        if (randomChance < lootItem.dropChance)
+        {
+            GameObject item = Instantiate(lootItem.lootPrefab, itemHolder.transform);
+            itemHolder.SetActive(true);
+            return;
+        }
+        randomChance -= lootItem.dropChance;
+    }*/
+}
 }
