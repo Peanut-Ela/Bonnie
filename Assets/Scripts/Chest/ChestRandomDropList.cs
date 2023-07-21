@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class ChestRandomDropList : ScriptableObject
+
+public class ChestRandomDropList : MonoBehaviour
 {
     public List<GameObject> dropList = new List<GameObject>();
 
@@ -72,11 +72,29 @@ public class ChestRandomDropList : ScriptableObject
         this.dropChance = dropChance;
 
     }
-    void ShowItem()
+    public void ShowItem()
     {
-        int randomIndex = UnityEngine.Random.Range(0, dropList.Count);
-        GameObject item = dropList[randomIndex];
-        Instantiate(item, itemHolder.transform);
-        itemHolder.SetActive(true);
+        //int randomIndex = UnityEngine.Random.Range(0, dropList.Count);
+        //GameObject item = dropList[randomIndex];
+        //Instantiate(item, itemHolder.transform);
+        //itemHolder.SetActive(true);
+
+    /*int totalChance = 0;
+    foreach (ChestLootItem lootItem in dropList)
+    {
+        totalChance += lootItem.dropChance;
     }
+
+    int randomChance = Random.Range(0, totalChance);
+    foreach (ChestLootItem lootItem in dropList)
+    {
+        if (randomChance < lootItem.dropChance)
+        {
+            GameObject item = Instantiate(lootItem.lootPrefab, itemHolder.transform);
+            itemHolder.SetActive(true);
+            return;
+        }
+        randomChance -= lootItem.dropChance;
+    }*/
+}
 }

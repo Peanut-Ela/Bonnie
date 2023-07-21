@@ -5,14 +5,15 @@ using UnityEngine;
 [CreateAssetMenu]
  public class ChestLoot: ScriptableObject
 {
-    public Sprite lootSprite;
+    public GameObject lootPrefab;
     public string lootName;
     public int dropChance;
 
-    public ChestLoot(string lootName, int dropChance)
+    public ChestLoot(GameObject lootPrefab, string lootName, int dropChance)
     {
-       this.lootName = lootName;
-       this.dropChance = dropChance;
+        this.lootPrefab = lootPrefab;
+        this.lootName = lootName;
+        this.dropChance = dropChance;
     }
 }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3047592587289275133}
   - component: {fileID: 9112627554494923854}
   - component: {fileID: 1723076299148223105}
+  - component: {fileID: 1441017619294048232}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -105,3 +106,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1441017619294048232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589477493666046552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9dcc8ef09ce9f24eb5d1aab6305d5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropList:
+  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
+  - {fileID: 8315037207353444210, guid: 321da680f4e38304e877cd287fc84925, type: 3}
+  - {fileID: 8315037207353444210, guid: 38f7da8ffe9f472479958de2f6dcb7e9, type: 3}
+  itemHolder: {fileID: 0}
+  isOpen: 0
+  animator: {fileID: 0}
+  dropSprite: {fileID: 0}
+  dropName: 
+  dropType: 
+  dropChance: 0

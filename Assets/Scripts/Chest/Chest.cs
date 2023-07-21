@@ -6,7 +6,9 @@ using Random = UnityEngine.Random; // Add this line
 
 public class Chest : MonoBehaviour
 {
-    public List<GameObject> LootList = new List<GameObject>(); // List of coin prefabs
+    public ChestRandomDropList dropListScript;
+    //public List<GameObject> LootList = new List<GameObject>(); // List of coin prefabs
+    public ChestRandomDropList dropListAsset;
 
     public GameObject itemHolder;
 
@@ -21,6 +23,7 @@ public class Chest : MonoBehaviour
     private void Start()
     {
         triggerChest = GetComponent<TriggerChest>();
+        dropListScript = GetComponent<ChestRandomDropList>(); // Get the ChestRandomDropList script attached to this GameObject
     }
 
     private void Update()
@@ -56,12 +59,14 @@ public class Chest : MonoBehaviour
 
     private void ShowItem()
     {
-        if (LootList.Count > 0)
+       if (dropListScript.dropList.Count > 0) // Use dropListScript.dropList instead of LootList
         {
-            int randomIndex = Random.Range(0, LootList.Count);
-            GameObject itemPrefab = LootList[randomIndex];
-            GameObject item = Instantiate(itemPrefab, itemHolder.transform);
-            itemHolder.SetActive(true);
+            int randomIndex = Random.Range(0, dropListScript.dropList.Count); // Use dropListScript.dropList instead of LootList
+            GameObject itemPrefab = dropListScript.dropList[randomIndex]; // Use dropListScript.dropList instead of LootList
+            GameObject item = Instantiate(itemPrefab.gameObject, Vector3.zero, Quaternion.identity, itemHolder.transform);
+            item.transform.SetParent(itemHolder.transform);
+            
+            //itemHolder.SetActive(true);
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChestInteraction : MonoBehaviour
 {
-    /*public bool isInRange;
+    public bool isInRange;
     public KeyCode interactKey;
     public Action OnOpenChest;
 
@@ -43,5 +43,5 @@ public class ChestInteraction : MonoBehaviour
             isInRange = false;
             Debug.Log("Player now not in range");
         }
-    }*/
+    }
 }
