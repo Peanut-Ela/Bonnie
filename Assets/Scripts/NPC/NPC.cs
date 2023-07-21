@@ -215,31 +215,6 @@ public class NPC : StateMachine
         return -1; // Invalid nextLineid
     }
 
-    //private void ShowChoiceBox()
-    //{
-    //    if (choiceBox != null)
-    //    {
-    //        choiceBox.SetActive(true);
-    //        // Set choice button texts and callbacks
-    //        ChoiceBox choiceBoxComponent = choiceBox.GetComponent<ChoiceBox>();
-    //        if (choiceBoxComponent != null)
-    //        {
-    //            List<string> coloredChoices = new List<string>();
-    //            DialogueData currentDialogue = dialogueDataList[index];
-
-    //            for (int i = 0; i < currentDialogue.choices.Count; i++)
-    //            {
-    //                string choice = currentDialogue.choices[i];
-    //                Color choiceColor = currentDialogue.choiceColors[i];
-    //                string coloredChoice = $"<color=#{ColorUtility.ToHtmlStringRGB(choiceColor)}>{choice}</color>";
-    //                coloredChoices.Add(coloredChoice);
-    //            }
-
-    //            choiceBoxComponent.SetChoices(coloredChoices, OnChoiceSelected);
-    //        }
-    //    }
-    //}
-
     private void ShowChoiceBox()
     {
         if (choiceBox != null)
@@ -289,31 +264,13 @@ public class NPC : StateMachine
                     }
 
                     // Use the selected choice in the next line
-                    string choice = currentDialogue.choices[choiceIndex];
-                    DialogueData nextDialogue = dialogueDataList[index];
-                    string nextLineText = nextDialogue.text;
-
-                    // Check if the choice has a specified color
-                    if (choiceIndex < currentDialogue.choiceColors.Count)
-                    {
-                        Color choiceColor = currentDialogue.choiceColors[choiceIndex];
-                        string colorHex = ColorUtility.ToHtmlStringRGB(choiceColor);
-                        nextLineText = nextLineText.Replace("[choice]", "<color=#" + colorHex + ">" + choice + "</color>");
-                    }
-                    else
-                    {
-                        nextLineText = nextLineText.Replace("[choice]", choice);
-                    }
-
-                    nextDialogue.text = nextLineText;
-
-                    StartTyping();
-                    return;
+                    currentDialogue = dialogueDataList[index];
                 }
             }
         }
 
-        NextLine();
+        // Continue with the next line after processing the choice
+        StartTyping();
     }
 
 }

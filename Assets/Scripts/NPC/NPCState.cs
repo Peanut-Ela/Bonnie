@@ -99,9 +99,11 @@ namespace NPCStates
 
     public class DialogueState : NPCState
     {
+
+        private readonly NPC npc;
         public DialogueState(NPC sm) : base(sm)
         {
-
+            this.npc = sm;
         }
 
         public override void OnEnter()
