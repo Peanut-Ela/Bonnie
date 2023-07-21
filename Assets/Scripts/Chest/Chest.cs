@@ -1,90 +1,116 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random; // Add this line
-
-public class Chest : MonoBehaviour
+using ChestStates;
+public class Chest : StateMachine
 {
-    public ChestRandomDropList dropListScript;
-    //public List<GameObject> LootList = new List<GameObject>(); // List of coin prefabs
-    public ChestRandomDropList dropListAsset;
-
-    public GameObject itemHolder;
-
-    public bool isInRange;
-    public KeyCode interactKey;
-    public TriggerChest triggerChest;
-    public GameObject chestItemPrefab;
-    public List<GameObject> chestItems;
-
-    private bool isOpen;
-
-    private void Start()
+    internal Animator anim;
+    public List<GameObject> dropList = new List<GameObject>();
+    public float itemSpawnDist = 1.5f;
+    public int minSpawnCount = 1;
+    public int maxSpawnCount = 8;
+    public override BaseState StartState => new ClosedState(this);
+    #region Animation Keys
+    public static readonly int ClosedKey = Animator.StringToHash("Closed");
+    public static readonly int OpeningKey = Animator.StringToHash("Opening");
+    public static readonly int OpenedKey = Animator.StringToHash("Opened");
+    #endregion
+    protected override void Awake()
     {
-        triggerChest = GetComponent<TriggerChest>();
-        dropListScript = GetComponent<ChestRandomDropList>(); // Get the ChestRandomDropList script attached to this GameObject
+        base.Awake();
+        anim = GetComponent<Animator>();
     }
-
-    private void Update()
+    public void SpawnRandomLoot()
     {
-        if (isInRange)
+        int randAmt = Random.Range(minSpawnCount, maxSpawnCount);
+        for (int i = 0; i < randAmt; i++)
         {
-            if (Input.GetKeyDown(interactKey))
+            SpawnItem();
+        }
+    }
+    void SpawnItem()
+    {
+        if (dropList.Count > 0) // Use dropListScript.dropList instead of LootList
+        {
+            int randomIndex = Random.Range(0, dropList.Count); // Use dropListScript.dropList instead of LootList
+            GameObject itemPrefab = dropList[randomIndex]; // Use dropListScript.dropList instead of LootList
+
+            Vector2 randomDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+
+            Instantiate(itemPrefab.gameObject, (Vector2)transform.position + randomDir * itemSpawnDist, Quaternion.identity);
+        }
+    }
+}
+namespace ChestStates
+{
+
+    public class BaseChestState : BaseState
+    {
+        protected Chest chest;
+
+        public BaseChestState(Chest sm) : base(sm)
+        {
+            chest = sm;
+        }
+    }
+    public class ClosedState : BaseChestState
+    {
+        bool playerInRange = false;
+        public ClosedState(Chest sm) : base(sm) { }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            chest.anim.PlayInFixedTime(Chest.ClosedKey);
+        }
+        public override void Update()
+        {
+            base.Update();
+            if (playerInRange && Input.GetKeyDown(KeyCode.E))
+                chest.QueueState(new OpeningState(chest));
+        }
+        public override void OnTriggerEnter2D(Collider2D collision)
+        {
+            base.OnTriggerEnter2D(collision);
+            if (collision.gameObject.CompareTag("Player"))
             {
-                if (isOpen)
-                {
-                    triggerChest.CloseChest();
-                    HideItem();
-                }
-                else
-                {
-                    triggerChest.OpenChest();
-                    ShowItem();
-                }
-                isOpen = !isOpen;
+                playerInRange = true;
+            }
+        }
+        public override void OnTriggerExit2D(Collider2D collision)
+        {
+            base.OnTriggerExit2D(collision);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerInRange = false;
             }
         }
     }
-
-    private void HideItem()
+    public class OpeningState : BaseChestState
     {
-        itemHolder.SetActive(false);
-
-        foreach (Transform child in itemHolder.transform)
+        public OpeningState(Chest sm) : base(sm)
         {
-            Destroy(child.gameObject);
+            duration = 0.4f; // duration of opening anim
+        }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            chest.anim.PlayInFixedTime(Chest.OpeningKey);
+
+            chest.SpawnRandomLoot();
+        }
+        public override void OnStateExpired()
+        {
+            base.OnStateExpired();
+            chest.QueueState(new OpenedState(chest));
         }
     }
-
-    private void ShowItem()
+    public class OpenedState : BaseChestState
     {
-       if (dropListScript.dropList.Count > 0) // Use dropListScript.dropList instead of LootList
+        public OpenedState(Chest sm) : base(sm) { }
+        public override void OnEnter()
         {
-            int randomIndex = Random.Range(0, dropListScript.dropList.Count); // Use dropListScript.dropList instead of LootList
-            GameObject itemPrefab = dropListScript.dropList[randomIndex]; // Use dropListScript.dropList instead of LootList
-            GameObject item = Instantiate(itemPrefab.gameObject, Vector3.zero, Quaternion.identity, itemHolder.transform);
-            item.transform.SetParent(itemHolder.transform);
-            
-            //itemHolder.SetActive(true);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = true;
-            Debug.Log("Player now in range");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isInRange = false;
-            Debug.Log("Player now not in range");
+            base.OnEnter();
+            chest.anim.PlayInFixedTime(Chest.OpenedKey);
         }
     }
 }

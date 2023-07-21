@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3047592587289275133}
+  - component: {fileID: 5728887917656876562}
   - component: {fileID: 9112627554494923854}
   - component: {fileID: 1723076299148223105}
-  - component: {fileID: 1441017619294048232}
+  - component: {fileID: 1495155686252282535}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -28,12 +29,30 @@ Transform:
   m_GameObject: {fileID: 6589477493666046552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.97, y: 4.64, z: 0}
-  m_LocalScale: {x: 2.97, y: 2.97, z: 2.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5728887917656876562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589477493666046552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d5179148e9bf44ebcedc35bf3621a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logStateTransfer: 0
+  dropList:
+  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
+  - {fileID: 4927582668635254708, guid: fc75eb3e1c593244a8be030ee910f107, type: 3}
+  - {fileID: 6547847427182820243, guid: 4cf798c815b35d44387e287ea5e5f675, type: 3}
+  itemSpawnDist: 1.5
 --- !u!212 &9112627554494923854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +115,7 @@ Animator:
   m_GameObject: {fileID: 6589477493666046552}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 95b8e18bc9b3f174693e861711e1c3a4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3c93dd7518406dc4ba7e1d82fc547077, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -106,26 +125,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1441017619294048232
-MonoBehaviour:
+--- !u!58 &1495155686252282535
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6589477493666046552}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9dcc8ef09ce9f24eb5d1aab6305d5aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropList:
-  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
-  - {fileID: 8315037207353444210, guid: 321da680f4e38304e877cd287fc84925, type: 3}
-  - {fileID: 8315037207353444210, guid: 38f7da8ffe9f472479958de2f6dcb7e9, type: 3}
-  itemHolder: {fileID: 0}
-  isOpen: 0
-  animator: {fileID: 0}
-  dropSprite: {fileID: 0}
-  dropName: 
-  dropType: 
-  dropChance: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
