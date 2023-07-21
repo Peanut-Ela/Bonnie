@@ -218,3 +218,5 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 193410e68111e1d48af9164a0375703d, type: 3}
   audioSource: {fileID: 3648224302114732449}
   anim: {fileID: 8136215835306300110}
+  damage: 1
+  radius: 1

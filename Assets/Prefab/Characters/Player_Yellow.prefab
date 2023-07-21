@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 1166069064060400149}
   - component: {fileID: 1166069064060400148}
   - component: {fileID: 1166069064060400147}
-  - component: {fileID: 1166069064060400146}
   m_Layer: 3
   m_Name: Player_Yellow
   m_TagString: Player
@@ -110,8 +109,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 1166069064044388459}
+  inventorySlots: 7
+  items: 
+  slots: []
   walkSpeed: 5
   runSpeed: 6.5
+  defense: 0
   attackDuration: 0.5
   attackWindupDuration: 0.3
   damage: 1.25
@@ -120,8 +123,12 @@ MonoBehaviour:
   dashCoolDown: 1
   ghostSpawnInterval: 0.05
   ghostPrefab: {fileID: 8451144905357026250, guid: 340cd8193c8d16241b2fd30244777340, type: 3}
+  equippedShield: {fileID: 0}
+  equippedWeapon: {fileID: 0}
+  milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 4
+  coinManager: {fileID: 0}
 --- !u!212 &1166069064060400150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -231,24 +238,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1166069064060400146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166069064060400144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63f07a0c82503645b3e2f159ac94e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFull: 00000000000000
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
