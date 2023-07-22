@@ -31,14 +31,14 @@ public class Inventory : MonoBehaviour
     }
 
     // Event handler for when an item is picked up
-    private void OnItemPickedUp(Sprite itemSprite)
+    private void OnItemPickedUp(Sprite itemSprite, int itemID)
     {
         // Find the first empty slot
         Slot emptySlot = slots.Find(slot => slot.IsEmpty());
 
         if (emptySlot != null)
         {
-            emptySlot.SetItemIcon(itemSprite);
+            emptySlot.SetItemIcon(itemSprite, itemID); // Pass the itemID along with the item sprite
         }
         else
         {

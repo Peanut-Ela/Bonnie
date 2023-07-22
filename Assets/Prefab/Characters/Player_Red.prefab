@@ -51,9 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 4510494668836345027}
-  inventorySlots: 7
-  items: 
-  slots: []
+  spawnComponent: {fileID: 0}
+  inventorySlots: 6
+  items: 000000000000000000000000000000000000000000000000
   walkSpeed: 7
   runSpeed: 8.5
   defense: 0
@@ -179,7 +179,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.28
 --- !u!1 &4510494668836345027
 GameObject:
   m_ObjectHideFlags: 0

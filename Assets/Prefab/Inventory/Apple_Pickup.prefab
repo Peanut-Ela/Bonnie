@@ -115,5 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 1779555815, guid: 0b2822a469ebc6f49b37df32a04eb2cf, type: 3}
+  itemID: 1000
   itemButton: {fileID: 3637134658163675157, guid: bddf2d0d6f1730d4c98e4a9df014b965, type: 3}
   effectPrefab: {fileID: -1654287126941025944, guid: 277fa585b7409ad4da7ed77916bb5bf4, type: 3}

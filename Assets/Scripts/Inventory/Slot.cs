@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
+    public Spawn spawnComponent;
     public int index;
     public Image itemImage;
-    private bool isItemCollected = false;
+    public bool isItemCollected = false;
+    public int itemID; // Store the itemID from the Pickup script
 
     private void Start()
     {
@@ -21,9 +23,10 @@ public class Slot : MonoBehaviour
         return !isItemCollected;
     }
 
-    // Set the icon of the item in this slot
-    public void SetItemIcon(Sprite itemSprite)
+    // Set the icon of the item in this slot and store the itemID
+    public void SetItemIcon(Sprite itemSprite, int itemID)
     {
+        this.itemID = itemID; // Store the itemID from the Pickup script
         // Enable the item image sprite when an item is collected
         itemImage.sprite = itemSprite;
         itemImage.enabled = true;
@@ -37,6 +40,7 @@ public class Slot : MonoBehaviour
         itemImage.sprite = null;
         itemImage.enabled = false;
         isItemCollected = false;
+        itemID = 0;
     }
 
     private void Update()
@@ -46,8 +50,14 @@ public class Slot : MonoBehaviour
 
     public void Cross()
     {
-        ClearItemIcon();
-        Player.instance.DropItem(index);
-        // Additional logic for Cross() method
+        if (!IsEmpty())
+        {
+            
+            Player.instance.DropItem(index); // Pass the itemID along with the index to use the item
+            Debug.Log("ItemID is" + itemID);
+            spawnComponent.SpawnItem(itemID);
+            ClearItemIcon();
+
+        }
     }
 }

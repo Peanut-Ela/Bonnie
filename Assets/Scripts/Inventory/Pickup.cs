@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-
-    public delegate void OnItemPickupEvent(Sprite itemSprite);
+    public delegate void OnItemPickupEvent(Sprite itemSprite, int itemID);
     public static event OnItemPickupEvent OnItemPickup;
 
     public Sprite itemSprite; // Assign the sprite of the item to this variable in the Inspector
+    public int itemID; // Assign a unique ID for each pickup object in the Inspector
 
     public GameObject itemButton;
     public Pickup_Effect effectPrefab;
-
-    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,8 +28,8 @@ public class Pickup : MonoBehaviour
                         Instantiate(effectPrefab, transform.position, Quaternion.identity);
                         Player.instance.items[i] = 1; // makes sure that the slot is now considered FULL
 
-                        // Trigger the event passing the item sprite
-                        OnItemPickup?.Invoke(itemSprite);
+                        // Trigger the event passing the item sprite and itemID
+                        OnItemPickup?.Invoke(itemSprite, itemID);
 
                         // Instantiate(itemButton, Player.instance.transform, false); // spawn the button so that the player can interact with it
                         Destroy(gameObject);

@@ -109,16 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 9076447006679909639}
-  inventorySlots: 7
-  items: 00000000000000000000000000000000000000000000000000000000
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnComponent: {fileID: 0}
+  inventorySlots: 6
+  items: 000000000000000000000000000000000000000000000000
   walkSpeed: 3.5
   runSpeed: 5
   defense: 0
@@ -244,4 +237,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.28
