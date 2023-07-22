@@ -108,10 +108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
+  isCharacterSelect: 1
   weaponHitbox: {fileID: 9076447006679909639}
   spawnComponent: {fileID: 0}
   inventorySlots: 6
   items: 000000000000000000000000000000000000000000000000
+  coinCount: 0
   walkSpeed: 3.5
   runSpeed: 5
   defense: 0
@@ -128,7 +130,6 @@ MonoBehaviour:
   milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
-  coinManager: {fileID: 0}
 --- !u!212 &9076447006763734337
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -24,7 +24,8 @@ public class CharacterSelection : MonoBehaviour
 
     public void StartGame()
     {
-        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        //PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        GameAssets.selectedCharacter = selectedCharacter;
         SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 }

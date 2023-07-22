@@ -54815,6 +54815,10 @@ PrefabInstance:
       value: NPC_Cow 2
       objectReference: {fileID: 0}
     - target: {fileID: 2580602591550182023, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580602591550182023, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
       propertyPath: choiceBox
       value: 
       objectReference: {fileID: 1992854150}
@@ -55390,7 +55394,7 @@ MonoBehaviour:
   - {fileID: 4510494668251583294, guid: 08b7583eb583a1f419c0e62351ea9d13, type: 3}
   spawnPoint: {fileID: 35919218}
   label: {fileID: 1417310274}
-  playerObject: {fileID: 1853273880}
+  playerObject: {fileID: 0}
 --- !u!4 &1358059644
 Transform:
   m_ObjectHideFlags: 0
@@ -59025,6 +59029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
+  isCharacterSelect: 0
   weaponHitbox: {fileID: 480981821}
   spawnComponent: {fileID: 0}
   inventorySlots: 6

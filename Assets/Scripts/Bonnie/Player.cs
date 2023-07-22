@@ -7,31 +7,36 @@ using static UnityEditor.Progress;
 
 // Define a struct to store player stats
 [System.Serializable]
-//public struct PlayerStats
-//{
-//    [Header("Speed Settings")]
-//    public float walkSpeed;
-//    public float runSpeed;
+public struct PlayerStats
+{
+    [Header("Speed Settings")]
+    public int playerID;
 
-//    [Header("Defense Settings")]
-//    public float defense;
+    [Header("Speed Settings")]
+    public float walkSpeed;
+    public float runSpeed;
 
-//    [Header("Attack Settings")]
-//    public float attackDuration;
-//    public float attackWindupDuration;
-//    public float damage;
+    [Header("Defense Settings")]
+    public float defense;
 
-//    [Header("Dash Settings")]
-//    public float dashSpeed;
-//    public float dashDuration;
-//    public float dashCoolDown;
+    [Header("Attack Settings")]
+    public float attackDuration;
+    public float attackWindupDuration;
+    public float damage;
 
-//    [Header("Ghost Settings")]
-//    public float ghostSpawnInterval;
-//}
+    [Header("Dash Settings")]
+    public float dashSpeed;
+    public float dashDuration;
+    public float dashCoolDown;
+
+    [Header("Color Settings")]
+    public Color playerColor; 
+
+}
 
 public class Player : StateMachine
 {
+    public bool isCharacterSelect;
     public static Player instance;
     internal Rigidbody2D rb;
     internal SpriteRenderer sr;
@@ -95,25 +100,63 @@ public class Player : StateMachine
     #endregion
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
+
+
     protected override void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
+        //Gamemanager.stats++; use int then make strings for those that require it in excel
 
-        }
-        else
-            Destroy(instance); //note: do Destroy player if exit menu
-
-        base.Awake();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        items = new int[inventorySlots];
+        if(isCharacterSelect == false)
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(instance);
+                SetProperties(); 
+                items = new int[inventorySlots];
+            }
+            else
+            {
+                Destroy(instance.gameObject); // Destroy the duplicate player if it exists
+                return;
+            }
+        }
 
+        base.Awake();
+
+        // Link gameassets player id here
+        
     }
+
+    public void SetProperties()
+    {
+        if (GameAssets.instance != null)
+        {
+            // Assuming selectedCharacter is set properly before this Awake method is called
+            int playerID = GameAssets.instance.GetPlayerID();
+            if (playerID >= 0 && playerID < GameAssets.instance.playerStatsList.Count)
+            {
+                PlayerStats playerStats = GameAssets.instance.playerStatsList[playerID];
+
+                // Assign playerStats values to the corresponding Player properties
+                walkSpeed = playerStats.walkSpeed;
+                runSpeed = playerStats.runSpeed;
+                defense = playerStats.defense;
+                attackDuration = playerStats.attackDuration;
+                attackWindupDuration = playerStats.attackWindupDuration;
+                damage = playerStats.damage;
+                dashSpeed = playerStats.dashSpeed;
+                dashDuration = playerStats.dashDuration;
+                dashCoolDown = playerStats.dashCoolDown;
+                sr.color = playerStats.playerColor;
+            }
+        }
+    }
+
     protected override void Start()
     {
         base.Start();
