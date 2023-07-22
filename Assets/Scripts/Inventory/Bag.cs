@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {
-
-    bool isClosed;
+    bool isClosed = true; // Initialize the bag as closed initially
     public GameObject bag;
+
+    private void Update()
+    {
+        // Check if the TAB key is pressed
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OpenCloseBag();
+        }
+    }
 
     public void OpenCloseBag()
     {
-        if (isClosed == true)
+        if (isClosed)
         {
             bag.SetActive(true);
             isClosed = false;
