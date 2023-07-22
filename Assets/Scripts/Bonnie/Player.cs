@@ -272,32 +272,7 @@ public class Player : StateMachine
     public void DropItem(int index)
     {
         items[index] = 0;
-        //// Spawn the dropped item near the player
-        //if (index < items.Length)
-        //{
-        //    //GameObject droppedItemPrefab = GetItemPrefab(index);
-        //    if (droppedItemPrefab != null)
-        //    {
-        //        // Spawn the dropped item near the player
-        //        if (spawnComponent != null)
-        //        {
-        //            spawnComponent.itemPrefab = droppedItemPrefab;
-        //            spawnComponent.SpawnItem();
-        //        }
-        //        else
-        //        {
-        //            Debug.LogError("Spawn component not found on Player.");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("Item prefab for index " + index + " is not defined.");
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.LogError("Index out of range in the player's items array.");
-        //}
+        
     }
 
     //public static Item GetItem(int index) => instance.itemPrefabs[index];

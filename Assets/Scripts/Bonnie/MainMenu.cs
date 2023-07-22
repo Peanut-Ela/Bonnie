@@ -8,8 +8,20 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject startTransition;
     [SerializeField] private GameObject endTransition;
 
+    public bool playEnd = false;
+
     public AudioClip playSound;
     public AudioSource audioSource;
+
+
+
+    private void Start()
+    {
+        if (playEnd == true)
+        {
+            endTransition.SetActive(true);
+        }
+    }
 
     public void PlayGame()
     {

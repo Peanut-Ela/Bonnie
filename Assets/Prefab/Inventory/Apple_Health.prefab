@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcb8b6dc932e8741962d5a586b6a3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 2360111054323295968, guid: 77bb0d18fe22a9441b6abbad66dac20e, type: 3}
-  spawnRadius: 1
+  itemPrefabs:
+  - {fileID: 2360111054323295968, guid: 77bb0d18fe22a9441b6abbad66dac20e, type: 3}
+  spawnRadius: 2
 --- !u!114 &-2719053895098746481
 MonoBehaviour:
   m_ObjectHideFlags: 0

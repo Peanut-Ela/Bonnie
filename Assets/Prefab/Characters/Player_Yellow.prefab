@@ -109,9 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logStateTransfer: 0
   weaponHitbox: {fileID: 1166069064044388459}
-  inventorySlots: 7
-  items: 
-  slots: []
+  spawnComponent: {fileID: 0}
+  inventorySlots: 6
+  items: 000000000000000000000000000000000000000000000000
   walkSpeed: 5
   runSpeed: 6.5
   defense: 0

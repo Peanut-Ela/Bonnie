@@ -261,8 +261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b82e5e9d3cf634892b6a28d1e288a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnComponent: {fileID: 7944451965925975133, guid: bddf2d0d6f1730d4c98e4a9df014b965, type: 3}
   index: 0
   itemImage: {fileID: 2747258146855990701}
+  isItemCollected: 0
+  itemID: 0
 --- !u!1 &8454766068779744524
 GameObject:
   m_ObjectHideFlags: 0
