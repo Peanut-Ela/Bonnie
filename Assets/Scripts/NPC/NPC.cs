@@ -151,7 +151,19 @@ public class NPC : StateMachine
                 }
 
                 typingSound.Play();
-                yield return new WaitForSecondsRealtime(wordSpeed);
+                // Wait for wordSpeed seconds, but check for spacebar input to skip
+                float elapsedTime = 0f;
+                while (elapsedTime < wordSpeed)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        // Skip the typing animation by instantly showing the entire text
+                        dialogueText.text = dialogueDataList[index].text;
+                        break;
+                    }
+                    elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
             }
             //Skip when it starts at < until >
         }
@@ -168,6 +180,7 @@ public class NPC : StateMachine
 
         yield return null;
     }
+
 
     public void NextLine()
     {

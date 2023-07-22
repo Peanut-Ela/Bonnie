@@ -15,17 +15,6 @@ public class CharacterSelection : MonoBehaviour
         characters[selectedCharacter].SetActive(true);
     }
 
-    //public void PreviousCharacter()
-    //{
-    //    characters[selectedCharacter].SetActive(false);
-    //    selectedCharacter--;
-    //    if(selectedCharacter < 0)
-    //    {
-    //        selectedCharacter += characters.Length;
-    //    }
-    //    characters[selectedCharacter].SetActive(true);
-    //}
-
     public void PreviousCharacter()
     {
         characters[selectedCharacter].SetActive(false);

@@ -54669,6 +54669,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2580602591550182020, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 58dac1492a5ab2e48918625315743c8d, type: 2}
     - target: {fileID: 2580602591550182022, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
       propertyPath: m_Name
       value: NPC_Cow 2
