@@ -676,6 +676,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9028338303919488120, guid: fde47fb5f3ba2a748b884a23ace4e178, type: 3}
   m_PrefabInstance: {fileID: 9028338303616854547}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &906942060 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9028338303919488127, guid: fde47fb5f3ba2a748b884a23ace4e178, type: 3}
+  m_PrefabInstance: {fileID: 9028338303616854547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &999424256
 GameObject:
   m_ObjectHideFlags: 0
@@ -47913,7 +47918,7 @@ MonoBehaviour:
   - {fileID: 1574623704}
   - {fileID: 1177860014}
   selectedCharacter: 0
-  sceneTransitionAnimator: {fileID: 0}
+  sceneTransitionAnimator: {fileID: 906942060}
 --- !u!1 &1535225262
 GameObject:
   m_ObjectHideFlags: 0
@@ -56470,6 +56475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 7289711315754171846, guid: 9b872fd020257484cbf79edfbfe773a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b872fd020257484cbf79edfbfe773a2, type: 3}
 --- !u!224 &7017145296497948734 stripped
@@ -56571,6 +56580,10 @@ PrefabInstance:
     - target: {fileID: 9028338303919488121, guid: fde47fb5f3ba2a748b884a23ace4e178, type: 3}
       propertyPath: m_Name
       value: StartTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028338303919488121, guid: fde47fb5f3ba2a748b884a23ace4e178, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde47fb5f3ba2a748b884a23ace4e178, type: 3}

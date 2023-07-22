@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b457320c569387b45a9d4d21d3aab158
+guid: f98dd1fcbca63664caa70687b6517d91
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,181 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_0
+      name: Boats_0
       rect:
         serializedVersion: 2
-        x: 529
-        y: 1
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d5d6a79937bd424c8517aaa6279250c
-      internalID: 1827268761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_1
-      rect:
-        serializedVersion: 2
-        x: 561
-        y: 1
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5358a9f4d01aa0f4ea42f8cf7710665e
-      internalID: -1486265523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_2
-      rect:
-        serializedVersion: 2
-        x: 837
-        y: 148
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b118eb09959a2c4ca93210007d7e1df
-      internalID: 274138536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_3
-      rect:
-        serializedVersion: 2
-        x: 869
-        y: 148
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0edb5d67b3aea5045803a379714ae429
-      internalID: 469701061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_4
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 148
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b60111065dc41404f8e661561b6cb4d2
-      internalID: 2126485352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_5
-      rect:
-        serializedVersion: 2
-        x: 677
-        y: 148
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee9d599e894e6bb4ca5ce749d6a62409
-      internalID: 256507839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_6
-      rect:
-        serializedVersion: 2
-        x: 837
-        y: 116
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d9c819751a25f945946350efcbeccbd
-      internalID: 279661095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_7
-      rect:
-        serializedVersion: 2
-        x: 869
-        y: 116
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 279ac35cc3d6e174296ccb2ba4046955
-      internalID: -2128374602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_8
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 226
-        width: 7
-        height: 12
+        x: 0
+        y: 64
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6318af00481e6b48b3192c973c93f4f
-      internalID: 168081197
+      spriteID: 80ea253b52ea60b48ae12bf393dd736a
+      internalID: 1626491252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_9
+      name: Boats_1
       rect:
         serializedVersion: 2
-        x: 244
-        y: 210
-        width: 7
-        height: 12
+        x: 48
+        y: 64
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fa22403dfcb85b4d8a2419909f0ba31
-      internalID: -1046360014
+      spriteID: a4067e71566e61e468fd911f0a18092b
+      internalID: -744134791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_10
+      name: Boats_2
       rect:
         serializedVersion: 2
-        x: 243
-        y: 195
-        width: 10
-        height: 9
+        x: 0
+        y: 32
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8158902a3871fa249ac88cb565331148
-      internalID: 466295816
+      spriteID: b6404ade6822b1640aabf6896b0574b4
+      internalID: 1164018887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite sheet for Basic Pack_11
+      name: Boats_3
       rect:
         serializedVersion: 2
-        x: 243
-        y: 179
-        width: 10
-        height: 9
+        x: 48
+        y: 32
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,8 +194,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1dde0b5843efc843888f77bb6c39db6
-      internalID: 51559030
+      spriteID: ced158533a9f0ff48a09371e7fc19be1
+      internalID: -805707832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boats_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d75a4cfefaf554e815e6fe826e2f68
+      internalID: -32072602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boats_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075870fb354bd79448f9086ec783cf16
+      internalID: -1396315045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boats_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bef875b22f66a140ad131af230e4b45
+      internalID: 954095192
       vertices: []
       indices: 
       edges: []
@@ -379,18 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite sheet for Basic Pack_7: -2128374602
-      Sprite sheet for Basic Pack_6: 279661095
-      Sprite sheet for Basic Pack_9: 508263379
-      Sprite sheet for Basic Pack_4: 2126485352
-      Sprite sheet for Basic Pack_5: 256507839
-      Sprite sheet for Basic Pack_0: 1827268761
-      Sprite sheet for Basic Pack_8: 168081197
-      Sprite sheet for Basic Pack_3: 469701061
-      Sprite sheet for Basic Pack_10: -1046360014
-      Sprite sheet for Basic Pack_2: 274138536
-      Sprite sheet for Basic Pack_1: -1486265523
-      Sprite sheet for Basic Pack_11: 466295816
+      Boats_2: 1164018887
+      Boats_4: -32072602
+      Boats_1: -744134791
+      Boats_5: -1396315045
+      Boats_3: -805707832
+      Boats_0: 1626491252
+      Boats_6: 954095192
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
