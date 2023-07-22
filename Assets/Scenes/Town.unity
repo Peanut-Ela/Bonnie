@@ -56663,6 +56663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ccbb99b087a5c4a9e5ab2271974396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droplist: []
 --- !u!61 &1584001564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56910,7 +56911,7 @@ GameObject:
   - component: {fileID: 1656491928}
   - component: {fileID: 1656491927}
   m_Layer: 0
-  m_Name: Game Manager (1)
+  m_Name: CoinManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56928,7 +56929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fddeb57d107022449abadb322bfd2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCount: 0
   coinText: {fileID: 992994153}
 --- !u!4 &1656491928
 Transform:
@@ -59029,6 +59029,7 @@ MonoBehaviour:
   spawnComponent: {fileID: 0}
   inventorySlots: 6
   items: 000000000000000000000000000000000000000000000000
+  coinCount: 0
   walkSpeed: 5
   runSpeed: 6.5
   defense: 0
@@ -59045,7 +59046,6 @@ MonoBehaviour:
   milkDrank: {fileID: 0}
   currentHealth: 0
   maxHealth: 6
-  coinManager: {fileID: 1656491927}
 --- !u!4 &1853273886
 Transform:
   m_ObjectHideFlags: 0

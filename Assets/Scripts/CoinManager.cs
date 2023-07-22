@@ -6,8 +6,6 @@ using TMPro;
 
 public class CoinManager : MonoBehaviour
 {
-    
-    public int coinCount;
     public TextMeshProUGUI coinText;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +16,6 @@ public class CoinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinText.text = coinCount.ToString();
+        coinText.text = Player.instance.coinCount.ToString();
     }
 }

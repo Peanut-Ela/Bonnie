@@ -48,6 +48,7 @@ public class Player : StateMachine
     public Spawn spawnComponent;
     public int inventorySlots;
     public int[] items;
+    public int coinCount;
 
     [Header("Speed Settings")]
     public float walkSpeed;
@@ -83,7 +84,6 @@ public class Player : StateMachine
     public int currentHealth;
     public int maxHealth;
 
-    public CoinManager coinManager;
 
     #region Animation Keys
     public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
@@ -97,13 +97,22 @@ public class Player : StateMachine
     public override BaseState DefaultState => new IdleState(this);
     protected override void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+
+        }
+        else
+            Destroy(instance); //note: do Destroy player if exit menu
+
         base.Awake();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        instance = this;
 
         items = new int[inventorySlots];
+
     }
     protected override void Start()
     {
@@ -143,36 +152,6 @@ public class Player : StateMachine
             // Player is dead, handle game over or respawn logic here
         }
     }
-
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        base.OnTriggerEnter2D(other);
-
-        if (other.CompareTag("Enemy"))
-        {
-            // Get the enemy component from the collided object
-            Enemy enemy = other.GetComponent<Enemy>();
-
-            if (enemy != null)
-            {
-                // Deal damage to the enemy
-                Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
-                Player.instance.ApplyKnockback(knockbackDirection);
-                TakeDamage(enemy.damage);
-            }
-        }
-
-        else
-        {
-            if (other.gameObject.CompareTag("Coin"))
-            {
-                Destroy(other.gameObject);
-                coinManager.coinCount++;
-            }
-        }
-
-    }
-
 
     public void EquipWeapon(Weapon weapon)
     {
@@ -275,20 +254,34 @@ public class Player : StateMachine
         
     }
 
-    //public static Item GetItem(int index) => instance.itemPrefabs[index];
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
 
-    //private GameObject GetItemPrefab(int index)
-    //{
-    //    if (index >= 0 && index < ItemManager.instance.itemPrefabs.Length)
-    //    {
-    //        return ItemManager.instance.itemPrefabs[index];
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Item prefab for index " + index + " is not defined.");
-    //        return null;
-    //    }
-    //}
+        if (other.CompareTag("Enemy"))
+        {
+            // Get the enemy component from the collided object
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            if (enemy != null)
+            {
+                // Deal damage to the enemy
+                Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
+                Player.instance.ApplyKnockback(knockbackDirection);
+                TakeDamage(enemy.damage);
+            }
+        }
+        else
+        {
+            if (other.gameObject.CompareTag("Coin"))
+            {
+                Destroy(other.gameObject);
+                coinCount++;
+            }
+        }
+
+    }
+
 
 
 }
