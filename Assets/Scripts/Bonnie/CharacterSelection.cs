@@ -7,7 +7,6 @@ public class CharacterSelection : MonoBehaviour
 {
     public GameObject[] characters;
     public int selectedCharacter = 0;
-    public Animator sceneTransitionAnimator; // Reference to the Animator component on your UI button.
 
     public void NextCharacter()
     {
@@ -25,18 +24,6 @@ public class CharacterSelection : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(TransitionAndLoadScene());
-    }
-
-    private IEnumerator TransitionAndLoadScene()
-    {
-        // Trigger the transition animation.
-        sceneTransitionAnimator.SetTrigger("StartTransition");
-
-        // Wait for the duration of the transition animation.
-        yield return new WaitForSeconds(sceneTransitionAnimator.GetCurrentAnimatorStateInfo(0).length);
-
-        // Load the next scene.
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
