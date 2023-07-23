@@ -10,6 +10,7 @@ public class Boat : MonoBehaviour
     public AudioClip interactionSound; // Assign the sound clip in the Inspector
     private AudioSource audioSource;
     private bool isPlayerNearby = false;
+    [SerializeField] private GameObject startTransition;
 
     // Add scene indices for the three buttons
     public int button1SceneIndex;
@@ -77,19 +78,5 @@ public class Boat : MonoBehaviour
         objectToActivate.SetActive(false);
     }
 
-    // Load scenes when buttons are clicked
-    public void LoadSceneButton1()
-    {
-        SceneManager.LoadScene(button1SceneIndex, LoadSceneMode.Single);
-    }
 
-    public void LoadSceneButton2()
-    {
-        SceneManager.LoadScene(button2SceneIndex, LoadSceneMode.Single);
-    }
-
-    public void LoadSceneButton3()
-    {
-        SceneManager.LoadScene(button3SceneIndex, LoadSceneMode.Single);
-    }
 }

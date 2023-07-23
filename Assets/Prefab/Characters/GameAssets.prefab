@@ -77,4 +77,4 @@ MonoBehaviour:
     dashSpeed: 10
     dashDuration: 0.25
     dashCoolDown: 1
-    playerColor: {r: 1, g: 0, b: 0, a: 1}
+    playerColor: {r: 1, g: 0.8742138, b: 0.8742138, a: 1}
