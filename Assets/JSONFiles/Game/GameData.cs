@@ -10,6 +10,9 @@ public class GameData : MonoBehaviour
     DataManager dataManager;
     public List<DialogueData> dialogueList = new();
     public List<EnemyProperties> enemyPropertiesList = new();
+
+
+
     public List<ChestProperties> chestProperties = new();
     //public List<Player> PlayerList;
     //public List<NPC> NPCList;
