@@ -180,7 +180,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e1be2cdb588fa5b43be9189aab632a8d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.12
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -48508,6 +48508,7 @@ MonoBehaviour:
   - {fileID: 1574623704}
   - {fileID: 1177860014}
   selectedCharacter: 0
+  startTransition: {fileID: 1044052437}
 --- !u!1 &1374408739
 GameObject:
   m_ObjectHideFlags: 0
