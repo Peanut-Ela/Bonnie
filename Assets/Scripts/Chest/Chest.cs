@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ChestStates;
+
+public struct ChestProperties
+{
+    public int chestId;
+    public string chestType;
+    public float chestProbability;
+    public int dropValue;
+}
 public class Chest : StateMachine
 {
     internal Animator anim;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayerStates;
 //using Bonnie.CharacterStats;
-
 public class Player : StateMachine
 {
     public static Player instance;
