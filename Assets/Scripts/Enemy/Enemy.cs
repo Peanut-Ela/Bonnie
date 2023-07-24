@@ -4,6 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public struct EnemyProperties
+{
+    public int enemy;
+    public float detectionRange;
+    public float health;
+    public int damage;
+    public float fadeDuration;
+    public int fadeIterations;
+    public float idleDurationMin;
+    public float idleDurationMax;
+    public float moveSpeed;
+    public float chargeCooldown;
+    public bool canCharge;
+    public float attackRange;
+    public float attackDur;
+}
 public class Enemy : StateMachine
 {
     public float detectionRange = 10f;

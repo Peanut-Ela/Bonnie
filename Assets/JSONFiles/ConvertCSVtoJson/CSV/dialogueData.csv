@@ -1,0 +1,14 @@
+dialogueId,text,dialogueName,speakerSprite,choices,onChoiceSelected,showChoiceBox,hideChoiceBox,choiceResponses,nextLine,choiceBox,choiceIndex,currentDialogue,response
+100,"""I don't know if this is working""",NPC_COW_Green,Pink_Cow_1,Yes;No;Choice 1,Yes,101,100,101#102#103,-,TRUE,0,100,101
+101,"""I think this is working""",Player_Original,Bonnie_Prefab,-,No,104,-,104#,101#,FALSE,1,101,102
+102,"""No i don't think this is working""",Player_Original,Bonnie_Prefab,-,Choice 1,105,-,105#,102#,FALSE,2,102,103
+103,"""i think this will work""",Player_Original,Bonnie_Prefab,-,-,-,-,106#,103#,FALSE,-,103,104
+104,"""I hope this will work""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,104,105
+105,"""I think there is a quest""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,105,106
+106,"""Do you want to accept it""",NPC_COW_Green,Pink_Cow_1,Yes;No;Choice 1,Yes,107,106,107#108#109#,-,TRUE,0,106,107
+107,"""I think i will accept it""",Player_Original,Bonnie_Prefab,-,No,108,-,110#,110#,FALSE,1,107,110
+108,"""No i will not accept it""",Player_Original,Bonnie_Prefab,-,Choice 1,109,-,111#,111#,FALSE,2,108,111
+109,"""Maybe another time""",Player_Original,Bonnie_Prefab,-,-,-,-,112#,112#,FALSE,-,109,112
+110,"""Yay thank you so much for your help""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-
+111,"""Aww maybe next time""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-
+112,"""Probably another time""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-

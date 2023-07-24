@@ -1,0 +1,543 @@
+{
+  "dialogueData": [
+    {
+      "dialogueId": "100",
+      "text": "\"I don't know if this is working\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "Yes;No;Choice 1",
+      "onChoiceSelected": "Yes",
+      "showChoiceBox": "101",
+      "hideChoiceBox": "100",
+      "choiceResponses": "101#102#103",
+      "nextLine": "-",
+      "choiceBox": "TRUE",
+      "choiceIndex": "0",
+      "currentDialogue": "100",
+      "response": "101"
+    },
+    {
+      "dialogueId": "101",
+      "text": "\"I think this is working\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "No",
+      "showChoiceBox": "104",
+      "hideChoiceBox": "-",
+      "choiceResponses": "104#",
+      "nextLine": "101#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "1",
+      "currentDialogue": "101",
+      "response": "102"
+    },
+    {
+      "dialogueId": "102",
+      "text": "\"No i don't think this is working\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "Choice 1",
+      "showChoiceBox": "105",
+      "hideChoiceBox": "-",
+      "choiceResponses": "105#",
+      "nextLine": "102#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "2",
+      "currentDialogue": "102",
+      "response": "103"
+    },
+    {
+      "dialogueId": "103",
+      "text": "\"i think this will work\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "106#",
+      "nextLine": "103#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "103",
+      "response": "104"
+    },
+    {
+      "dialogueId": "104",
+      "text": "\"I hope this will work\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "-",
+      "nextLine": "-",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "104",
+      "response": "105"
+    },
+    {
+      "dialogueId": "105",
+      "text": "\"I think there is a quest\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "-",
+      "nextLine": "-",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "105",
+      "response": "106"
+    },
+    {
+      "dialogueId": "106",
+      "text": "\"Do you want to accept it\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "Yes;No;Choice 1",
+      "onChoiceSelected": "Yes",
+      "showChoiceBox": "107",
+      "hideChoiceBox": "106",
+      "choiceResponses": "107#108#109#",
+      "nextLine": "-",
+      "choiceBox": "TRUE",
+      "choiceIndex": "0",
+      "currentDialogue": "106",
+      "response": "107"
+    },
+    {
+      "dialogueId": "107",
+      "text": "\"I think i will accept it\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "No",
+      "showChoiceBox": "108",
+      "hideChoiceBox": "-",
+      "choiceResponses": "110#",
+      "nextLine": "110#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "1",
+      "currentDialogue": "107",
+      "response": "110"
+    },
+    {
+      "dialogueId": "108",
+      "text": "\"No i will not accept it\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "Choice 1",
+      "showChoiceBox": "109",
+      "hideChoiceBox": "-",
+      "choiceResponses": "111#",
+      "nextLine": "111#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "2",
+      "currentDialogue": "108",
+      "response": "111"
+    },
+    {
+      "dialogueId": "109",
+      "text": "\"Maybe another time\"",
+      "dialogueName": "Player_Original",
+      "speakerSprite": "Bonnie_Prefab",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "112#",
+      "nextLine": "112#",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "109",
+      "response": "112"
+    },
+    {
+      "dialogueId": "110",
+      "text": "\"Yay thank you so much for your help\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "-",
+      "nextLine": "-",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "-",
+      "response": "-"
+    },
+    {
+      "dialogueId": "111",
+      "text": "\"Aww maybe next time\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "-",
+      "nextLine": "-",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "-",
+      "response": "-"
+    },
+    {
+      "dialogueId": "112",
+      "text": "\"Probably another time\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerSprite": "Pink_Cow_1",
+      "choices": "-",
+      "onChoiceSelected": "-",
+      "showChoiceBox": "-",
+      "hideChoiceBox": "-",
+      "choiceResponses": "-",
+      "nextLine": "-",
+      "choiceBox": "FALSE",
+      "choiceIndex": "-",
+      "currentDialogue": "-",
+      "response": "-"
+    }
+  ],
+  "enemies": [
+    {
+      "enemy": "1",
+      "detectionRange": "10",
+      "health": "5",
+      "damage": "0",
+      "fadeDuration": "1",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "5",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "1",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    },
+    {
+      "enemy": "2",
+      "detectionRange": "5",
+      "health": "5",
+      "damage": "5",
+      "fadeDuration": "1",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "5",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "0",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    },
+    {
+      "enemy": "3",
+      "detectionRange": "3",
+      "health": "5",
+      "damage": "1",
+      "fadeDuration": "0.15",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "2",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "1",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    },
+    {
+      "enemy": null,
+      "detectionRange": null,
+      "health": null,
+      "damage": null,
+      "fadeDuration": null,
+      "fadeIterations": null,
+      "idleDurationMin": null,
+      "idleDurationMax": null,
+      "moveSpeed": null,
+      "chargeCooldown": null,
+      "canCharge": null,
+      "attackRange": null,
+      "attackDur": null,
+      "currentState": null,
+      "bufferedState": null
+    },
+    {
+      "enemy": null,
+      "detectionRange": null,
+      "health": null,
+      "damage": null,
+      "fadeDuration": null,
+      "fadeIterations": null,
+      "idleDurationMin": null,
+      "idleDurationMax": null,
+      "moveSpeed": null,
+      "chargeCooldown": null,
+      "canCharge": null,
+      "attackRange": null,
+      "attackDur": null,
+      "currentState": null,
+      "bufferedState": null
+    }
+  ],
+  "enemyMovement": [
+    {
+      "enemy": "1",
+      "detectionRange": "10",
+      "health": "5",
+      "damage": "0",
+      "fadeDuration": "1",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "5",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "1",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    },
+    {
+      "enemy": "2",
+      "detectionRange": "5",
+      "health": "5",
+      "damage": "5",
+      "fadeDuration": "1",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "5",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "0",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    },
+    {
+      "enemy": "3",
+      "detectionRange": "3",
+      "health": "5",
+      "damage": "1",
+      "fadeDuration": "0.15",
+      "fadeIterations": "3",
+      "idleDurationMin": "1",
+      "idleDurationMax": "3",
+      "moveSpeed": "2",
+      "chargeCooldown": "2",
+      "canCharge": "TRUE",
+      "attackRange": "1",
+      "attackDur": "0.5",
+      "currentState": "NULL",
+      "bufferedState": "NULL"
+    }
+  ],
+  "NPC": [
+    {
+      "npcId": "1",
+      "dialogueText": "\"I don't know if this is working\"",
+      "dialogueName": "NPC_COW_Green",
+      "speakerImage": "Pink cow animation sprites_0",
+      "wordSpeed": "0.08",
+      "playerIsClose": "TRUE",
+      "dialogueRange": "3",
+      "contButton": "-",
+      "choiceBox": "-",
+      "pitchIncreaseInterval": "3",
+      "pitchVariance": "0.1",
+      "idleDurationMin": "1",
+      "idleDurationMix": "3",
+      "moveSpeed": "5",
+      "nextDialogueId": "101"
+    },
+    {
+      "npcId": null,
+      "dialogueText": null,
+      "dialogueName": null,
+      "speakerImage": null,
+      "wordSpeed": null,
+      "playerIsClose": null,
+      "dialogueRange": null,
+      "contButton": null,
+      "choiceBox": null,
+      "pitchIncreaseInterval": null,
+      "pitchVariance": null,
+      "idleDurationMin": null,
+      "idleDurationMix": null,
+      "moveSpeed": null,
+      "nextDialogueId": null
+    }
+  ],
+  "player": [
+    {
+      "playerId": "0",
+      "playerName": "Bonnie",
+      "walkSpeed": "3.5",
+      "runSpeed": "5",
+      "defense": "0",
+      "attackDuration": "0.5",
+      "attackWindupDuration": "0.3",
+      "damage": "1",
+      "dashSpeed": "10",
+      "dashDuration": "0.25",
+      "dashCooldown": "1",
+      "ghostSpawnInterval": "0.05"
+    },
+    {
+      "playerId": "1",
+      "playerName": "Bonnie 2",
+      "walkSpeed": "7",
+      "runSpeed": "8.5",
+      "defense": "0",
+      "attackDuration": "0.5",
+      "attackWindupDuration": "0.3",
+      "damage": "1.5",
+      "dashSpeed": "15",
+      "dashDuration": "0.25",
+      "dashCooldown": "1",
+      "ghostSpawnInterval": "0.05"
+    },
+    {
+      "playerId": "2",
+      "playerName": "Bonnie 3",
+      "walkSpeed": "5",
+      "runSpeed": "6.5",
+      "defense": "0",
+      "attackDuration": "0.5",
+      "attackWindupDuration": "0.3",
+      "damage": "1.25",
+      "dashSpeed": "12.5",
+      "dashDuration": "0.25",
+      "dashCooldown": "1",
+      "ghostSpawnInterval": "0.05"
+    }
+  ],
+  "playerInventory": [
+    {
+      "inventory": "slot1",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot2",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot3",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot4",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot5",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot6",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    },
+    {
+      "inventory": "slot7",
+      "isFull": "FALSE",
+      "itemButton": "TRUE",
+      "": ""
+    }
+  ],
+  "slot": [
+    {
+      "playerId": "1",
+      "slot1": "FALSE",
+      "slot2": "FALSE",
+      "slot3": "FALSE",
+      "slot4": "FALSE",
+      "slot5": "FALSE",
+      "slot7": "FALSE"
+    },
+    {
+      "playerId": "2",
+      "slot1": "FALSE",
+      "slot2": "FALSE",
+      "slot3": "FALSE",
+      "slot4": "FALSE",
+      "slot5": "FALSE",
+      "slot7": "FALSE"
+    },
+    {
+      "playerId": "3",
+      "slot1": "FALSE",
+      "slot2": "FALSE",
+      "slot3": "FALSE",
+      "slot4": "FALSE",
+      "slot5": "FALSE",
+      "slot7": "FALSE"
+    }
+  ],
+  "weapon": [
+    {
+      "damageIncreaseAmount": "30",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "200",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "600",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "900",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "1500",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "000",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "650",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "550",
+      "": ""
+    },
+    {
+      "damageIncreaseAmount": "5000",
+      "": ""
+    }
+  ]
+}
