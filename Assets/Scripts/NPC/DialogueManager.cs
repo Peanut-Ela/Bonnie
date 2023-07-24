@@ -60,6 +60,8 @@ public struct DialogueData
                 choiceColors.Add(colour);
             }
         }
+
+
     }
 }
 
@@ -230,9 +232,14 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Choice selected. Choice index: " + choiceIndex);
         HideChoiceBox();
 
-        //string nextLineid = currentDialogue.choiceNextLineIds[choiceIndex];
-
         currentDialogue = GetDialogueID(currentDialogue.choiceNextLineIds[choiceIndex]);
+
+        // Set the color of the dialogue text based on the chosen color from 'choiceColors'
+        if (currentDialogue.choiceColors != null && choiceIndex < currentDialogue.choiceColors.Count)
+        {
+            dialogueText.color = currentDialogue.choiceColors[choiceIndex];
+        }
+
         // Continue with the next line after processing the choice
         StartTyping(npc);
     }
