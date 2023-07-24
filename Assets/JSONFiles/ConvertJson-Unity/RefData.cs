@@ -10,11 +10,12 @@ public class RefData
     //public List<RefenemyData> RefenemyData;
     //public List<enemyMovementData> RefenemyMovement;
     //public List<RefnpcData> RefnpcData;
+
     public List<DialogueData> dialogueData;
     public List<EnemyProperties> enemies;
-    public List<ChestProperties> chestProperties;
+    public List<ChestProperties> chest;
+    public List<PlayerStats> player;
 
-    //public List<Player> PlayerList;
     //public List<NPC> NPCList;
     //public List<Enemy> EnemiesList;
     //public List<Enemy> EnemiesMovement;

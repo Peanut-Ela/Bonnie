@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_0
+      name: BonnieUI_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1cd1d282796c54eaf43db7cbc3bab2
-      internalID: 1775461455
+      spriteID: 7cc5a7484417152478dfa61d8527b37f
+      internalID: -2138561764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_1
+      name: BonnieUI_1
       rect:
         serializedVersion: 2
         x: 0
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b151e10029ff1a64eba8e422a71ef21b
-      internalID: -70289903
+      spriteID: 6871f0029e99acc448aeb448c59e1f57
+      internalID: -227522257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_2
+      name: BonnieUI_2
       rect:
         serializedVersion: 2
         x: 32
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608db9ce416af9343a931a8c966527d0
-      internalID: 1688676500
+      spriteID: abed9fa32633588469db4ad64e717465
+      internalID: -1544050838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_3
+      name: BonnieUI_3
       rect:
         serializedVersion: 2
         x: 0
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16254e28068ac2d4ab88eff6f5ceb972
-      internalID: -546288728
+      spriteID: 48caddfb1d8cfc344a01a6cadf1faafb
+      internalID: 937333308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_4
+      name: BonnieUI_4
       rect:
         serializedVersion: 2
         x: 32
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40dd68c7b99e56546b423814bc8edb96
-      internalID: 1186961306
+      spriteID: cb7be6363deee3043aeee6fe96fa38a2
+      internalID: -1492196775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_5
+      name: BonnieUI_5
       rect:
         serializedVersion: 2
         x: 64
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c71a70c1d614843a658d98de4b7d6b
-      internalID: -1006568130
+      spriteID: 0369f3ab6214d7d4d916d954d201092c
+      internalID: 646675786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_6
+      name: BonnieUI_6
       rect:
         serializedVersion: 2
         x: 96
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce686dc1f7f0ca74b802669db874cff0
-      internalID: -998389193
+      spriteID: cf688837279398d4ea2d793636cbf4d2
+      internalID: 1350490379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_7
+      name: BonnieUI_7
       rect:
         serializedVersion: 2
         x: 128
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d3b7b980e71e054b9e875426eb9c866
-      internalID: 708450019
+      spriteID: bc8acd8c3cc79084ebe0adac2b505a61
+      internalID: 491484936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_8
+      name: BonnieUI_8
       rect:
         serializedVersion: 2
         x: 0
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7aff95c5c91f1b54787b2632b1c92206
-      internalID: -1954124521
+      spriteID: 876b8ce0b5aeede4090f6cb788e62418
+      internalID: -1691219197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_9
+      name: BonnieUI_9
       rect:
         serializedVersion: 2
         x: 32
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ad6e1001a4ff44190259f11bf1f2e8
-      internalID: 1390832448
+      spriteID: 4a8064d2c78d0264a8a721ee4867f094
+      internalID: -1823491810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_10
+      name: BonnieUI_10
       rect:
         serializedVersion: 2
         x: 64
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba1312dce9993f344a46845c502956a1
-      internalID: -664465536
+      spriteID: a085a3d490a4a9f48b4a325a3a983ceb
+      internalID: 1618469096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_11
+      name: BonnieUI_11
       rect:
         serializedVersion: 2
         x: 96
@@ -362,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db726858108ce1346b174c56b2b24759
-      internalID: 1188979485
+      spriteID: 9b0d863290be6bc43b3503cd022abae4
+      internalID: 1882960291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_12
+      name: BonnieUI_12
       rect:
         serializedVersion: 2
         x: 0
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fffa940b5db412143bbe696a632d14fc
-      internalID: 99129743
+      spriteID: 1f31bf89fb0a8cc4eb6982a2b45a8d1d
+      internalID: 361797151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_13
+      name: BonnieUI_13
       rect:
         serializedVersion: 2
         x: 32
@@ -404,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc70584eea03f244bd48737d99929d1
-      internalID: -1384257271
+      spriteID: f45bf99488e5e554e95fca642061c877
+      internalID: 1962704351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_14
+      name: BonnieUI_14
       rect:
         serializedVersion: 2
         x: 0
@@ -425,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f6dbb7ff021bd649ab47e72527e2c07
-      internalID: -2008733092
+      spriteID: cfdef1aaccc1af14181facdbfa13965a
+      internalID: 1735174050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_15
+      name: BonnieUI_15
       rect:
         serializedVersion: 2
         x: 32
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6a6722b7b0ef6c40935dbaf3ff1f71e
-      internalID: -710654530
+      spriteID: 625db3c9ef5322c4fba37ef6188decb4
+      internalID: 1817819298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_16
+      name: BonnieUI_16
       rect:
         serializedVersion: 2
         x: 0
@@ -467,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2c9cd6375cbb644aa063be445acd2e2
-      internalID: 1160958549
+      spriteID: 8f4a3126ad33ad84e9452b95681bcdd7
+      internalID: -1676570254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_17
+      name: BonnieUI_17
       rect:
         serializedVersion: 2
         x: 32
@@ -488,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: def33e195ba88a54aa7e386b28fb5ccb
-      internalID: -604461844
+      spriteID: edd485f0770f4564885a6420e1d311a3
+      internalID: 2098135919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_18
+      name: BonnieUI_18
       rect:
         serializedVersion: 2
         x: 0
@@ -509,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68a542076c911f64599d8800d83cc9ba
-      internalID: 1459626708
+      spriteID: 76f14f505cfcfcd4c91d9c5a3b5f77c4
+      internalID: -654894847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_19
+      name: BonnieUI_19
       rect:
         serializedVersion: 2
         x: 32
@@ -530,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e03360b173edbe3419d8f00199779832
-      internalID: -468323467
+      spriteID: a1aa8581c0da1944081589437019022e
+      internalID: -140249975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_20
+      name: BonnieUI_20
       rect:
         serializedVersion: 2
         x: 0
@@ -551,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 725277e9bb92087469a587f6e2bab1f2
-      internalID: -174875792
+      spriteID: 5360af13729483b4098a5613433733d4
+      internalID: 1383652354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_21
+      name: BonnieUI_21
       rect:
         serializedVersion: 2
         x: 32
@@ -572,14 +572,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3cb9a01861079a43a477cc6bfe7df24
-      internalID: 1899870256
+      spriteID: d6ad8a71a3843284f839b772dc64554f
+      internalID: -2073044363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_22
+      name: BonnieUI_22
       rect:
         serializedVersion: 2
         x: 0
@@ -593,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5dbe1bc185e54e41ace605b4f5a0163
-      internalID: -1696809850
+      spriteID: 9de4ad4a876758a4fb915a3235c7df6f
+      internalID: 260189693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_23
+      name: BonnieUI_23
       rect:
         serializedVersion: 2
         x: 32
@@ -614,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374d202e9df25754a830317be2f039cb
-      internalID: -36859230
+      spriteID: 515aa4724a6b2714ba7912690a6d007e
+      internalID: -1432410510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_24
+      name: BonnieUI_24
       rect:
         serializedVersion: 2
         x: 0
@@ -635,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48175713837aaa24f999b6e249013409
-      internalID: -326002253
+      spriteID: d3e217d271e12124b932f0555865cd9c
+      internalID: -176548916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_25
+      name: BonnieUI_25
       rect:
         serializedVersion: 2
         x: 32
@@ -656,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b01cc3ce2124f1b42a465465a606363e
-      internalID: 1122384245
+      spriteID: 6a0ca32384ceec14f80e45696fda823e
+      internalID: -1583599461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_26
+      name: BonnieUI_26
       rect:
         serializedVersion: 2
         x: 0
@@ -677,14 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7e738d9a804a6446979ec1007f1187d
-      internalID: -1711704376
+      spriteID: 3f0705569e159f046b59b37fcd3bc579
+      internalID: -633234292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_27
+      name: BonnieUI_27
       rect:
         serializedVersion: 2
         x: 32
@@ -698,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b1c70b349a24c544bc5dafcdb63a2be
-      internalID: 1716203893
+      spriteID: 361c03a2a5a306243a9a9550f37b1c6a
+      internalID: 509567085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_28
+      name: BonnieUI_28
       rect:
         serializedVersion: 2
         x: 0
@@ -719,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92026c37c2eb3a849ac256717e386c2a
-      internalID: -1502088389
+      spriteID: f6d553c48fc2415479d3eff3f4883db8
+      internalID: -18500313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_29
+      name: BonnieUI_29
       rect:
         serializedVersion: 2
         x: 0
@@ -740,14 +740,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89ac2a0b38f44224ebc52b83257e2d22
-      internalID: -1464613089
+      spriteID: cef9711d657ba014f8d4011ba376b2c0
+      internalID: 2114502643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_30
+      name: BonnieUI_30
       rect:
         serializedVersion: 2
         x: 32
@@ -761,14 +761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b07d8e2cff298a4385f62184f22aa31
-      internalID: 159377227
+      spriteID: 30e6a0295ceb6094aaf8579676cce068
+      internalID: -1051992969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Teemo Basic emote animations sprite sheet_31
+      name: BonnieUI_31
       rect:
         serializedVersion: 2
         x: 0
@@ -782,8 +782,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c0888d37d5e2be45962663825f76d65
-      internalID: 390268924
+      spriteID: da927ddfbbc2c3343b87e81d4650efbc
+      internalID: 1174470465
       vertices: []
       indices: 
       edges: []
@@ -799,38 +799,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Teemo Basic emote animations sprite sheet_9: 1390832448
-      Teemo Basic emote animations sprite sheet_3: -546288728
-      Teemo Basic emote animations sprite sheet_6: -998389193
-      Teemo Basic emote animations sprite sheet_26: -1711704376
-      Teemo Basic emote animations sprite sheet_18: 1459626708
-      Teemo Basic emote animations sprite sheet_4: 1186961306
-      Teemo Basic emote animations sprite sheet_15: -710654530
-      Teemo Basic emote animations sprite sheet_21: 1899870256
-      Teemo Basic emote animations sprite sheet_25: 1122384245
-      Teemo Basic emote animations sprite sheet_10: -664465536
-      Teemo Basic emote animations sprite sheet_5: -1006568130
-      Teemo Basic emote animations sprite sheet_17: -604461844
-      Teemo Basic emote animations sprite sheet_30: 159377227
-      Teemo Basic emote animations sprite sheet_31: 390268924
-      Teemo Basic emote animations sprite sheet_8: -1954124521
-      Teemo Basic emote animations sprite sheet_14: -2008733092
-      Teemo Basic emote animations sprite sheet_13: -1384257271
-      Teemo Basic emote animations sprite sheet_1: -70289903
-      Teemo Basic emote animations sprite sheet_29: -1464613089
-      Teemo Basic emote animations sprite sheet_24: -326002253
-      Teemo Basic emote animations sprite sheet_20: -174875792
-      Teemo Basic emote animations sprite sheet_23: -36859230
-      Teemo Basic emote animations sprite sheet_19: -468323467
-      Teemo Basic emote animations sprite sheet_2: 1688676500
-      Teemo Basic emote animations sprite sheet_28: -1502088389
-      Teemo Basic emote animations sprite sheet_12: 99129743
-      Teemo Basic emote animations sprite sheet_0: 1775461455
-      Teemo Basic emote animations sprite sheet_11: 1188979485
-      Teemo Basic emote animations sprite sheet_16: 1160958549
-      Teemo Basic emote animations sprite sheet_7: 708450019
-      Teemo Basic emote animations sprite sheet_27: 1716203893
-      Teemo Basic emote animations sprite sheet_22: -1696809850
+      BonnieUI_2: -1544050838
+      BonnieUI_11: 1882960291
+      BonnieUI_31: 1174470465
+      BonnieUI_27: 509567085
+      BonnieUI_24: -176548916
+      BonnieUI_10: 1618469096
+      BonnieUI_15: 1817819298
+      BonnieUI_19: -140249975
+      BonnieUI_16: -1676570254
+      BonnieUI_17: 2098135919
+      BonnieUI_13: 1962704351
+      BonnieUI_23: -1432410510
+      BonnieUI_20: 1383652354
+      BonnieUI_6: 1350490379
+      BonnieUI_7: 491484936
+      BonnieUI_8: -1691219197
+      BonnieUI_14: 1735174050
+      BonnieUI_28: -18500313
+      BonnieUI_4: -1492196775
+      BonnieUI_29: 2114502643
+      BonnieUI_9: -1823491810
+      BonnieUI_3: 937333308
+      BonnieUI_5: 646675786
+      BonnieUI_12: 361797151
+      BonnieUI_22: 260189693
+      BonnieUI_1: -227522257
+      BonnieUI_26: -633234292
+      BonnieUI_18: -654894847
+      BonnieUI_0: -2138561764
+      BonnieUI_21: -2073044363
+      BonnieUI_25: -1583599461
+      BonnieUI_30: -1051992969
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

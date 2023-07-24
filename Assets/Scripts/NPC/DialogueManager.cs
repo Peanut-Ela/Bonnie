@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using NPCStates;
 using System;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 [System.Serializable]
 public struct DialogueData
@@ -18,6 +20,7 @@ public struct DialogueData
 
     public string speakerSpriteStr;
     public Sprite speakerSprite; //use addressables
+    private static string dialogueUIPath = "Assets/Art/UI/Dialogue/{0}.png";
 
     public string choicesStr;
     public string choiceNextLineIdsStr;
@@ -60,7 +63,21 @@ public struct DialogueData
                 choiceColors.Add(colour);
             }
         }
+
     }
+
+
+    public static void LoadIcon(string dialogueUIName, System.Action<Sprite> onLoaded)
+    {
+        var asyncHandle = Addressables.LoadAssetAsync<Sprite>(string.Format(dialogueUIPath, dialogueUIName));
+        asyncHandle.Completed += (loadedUI) =>
+        {
+            onLoaded?.Invoke(loadedUI.Result);
+            Addressables.Release(loadedUI);
+        };
+    }
+
+
 }
 
 
@@ -97,6 +114,7 @@ public class DialogueManager : MonoBehaviour
 
     public static DialogueData GetDialogueID(string id) => GameAssets.instance.dialogueList.Find(a => a.lineId == id);
 
+
     private void Awake()
     {
         // Ensure there is only one instance of the DialogueManager in the scene
@@ -111,6 +129,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void SetImage(string path)
+    {
+        DialogueData.LoadIcon(path, (Sprite speaker) => speakerImage.sprite = speaker);
+    }
+
 
 
     public void StartTyping(NPC npc)
@@ -121,9 +144,12 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
         this.npc = npc;
+
         dialogueText.text = "";
         dialogueName.text = currentDialogue.dialogueName;
-        speakerImage.sprite = currentDialogue.speakerSprite;
+        // Call SetImage to set the speaker image using the file path stored in 'currentDialogue.speakerSpriteStr'
+        SetImage(currentDialogue.speakerSpriteStr);
+        //speakerImage.sprite = currentDialogue.speakerSprite;
         typingCoroutine = StartCoroutine(Typing());
 
     }
@@ -230,9 +256,14 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Choice selected. Choice index: " + choiceIndex);
         HideChoiceBox();
 
-        //string nextLineid = currentDialogue.choiceNextLineIds[choiceIndex];
-
         currentDialogue = GetDialogueID(currentDialogue.choiceNextLineIds[choiceIndex]);
+
+        // Set the color of the dialogue text based on the chosen color from 'choiceColors'
+        if (currentDialogue.choiceColors != null && choiceIndex < currentDialogue.choiceColors.Count)
+        {
+            dialogueText.color = currentDialogue.choiceColors[choiceIndex];
+        }
+
         // Continue with the next line after processing the choice
         StartTyping(npc);
     }

@@ -42,11 +42,18 @@ public class DataManager : MonoBehaviour
             GameAssets.instance.dialogueList.Add(refdialogue);
         }
 
+        GameAssets.instance.playerStatsList = new();
+        foreach (var refplayer in data.player)
+        {
+            refplayer.Parse();
+            GameAssets.instance.playerStatsList.Add(refplayer);
+        }
+
         foreach (var item in data.enemies)
             GameAssets.instance.enemyPropertiesList.Add(item);
 
-        foreach (var item in data.chestProperties)
-            GameAssets.instance.chestProperties.Add(item);
+        foreach (var item in data.chest)
+            GameAssets.instance.chestPropertiesList.Add(item);
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)

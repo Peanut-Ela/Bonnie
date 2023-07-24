@@ -9,7 +9,9 @@ public class GameAssets : MonoBehaviour
     DataManager dataManager;
     public List<DialogueData> dialogueList = new();
     public List<EnemyProperties> enemyPropertiesList = new();
-    public List<ChestProperties> chestProperties = new();
+    public List<ChestProperties> chestPropertiesList = new();
+    public List<PlayerStats> playerStatsList;
+
     //public List<Player> PlayerList;
     //public List<NPC> NPCList;
     //public List<Enemy> EnemiesList;
@@ -22,7 +24,7 @@ public class GameAssets : MonoBehaviour
 
     public static int selectedCharacter;
 
-    public List<PlayerStats> playerStatsList = new List<PlayerStats>();
+    //public List<PlayerStats> playerStatsList = new List<PlayerStats>();
 
     // Start is called before the first frame update
     private void Awake()

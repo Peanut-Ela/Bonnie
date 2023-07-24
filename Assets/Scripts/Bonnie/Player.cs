@@ -30,7 +30,23 @@ public struct PlayerStats
     public float dashCoolDown;
 
     [Header("Color Settings")]
-    public Color playerColor; 
+    public string playerColorStr;
+    public Color playerColor;
+
+    [Header("Health Settings")]
+    public string currentHealth;
+    public string maxHealth;
+
+
+    public void Parse()
+    {
+        if (!string.IsNullOrEmpty(playerColorStr))
+        {
+            Color color;
+            ColorUtility.TryParseHtmlString(playerColorStr, out color);
+            playerColor = color;
+        }
+    }
 
 }
 
