@@ -1,14 +1,15 @@
-dialogueId,text,dialogueName,speakerSprite,choices,onChoiceSelected,showChoiceBox,hideChoiceBox,choiceResponses,nextLine,choiceBox,choiceIndex,currentDialogue,response
-100,"""I don't know if this is working""",NPC_COW_Green,Pink_Cow_1,Yes;No;Choice 1,Yes,101,100,101#102#103,-,TRUE,0,100,101
-101,"""I think this is working""",Player_Original,Bonnie_Prefab,-,No,104,-,104#,101#,FALSE,1,101,102
-102,"""No i don't think this is working""",Player_Original,Bonnie_Prefab,-,Choice 1,105,-,105#,102#,FALSE,2,102,103
-103,"""i think this will work""",Player_Original,Bonnie_Prefab,-,-,-,-,106#,103#,FALSE,-,103,104
-104,"""I hope this will work""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,104,105
-105,"""I think there is a quest""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,105,106
-106,"""Do you want to accept it""",NPC_COW_Green,Pink_Cow_1,Yes;No;Choice 1,Yes,107,106,107#108#109#,-,TRUE,0,106,107
-107,"""I think i will accept it""",Player_Original,Bonnie_Prefab,-,No,108,-,110#,110#,FALSE,1,107,110
-108,"""No i will not accept it""",Player_Original,Bonnie_Prefab,-,Choice 1,109,-,111#,111#,FALSE,2,108,111
-109,"""Maybe another time""",Player_Original,Bonnie_Prefab,-,-,-,-,112#,112#,FALSE,-,109,112
-110,"""Yay thank you so much for your help""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-
-111,"""Aww maybe next time""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-
-112,"""Probably another time""",NPC_COW_Green,Pink_Cow_1,-,-,-,-,-,-,FALSE,-,-,-
+lineId,nextLineId,text,dialogueName,speakerSpriteStr,choicesStr,choiceNextLineIdsStr,choiceColorsStr,,,,,,,
+100,,,Moodle Pudding,,What was it again?@Scram!,101@102,FF0000@FF0000,,,,,,,
+101,,,Moodle Pudding,,,,,,,,,,,
+102,,,Moodle Pudding,,,,,,,,,,,
+200,,,Holy Cow,Bonnie_Prefab,106,106,,,,,,,,
+201,,,NPC_COW_Green,Pink_Cow_1,,,,,,,,,,
+202,,,NPC_COW_Green,Pink_Cow_1,,,,,,,,,,
+203,,,NPC_COW_Green,Pink_Cow_1,107@108@109,107@108@109,,,,,,,,
+204,,,Player_Original,Bonnie_Prefab,110,110,,,,,,,,
+300,,,Holy Cow,Bonnie_Prefab,Moo Amen!@Nah,301@302,,,,,,,,
+301,,,Holy Cow,Bonnie_Prefab,,,,,,,,,,
+302,,,Holy Cow,Pink_Cow_1,Not my problem!@Sorry!!!,303@304,,,,,,,,
+303,,,Holy Cow,Pink_Cow_1,,,,,,,,,,
+304,,,Holy Cow,Pink_Cow_1,,,,,,,,,,
+305,,,Busy Cow,,,,,,,,,,,
