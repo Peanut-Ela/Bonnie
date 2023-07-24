@@ -6,6 +6,64 @@ using UnityEngine.UI;
 using NPCStates;
 using System;
 
+[System.Serializable]
+public struct DialogueData
+{
+    //Convert string into list, json doesnt support list or sprite
+
+    public string lineId;
+    public string nextLineId;
+    public string text;
+    public string dialogueName;
+
+    public string speakerSpriteStr;
+    public Sprite speakerSprite; //use addressables
+
+    public string choicesStr;
+    public string choiceNextLineIdsStr;
+    public string choiceColorsStr;
+    public List<string> choices; // List of choices for the dialogue line
+    public List<string> choiceNextLineIds; // List of nextLineIds corresponding to each choice
+    public List<Color> choiceColors; // List of colors for each choice
+
+    public void Parse()
+    {
+
+        if (!string.IsNullOrEmpty(choicesStr))
+        {
+            choices = new List<string>();
+            string[] choiceSplit = choicesStr.Split('@');
+            for (int i = 0; i < choiceSplit.Length; i++)
+            {
+                choices.Add(choiceSplit[i]);
+            }
+        }
+
+        if (!string.IsNullOrEmpty(choiceNextLineIdsStr))
+        {
+            choiceNextLineIds = new List<string>();
+            string[] choiceNextLineIdsSplit = choiceNextLineIdsStr.Split('@');
+            for (int i = 0; i < choiceNextLineIdsSplit.Length; i++)
+            {
+                choiceNextLineIds.Add(choiceNextLineIdsSplit[i]);
+            }
+        }
+
+        if (!string.IsNullOrEmpty(choiceColorsStr))
+        {
+            choiceColors = new List<Color>();
+            string[] coloursSplit = choiceColorsStr.Split('@');
+            for (int i = 0; i < coloursSplit.Length; i++)
+            {
+                Color colour;
+                ColorUtility.TryParseHtmlString(choiceColorsStr, out colour);
+                choiceColors.Add(colour);
+            }
+        }
+    }
+}
+
+
 public class DialogueManager : MonoBehaviour
 {
 
@@ -33,28 +91,11 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     [Header("Dialogue Data")]
-    //public int index;
-    public List<DialogueData> dialogueDataList = new List<DialogueData>();
     private Coroutine typingCoroutine;
 
     // New DialogueData struct with [System.Serializable] attribute
-    [System.Serializable]
-    public struct DialogueData
-    {
-        //public int npcId;
-        //Convert string into list, json doesnt support list or sprite
 
-        public string lineId;
-        public string nextLineId;
-        public string text;
-        public string dialogueName;
-        public Sprite speakerSprite;
-        public List<string> choices; // List of choices for the dialogue line
-        public List<string> choiceNextLineIds; // List of nextLineIds corresponding to each choice
-        public List<Color> choiceColors; // List of colors for each choice
-    }
-
-    public static DialogueData GetDialogueID(string id) => instance.dialogueDataList.Find(a => a.lineId == id);
+    public static DialogueData GetDialogueID(string id) => GameAssets.instance.dialogueList.Find(a => a.lineId == id);
 
     private void Awake()
     {
@@ -140,7 +181,7 @@ public class DialogueManager : MonoBehaviour
         {
             contButton.SetActive(true);
         }
-         
+
         yield return null;
     }
 
@@ -160,19 +201,6 @@ public class DialogueManager : MonoBehaviour
             StartTyping(npc);
         }
 
-    }
-
-
-    private int GetIndexFromNextLineId(string nextLineid)
-    {
-        for (int i = 0; i < dialogueDataList.Count; i++)
-        {
-            if (dialogueDataList[i].lineId == nextLineid)
-            {
-                return i;
-            }
-        }
-        return -1; // Invalid nextLineid
     }
 
     private void ShowChoiceBox()

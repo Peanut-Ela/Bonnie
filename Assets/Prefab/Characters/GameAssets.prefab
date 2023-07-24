@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245823319993419378}
   - component: {fileID: 3352082295504823661}
+  - component: {fileID: 3423402177011535211}
   m_Layer: 0
   m_Name: GameAssets
   m_TagString: Untagged
@@ -44,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899a3e6c33d409242856ce83387652c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueList: []
+  enemyPropertiesList: []
   playerStatsList:
   - playerID: 0
     walkSpeed: 3.5
@@ -78,3 +81,15 @@ MonoBehaviour:
     dashDuration: 0.25
     dashCoolDown: 1
     playerColor: {r: 1, g: 0.8742138, b: 0.8742138, a: 1}
+--- !u!114 &3423402177011535211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4712970278741433885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fda4cbeded7aa84d9da3cea4cedd89e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
