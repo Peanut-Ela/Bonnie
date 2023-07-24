@@ -6,6 +6,8 @@ public class GameAssets : MonoBehaviour
 {
     public static GameAssets instance;
 
+    //list of dialogues
+
     public static int selectedCharacter;
 
     public List<PlayerStats> playerStatsList = new List<PlayerStats>();
@@ -36,6 +38,8 @@ public class GameAssets : MonoBehaviour
             return -1; // Return an invalid value to indicate an error
         }
     }
+
+    //get dialogue data with npc openingdialogueid
 
 
 }

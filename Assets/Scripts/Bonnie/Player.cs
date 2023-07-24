@@ -9,7 +9,7 @@ using static UnityEditor.Progress;
 [System.Serializable]
 public struct PlayerStats
 {
-    [Header("Speed Settings")]
+    [Header("ID Settings")]
     public int playerID;
 
     [Header("Speed Settings")]
@@ -110,8 +110,8 @@ public class Player : StateMachine
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        if(isCharacterSelect == false)
-        {
+        if (isCharacterSelect) return;
+
             if (instance == null)
             {
                 instance = this;
@@ -121,10 +121,9 @@ public class Player : StateMachine
             }
             else
             {
-                Destroy(instance.gameObject); // Destroy the duplicate player if it exists
+                Destroy(gameObject); // Destroy the duplicate player if it exists
                 return;
             }
-        }
 
         base.Awake();
 

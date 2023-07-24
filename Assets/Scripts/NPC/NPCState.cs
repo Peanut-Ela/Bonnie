@@ -100,7 +100,7 @@ namespace NPCStates
     public class DialogueState : NPCState
     {
 
-        private readonly NPC npc;
+        //private readonly NPC npc;
         public DialogueState(NPC sm) : base(sm)
         {
             this.npc = sm;
@@ -111,8 +111,9 @@ namespace NPCStates
             base.OnEnter();
             npc.animator.PlayInFixedTime(NPC.IdleKey);
             npc.visualCue.SetActive(false);
-            npc.dialoguePanel.SetActive(true);
-            npc.StartTyping();
+            DialogueManager.instance.dialoguePanel.SetActive(true);
+            DialogueManager.instance.currentDialogue = DialogueManager.GetDialogueID(npc.openingDialogueId);
+            DialogueManager.instance.StartTyping(npc);
         }
 
         public override void Update()
@@ -121,7 +122,7 @@ namespace NPCStates
 
             if (!npc.playerIsClose)
             {
-                npc.zeroText();
+                DialogueManager.instance.zeroText();
             }
         }
 

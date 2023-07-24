@@ -12,6 +12,8 @@ public class Boat : MonoBehaviour
     private bool isPlayerNearby = false;
     [SerializeField] private GameObject startTransition;
 
+    
+
     // Add scene indices for the three buttons
     public int button1SceneIndex;
     public int button2SceneIndex;
@@ -78,5 +80,26 @@ public class Boat : MonoBehaviour
         objectToActivate.SetActive(false);
     }
 
+    // Function to be called when the button1 is clicked
+    public void Button1Clicked()
+    {
+        //SavePlayerPosition();
+        SceneManager.LoadScene(button1SceneIndex);
+    }
 
+    // Function to be called when the button2 is clicked
+    public void Button2Clicked()
+    {
+        //SavePlayerPosition();
+        SceneManager.LoadScene(button2SceneIndex);
+    }
+
+    // Function to be called when the button3 is clicked
+    public void Button3Clicked()
+    {
+        //SavePlayerPosition();
+        SceneManager.LoadScene(button3SceneIndex);
+    }
+
+    
 }

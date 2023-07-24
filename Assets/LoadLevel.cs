@@ -9,6 +9,7 @@ public class LoadLevel : MonoBehaviour
 
     public int loadScene;
     [SerializeField] private GameObject startTransition;
+    public Transform playerPos;
 
     public void LoadScene()
     {
@@ -19,6 +20,15 @@ public class LoadLevel : MonoBehaviour
     IEnumerator WaitAndExecute(float time)
     {
         yield return new WaitForSecondsRealtime(time);
+        SavePlayerPosition();
         SceneManager.LoadScene(loadScene, LoadSceneMode.Single);
+    }
+
+    void SavePlayerPosition()
+    {
+        if (Player.instance != null && playerPos != null)
+        {
+            Player.instance.transform.position = playerPos.position;
+        }
     }
 }
