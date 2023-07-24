@@ -26,6 +26,14 @@ public class Player : StateMachine
     public float attackWindupDuration = 0.3f;
     public float damage;
     //public CharacterStats Strength;
+
+
+
+
+
+
+
+
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
     [Header("Dash Settings")]
