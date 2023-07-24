@@ -6,43 +6,26 @@ using UnityEngine;
 /// </summary>
 public class GameData : MonoBehaviour
 {
-    public static GameData instance;
-    DataManager dataManager;
-    public List<DialogueData> dialogueList = new();
-    public List<EnemyProperties> enemyPropertiesList = new();
+    //public static GameData instance;
+    
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(instance);
+    //        RunOnce();
+    //    }
+    //    else
+    //        Destroy(gameObject);
+    //}
+    ////public static List<DialogueData> GetDialogueDataList() { return dialogueList; }
+    
+    //public void StartGame()
+    //{
 
-
-
-    public List<ChestProperties> chestProperties = new();
-    //public List<Player> PlayerList;
-    //public List<NPC> NPCList;
-    //public List<Enemy> EnemiesList;
-    //public List<Enemy> EnemiesMovement;
-    //public List<Weapon> Weapon;
-    //public List<Inventory> Inventory;
-    //public List<Slot> Slot;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-            RunOnce();
-        }
-        else
-            Destroy(gameObject);
-    }
-    //public static List<DialogueData> GetDialogueDataList() { return dialogueList; }
-    public void RunOnce()
-    {
-        dataManager = GetComponent<DataManager>();
-        dataManager.LoadRefData(StartGame);
-    }
-    public void StartGame()
-    {
-
-    }
-    public static DialogueData GetDialogueData(string dialogueId) => instance.dialogueList.Find(aaaaa => aaaaa.dialogueId == dialogueId);
+    //}
+    //public static DialogueData GetDialogueData(string dialogueId) => instance.dialogueList.Find(aaaaa => aaaaa.dialogueId == dialogueId);
     //public static void SetDialogueList(List<DialogueData> alist) { dialogueList = alist; }
 
     //public static List<Player> GetPlayerList() { return PlayerList; }

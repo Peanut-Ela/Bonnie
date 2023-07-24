@@ -58,21 +58,6 @@ public class NPC : StateMachine
 
     //Transfer couroutines to dialoguemanager
 
-    // New DialogueData struct
-    [System.Serializable]
-    public struct DialogueData
-    {
-        public int npcId;
-        public string lineId;
-        public string nextLineId;
-        public string text;
-        public string dialogueName;
-        public Sprite speakerSprite;
-        public List<string> choices; // List of choices for the dialogue line
-        public List<string> choiceNextLineIds; // List of nextLineIds corresponding to each choice
-        public List<Color> choiceColors; // List of colors for each choice
-    }
-
     protected override void Awake()
     {
         base.Awake();
@@ -87,29 +72,6 @@ public class NPC : StateMachine
         base.Update();
     }
 
-
-
-    //public void StartInteraction()
-    //{
-    //    // Get the DialogueManager instance
-    //    DialogueManager dialogueManager = DialogueManager.instance;
-
-    //    if (dialogueManager != null)
-    //    {
-    //        // Retrieve the DialogueData list for this NPC based on the openingDialogueId
-    //        List<DialogueData> npcDialogueList = dialogueManager.GetDialogueDataListForNPC(openingDialogueId);
-
-    //        if (npcDialogueList != null && npcDialogueList.Count > 0)
-    //        {
-    //            // Assign the retrieved dialogue list to the NPC's dialogueDataList
-    //            dialogueDataList = npcDialogueList;
-
-    //            // Start the dialogue by displaying the opening dialogue
-    //            index = 0;
-    //            StartTyping();
-    //        }
-    //    }
-    //}
 
     
 

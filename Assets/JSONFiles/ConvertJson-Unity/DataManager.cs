@@ -37,14 +37,16 @@ public class DataManager : MonoBehaviour
 
     private void ProcessData(RefData data)
     {
-        foreach (var refdialogue in data.dialogueData)
-            GameData.instance.dialogueList.Add(refdialogue);
+        foreach (var refdialogue in data.dialogueData) {
+            refdialogue.Parse();
+            GameAssets.instance.dialogueList.Add(refdialogue);
+        }
 
         foreach (var item in data.enemies)
-            GameData.instance.enemyPropertiesList.Add(item);
+            GameAssets.instance.enemyPropertiesList.Add(item);
 
         foreach (var item in data.chestProperties)
-            GameData.instance.chestProperties.Add(item);
+            GameAssets.instance.chestProperties.Add(item);
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)
