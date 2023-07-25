@@ -78,6 +78,10 @@ public class DataManager : MonoBehaviour
             refchest.Parse();
             GameAssets.instance.chestPropertiesList.Add(refchest);
         }
+
+        foreach (var refstats in data.analytics)
+            GameAssets.instance.analyticsStatsList.Add(refstats);
+
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)

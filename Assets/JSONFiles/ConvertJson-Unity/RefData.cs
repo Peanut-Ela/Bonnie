@@ -7,6 +7,8 @@ using UnityEngine;
 public class RefData
 {
     public List<PlayerStats> player;
+    public List<AnalyticsStats> analytics;
+
     public List<EnemyProperties> enemies;
     public List<WeaponProperties> weapon;
     public List<ShieldProperties> shield;

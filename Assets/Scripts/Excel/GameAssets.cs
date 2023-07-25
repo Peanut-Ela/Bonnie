@@ -9,6 +9,8 @@ public class GameAssets : MonoBehaviour
     DataManager dataManager;
 
     public List<PlayerStats> playerStatsList;
+    public List<AnalyticsStats> analyticsStatsList = new();
+
     public List<EnemyProperties> enemyPropertiesList = new();
     public List<WeaponProperties> weaponPropertiesList = new();
     public List<ShieldProperties> shieldPropertiesList = new();

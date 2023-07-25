@@ -49,6 +49,14 @@ public struct ItemProperties
     }
 }
 
+public enum ItemType
+{
+    HealthPotion,
+    Weapon,
+    Shield,
+    MilkBottle
+}
+
 public class Pickup : MonoBehaviour
 {
     internal SpriteRenderer sr;
