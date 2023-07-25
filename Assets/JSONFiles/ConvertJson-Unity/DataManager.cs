@@ -45,18 +45,11 @@ public class DataManager : MonoBehaviour
             GameAssets.instance.playerStatsList.Add(refplayer);
         }
 
-        foreach (var refdialogue in data.dialogueData) {
-            refdialogue.Parse();
-            GameAssets.instance.dialogueList.Add(refdialogue);
-        }
-
-        foreach (var refenemy in data.enemies) {
+        foreach (var refenemy in data.enemies) 
+        {
             refenemy.Parse(); 
             GameAssets.instance.enemyPropertiesList.Add(refenemy);
         }
-
-        foreach (var refchest in data.chest)
-            GameAssets.instance.chestPropertiesList.Add(refchest);
 
         foreach (var refweapon in data.weapon)
             GameAssets.instance.weaponPropertiesList.Add(refweapon);
@@ -66,6 +59,18 @@ public class DataManager : MonoBehaviour
 
         foreach (var refnpc in data.NPC)
             GameAssets.instance.npcPropertiesList.Add(refnpc);
+
+        foreach (var refdialogue in data.dialogueData) 
+        {
+            refdialogue.Parse();
+            GameAssets.instance.dialogueList.Add(refdialogue);
+        }
+
+        foreach (var refitem in data.item)
+            GameAssets.instance.itemPropertiesList.Add(refitem);
+
+        //foreach (var refchest in data.chest)
+        //    GameAssets.instance.chestPropertiesList.Add(refchest);
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)

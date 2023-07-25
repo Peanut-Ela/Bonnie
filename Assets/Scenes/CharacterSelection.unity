@@ -49509,6 +49509,10 @@ PrefabInstance:
       propertyPath: playerStatsList.Array.data[2].playerColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3352082295504823661, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: playerStatsList.Array.data[0].items.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4712970278741433885, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
       propertyPath: m_Name
       value: GameAssets

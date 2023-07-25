@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7944451965925975133}
   - component: {fileID: -2719053895098746481}
   m_Layer: 5
-  m_Name: Apple_Health
+  m_Name: Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefabs:
   - {fileID: 2360111054323295968, guid: 77bb0d18fe22a9441b6abbad66dac20e, type: 3}
+  - {fileID: 2925413506861509812, guid: 5386e87ed69e60e4a96ec59b75534ed1, type: 3}
   spawnRadius: 2
 --- !u!114 &-2719053895098746481
 MonoBehaviour:

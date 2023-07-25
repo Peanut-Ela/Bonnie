@@ -10,7 +10,12 @@ using static UnityEditor.Progress;
 public struct PlayerStats
 {
     [Header("ID Settings")]
-    public int playerID;
+    public int playerId;
+
+    [Header("Inventory Settings")]
+    public int inventorySlots;
+    public int items;
+    public int coinCount;
 
     [Header("Speed Settings")]
     public float walkSpeed;
@@ -46,23 +51,25 @@ public struct PlayerStats
             ColorUtility.TryParseHtmlString(playerColorStr, out color);
             playerColor = color;
         }
+
     }
 
 }
 
 public class Player : StateMachine
 {
-    public bool isCharacterSelect;
     public static Player instance;
     internal Rigidbody2D rb;
     internal SpriteRenderer sr;
     internal Animator animator;
     public GameObject weaponHitbox;
-    //public GameObject mouseSprite;
+    public Shield equippedShield;
+    public Weapon equippedWeapon;
+    public Speed milkDrank;
     internal Vector2 moveDirection;
-    internal Vector2 lastAnimDir; // Locked to 4 direction
+    internal Vector2 lastAnimDir; 
 
-    //public PlayerStats playerStats; // Store player stats using the defined struct
+    public bool isCharacterSelect;
     public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
     #region Animation Keys
@@ -76,9 +83,14 @@ public class Player : StateMachine
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
 
+    [Header("ID Settings")]
+    public int playerId;
+
+    [Header("Health Settings")]
+    public int currentHealth;
+    public int maxHealth;
 
     [Header("Inventory Settings")]
-    public Spawn spawnComponent;
     public int inventorySlots;
     public int[] items;
     public int coinCount;
@@ -106,16 +118,6 @@ public class Player : StateMachine
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
 
-    public Shield equippedShield;
-    public Weapon equippedWeapon;
-    public Speed milkDrank;
-    //private float baseDamage;
-
-    [Header("Health Settings")]
-    public int currentHealth;
-    public int maxHealth;
-
-
 
     protected override void Awake()
     {
@@ -132,7 +134,7 @@ public class Player : StateMachine
                 instance = this;
                 DontDestroyOnLoad(instance);
                 SetProperties(); 
-                items = new int[inventorySlots];
+                //items = new int[playerStats.items.Length];
             }
             else
             {
@@ -157,6 +159,12 @@ public class Player : StateMachine
                 PlayerStats playerStats = GameAssets.instance.playerStatsList[playerID];
 
                 // Assign playerStats values to the corresponding Player properties
+                inventorySlots = playerStats.inventorySlots;
+
+                items = new int[playerStats.items];
+
+                playerId = playerStats.playerId;
+                coinCount = playerStats.coinCount;
                 walkSpeed = playerStats.walkSpeed;
                 runSpeed = playerStats.runSpeed;
                 defense = playerStats.defense;

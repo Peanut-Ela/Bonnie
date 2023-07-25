@@ -7,20 +7,15 @@ public class GameAssets : MonoBehaviour
     public static GameAssets instance;
 
     DataManager dataManager;
-    public List<DialogueData> dialogueList = new();
-    public List<EnemyProperties> enemyPropertiesList = new();
-    public List<ChestProperties> chestPropertiesList = new();
     public List<PlayerStats> playerStatsList;
+    public List<EnemyProperties> enemyPropertiesList = new();
     public List<WeaponProperties> weaponPropertiesList = new();
     public List<ShieldProperties> shieldPropertiesList = new();
+    public List<DialogueData> dialogueList = new();
     public List<NPCProperties> npcPropertiesList = new();
+    public List<ItemProperties> itemPropertiesList = new();
 
-    //public List<Player> PlayerList;
-    //public List<NPC> NPCList;
-    //public List<Enemy> EnemiesList;
-    //public List<Enemy> EnemiesMovement;
-    //public List<Inventory> Inventory;
-    //public List<Slot> Slot;
+    //public List<ChestProperties> chestPropertiesList = new();
 
     //list of dialogues
 
@@ -56,7 +51,7 @@ public class GameAssets : MonoBehaviour
     {
         if (selectedCharacter >= 0 && selectedCharacter < playerStatsList.Count)
         {
-            return playerStatsList[selectedCharacter].playerID;
+            return playerStatsList[selectedCharacter].playerId;
         }
         else
         {

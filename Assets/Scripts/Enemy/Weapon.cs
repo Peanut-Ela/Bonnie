@@ -32,9 +32,9 @@ public struct WeaponProperties
 public class Weapon : StateMachine
 {
     internal SpriteRenderer sr;
-    internal Animator animator;
     internal Rigidbody2D rb;
-    internal WeaponProperties currentWeapon;
+    internal Animator animator;
+    //internal WeaponProperties currentWeapon;
 
     [Header("General Settings")]
     public string weaponId;

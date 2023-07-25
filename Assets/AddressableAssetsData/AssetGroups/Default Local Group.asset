@@ -33,6 +33,18 @@ MonoBehaviour:
     m_Address: Assets/Art/Weapon
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f6f01b855814312458e09aa65a419263
+    m_Address: Assets/Art/UI/Icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3b7f218ce920f7f47bd9aa5a084f9d87
+    m_Address: Assets/Art/Objects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a55202fe1b405c04fa4f55c01aba3f90
+    m_Address: Assets/Prefab/Inventory
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b68d7e4200edc2f45a1184a3a319d02a, type: 2}
   m_SchemaSet:
