@@ -859,7 +859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2580602591550182022, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
       propertyPath: m_Name
-      value: NPC_Cow (1)
+      value: NPC_Cow 1
       objectReference: {fileID: 0}
     - target: {fileID: 2580602591550182023, guid: 16292306a6ea41a4280471a2ee22aae9, type: 3}
       propertyPath: index
