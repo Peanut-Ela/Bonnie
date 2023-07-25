@@ -2,36 +2,99 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ChestStates;
+using PlayerStates;
 
 [System.Serializable]
 public struct ChestProperties
 {
+    [Header("General Settings")]
     public int chestId;
     public string chestType;
-    public float chestProbability;
-    public int dropValue;
+
+    [Header("Color Settings")]
+    public string chestColorStr;
+    public Color chestColor;
+
+    [Header("CoinPrefab Settings")]
+    public List<GameObject> dropList;
+
+    [Header("Distance Settings")]
+    public float itemSpawnDist;
+
+
+    [Header("Probability Settings")]
+    public int minCoinSpawnCount;
+    public int maxCoinSpawnCount;
+
+    public void Parse()
+    {
+        if (!string.IsNullOrEmpty(chestColorStr))
+        {
+            Color color;
+            ColorUtility.TryParseHtmlString(chestColorStr, out color);
+            chestColor = color;
+        }
+
+    }
 }
+
 public class Chest : StateMachine
 {
     internal Animator anim;
-    public List<GameObject> dropList = new List<GameObject>();
-    public float itemSpawnDist = 1.5f;
-    public int minSpawnCount = 1;
-    public int maxSpawnCount = 8;
+    internal SpriteRenderer sr;
     public override BaseState StartState => new ClosedState(this);
     #region Animation Keys
     public static readonly int ClosedKey = Animator.StringToHash("Closed");
     public static readonly int OpeningKey = Animator.StringToHash("Opening");
     public static readonly int OpenedKey = Animator.StringToHash("Opened");
     #endregion
+
+    [Header("General Settings")]
+    public int chestId;
+    public string chestType;
+
+    [Header("CoinPrefab Settings")]
+    public List<GameObject> dropList = new List<GameObject>();
+
+    [Header("Distance Settings")]
+    public float itemSpawnDist = 1.5f;
+
+    [Header("Probability Settings")]
+    public int minCoinSpawnCount = 1;
+    public int maxCoinSpawnCount = 8;
+
     protected override void Awake()
     {
         base.Awake();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        SetProperties();
+    }
+
+    public void SetProperties()
+    {
+        if (GameAssets.instance != null)
+
+        {
+            ChestProperties chestProperties = GameAssets.instance.chestPropertiesList.Find(a => a.chestId == chestId);
+
+            // Assign chestProperties values to the corresponding chest properties
+            chestType = chestProperties.chestType;
+            minCoinSpawnCount = chestProperties.minCoinSpawnCount;
+            maxCoinSpawnCount = chestProperties.maxCoinSpawnCount;
+            itemSpawnDist = chestProperties.itemSpawnDist;
+            sr.color = chestProperties.chestColor;
+        }
+    }
+
     public void SpawnRandomLoot()
     {
-        int randAmt = Random.Range(minSpawnCount, maxSpawnCount);
+        int randAmt = Random.Range(minCoinSpawnCount, maxCoinSpawnCount);
         for (int i = 0; i < randAmt; i++)
         {
             SpawnItem();

@@ -7,15 +7,17 @@ public class GameAssets : MonoBehaviour
     public static GameAssets instance;
 
     DataManager dataManager;
+
     public List<PlayerStats> playerStatsList;
     public List<EnemyProperties> enemyPropertiesList = new();
     public List<WeaponProperties> weaponPropertiesList = new();
     public List<ShieldProperties> shieldPropertiesList = new();
+
     public List<DialogueData> dialogueList = new();
     public List<NPCProperties> npcPropertiesList = new();
-    public List<ItemProperties> itemPropertiesList = new();
 
-    //public List<ChestProperties> chestPropertiesList = new();
+    public List<ItemProperties> itemPropertiesList = new();
+    public List<ChestProperties> chestPropertiesList = new();
 
     //list of dialogues
 
