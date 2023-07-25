@@ -37,8 +37,8 @@ MonoBehaviour:
     m_Address: Assets/Art/UI/Icon
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 3b7f218ce920f7f47bd9aa5a084f9d87
-    m_Address: Assets/Art/Objects
+  - m_GUID: 1680e11a6e9ae44439af8fae5a6db3c7
+    m_Address: Assets/Art/Objects/Items
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: a55202fe1b405c04fa4f55c01aba3f90

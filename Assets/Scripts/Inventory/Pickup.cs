@@ -17,23 +17,24 @@ public struct ItemProperties
     [Header("Sprite Settings")]
     public string itemSpriteStr;
     public Sprite itemSprite; // Assign the sprite of the item to this variable in the Inspector
-    private static string itemUIPath = "Assets/Art/Objects/{0}.png";
+    private static string itemUIPath = "Assets/Art/Objects/Items/{0}.png";
 
     [Header("GameObject Settings")]
     public string itemCategoryStr;
-    //public GameObject itemCategory;
-    //private static string itemGameObjectPath = "Assets/Prefab/Inventory/{0}.prefab"; // Replace with the correct path to your prefabs
+    public GameObject itemCategory;
+    public List<GameObject> itemPrefabs;
+    private static string itemGameObjectPath = "Assets/Prefab/Inventory/{0}.prefab"; // Replace with the correct path to your prefabs
 
-    //// Load the item GameObject
-    //public static void LoadGameObject(string itemGameObjectName, System.Action<GameObject> onLoaded)
-    //{
-    //    var asyncHandle = Addressables.LoadAssetAsync<GameObject>(string.Format(itemGameObjectPath, itemGameObjectName));
-    //    asyncHandle.Completed += (loadedGameObject) =>
-    //    {
-    //        onLoaded?.Invoke(loadedGameObject.Result);
-    //        Addressables.Release(loadedGameObject);
-    //    };
-    //}
+    // Load the item GameObject
+    public static void LoadGameObject(string itemGameObjectName, System.Action<GameObject> onLoaded)
+    {
+        var asyncHandle = Addressables.LoadAssetAsync<GameObject>(string.Format(itemGameObjectPath, itemGameObjectName));
+        asyncHandle.Completed += (loadedGameObject) =>
+        {
+            onLoaded?.Invoke(loadedGameObject.Result);
+            Addressables.Release(loadedGameObject);
+        };
+    }
 
     //public GameObject itemCategory;
 
@@ -91,11 +92,11 @@ public class Pickup : MonoBehaviour
                 sr.sprite = itemSprite;
             });
 
-            //// Load the item GameObject and instantiate it
-            //ItemProperties.LoadGameObject(itemProperties.itemCategoryStr, (GameObject itemGameObject) =>
-            //{
-            //    itemCategory = Instantiate(itemGameObject, transform.position, Quaternion.identity);
-            //});
+            // Load the item GameObject and assign it directly to itemCategory
+            ItemProperties.LoadGameObject(itemProperties.itemCategoryStr, (GameObject itemGameObject) =>
+            {
+                itemCategory = itemGameObject;
+            });
         }
     }
 
@@ -115,7 +116,7 @@ public class Pickup : MonoBehaviour
                         Player.instance.items[i] = 1; // makes sure that the slot is now considered FULL
 
                         // Trigger the event passing the item sprite and itemID
-                        OnItemPickup?.Invoke(itemSprite, itemId);
+                        OnItemPickup?.Invoke(sr.sprite, itemId);
 
                         // Instantiate(itemButton, Player.instance.transform, false); // spawn the button so that the player can interact with it
                         Destroy(gameObject);
