@@ -7,26 +7,35 @@ using UnityEngine;
 [Serializable]
 public struct EnemyProperties
 {
-    public int enemy;
-    public float detectionRange;
+    [Header("General Settings")]
+    public string enemyId;
     public float health;
-    public int damage;
-    public float fadeDuration;
-    public int fadeIterations;
+
+    [Header("Wander Settings")]
+    public float moveSpeed;
     public float idleDurationMin;
     public float idleDurationMax;
-    public float moveSpeed;
-    public float chargeCooldown;
+
+    [Header("Charge Settings")]
     public bool canCharge;
+    public float chargeCooldown;
+    public float detectionRange;
+
+    [Header("Attack Settings")]
+    public int damage;
     public float attackRange;
     public float attackDur;
+
+    [Header("Defeated Settings")]
+    public float fadeDuration;
+    public int fadeIterations;
 }
 public class Enemy : StateMachine
 {
     public float detectionRange = 10f;
     public float health;
     public int damage;
-    public float fadeDuration = 1f; // Duration of each fade
+    public float fadeDuration; // Duration of each fade
     public int fadeIterations = 3; // Number of fade iterations
     public SpriteRenderer hand;
     public SpriteRenderer outerhand;

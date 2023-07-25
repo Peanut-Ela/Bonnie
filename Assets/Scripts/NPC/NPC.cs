@@ -71,11 +71,5 @@ public class NPC : StateMachine
     {
         base.Update();
     }
-
-
     
-
-
-    
-
 }
