@@ -29,22 +29,33 @@ public struct WeaponProperties
     }
 }
 
-public class Weapon : MonoBehaviour
+public class Weapon : StateMachine
 {
     internal SpriteRenderer sr;
+    internal Animator animator;
+    internal Rigidbody2D rb;
     internal WeaponProperties currentWeapon;
 
     [Header("General Settings")]
     public string weaponId;
     public string weaponName;
-    public Image weaponImage;
 
     [Header("Damage Settings")]
     public float damageIncreaseAmount;
 
-    public void SetImage(string path)
+
+    protected override void Awake()
     {
-        WeaponProperties.LoadIcon(path, (Sprite weapon) => weaponImage.sprite = weapon);
+        base.Awake();
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        SetProperties();
     }
 
     public void SetProperties()
@@ -57,14 +68,18 @@ public class Weapon : MonoBehaviour
             // Assign weaponProperties values to the corresponding Weapon properties
             weaponName = weaponProperties.weaponName;
             damageIncreaseAmount = weaponProperties.damageIncreaseAmount;
-            SetImage(currentWeapon.weaponSpriteStr);
+            // Load the weapon sprite and set it to the SpriteRenderer (sr)
+            WeaponProperties.LoadIcon(weaponProperties.weaponSpriteStr, (Sprite weaponSprite) =>
+            {
+                sr.sprite = weaponSprite;
+            });
         }
     }
 
 
 
     // OnTriggerEnter2D is called when a collider enters the trigger
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

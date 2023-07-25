@@ -16,6 +16,7 @@ public class RefData
     public List<ChestProperties> chest;
     public List<PlayerStats> player;
     public List<WeaponProperties> weapon;
+    public List<ShieldProperties> shield;
 
     //public List<NPC> NPCList;
     //public List<Enemy> EnemiesList;

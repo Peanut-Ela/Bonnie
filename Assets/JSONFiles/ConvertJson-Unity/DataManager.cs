@@ -60,6 +60,9 @@ public class DataManager : MonoBehaviour
 
         foreach (var refweapon in data.weapon)
             GameAssets.instance.weaponPropertiesList.Add(refweapon);
+
+        foreach (var refshield in data.shield)
+            GameAssets.instance.shieldPropertiesList.Add(refshield);
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)

@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: UI_Bonnie
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 2b8c22fc002f25f4f99e995940b66b9f
+    m_Address: Assets/Art/Weapon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b68d7e4200edc2f45a1184a3a319d02a, type: 2}
   m_SchemaSet:
