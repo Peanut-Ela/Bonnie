@@ -9321,19 +9321,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
-  detectionRange: 5
-  health: 5
-  damage: 1
-  fadeDuration: 1
-  fadeIterations: 3
   hand: {fileID: 565046243}
   outerhand: {fileID: 1182975665}
+  enemyId: Onion_0
+  health: 5
+  moveSpeed: 2
   idleDurationMin: 1
   idleDurationMax: 3
-  moveSpeed: 2
+  canCharge: 0
   chargeCooldown: 2
+  detectionRange: 5
+  damage: 1
   attackRange: 0
   attackDur: 0.5
+  fadeDuration: 1
+  fadeIterations: 3
 --- !u!1 &322097282
 GameObject:
   m_ObjectHideFlags: 0
@@ -17010,19 +17012,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
-  detectionRange: 5
-  health: 5
-  damage: 1
-  fadeDuration: 1
-  fadeIterations: 3
   hand: {fileID: 1585310365}
   outerhand: {fileID: 2028201318}
+  enemyId: Onion_1
+  health: 5
+  moveSpeed: 2
   idleDurationMin: 1
   idleDurationMax: 3
-  moveSpeed: 2
+  canCharge: 0
   chargeCooldown: 2
+  detectionRange: 5
+  damage: 1
   attackRange: 0
   attackDur: 0.5
+  fadeDuration: 1
+  fadeIterations: 3
 --- !u!1 &844099078
 GameObject:
   m_ObjectHideFlags: 0
@@ -20848,6 +20852,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855234606}
   m_CullTransparentMesh: 1
+--- !u!1001 &1865446969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.483619
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.63669413
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.55230254
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245823319993419378, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712970278741433885, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
+      propertyPath: m_Name
+      value: GameAssets
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0eb48858ccfb83f41a69485a790086a8, type: 3}
 --- !u!1 &1872444123
 GameObject:
   m_ObjectHideFlags: 0
@@ -22186,19 +22247,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
-  detectionRange: 5
-  health: 5
-  damage: 1
-  fadeDuration: 1
-  fadeIterations: 3
   hand: {fileID: 742347780}
   outerhand: {fileID: 1921434120}
+  enemyId: Onion_2
+  health: 5
+  moveSpeed: 2
   idleDurationMin: 1
   idleDurationMax: 3
-  moveSpeed: 2
+  canCharge: 0
   chargeCooldown: 2
+  detectionRange: 5
+  damage: 1
   attackRange: 0
   attackDur: 0.5
+  fadeDuration: 1
+  fadeIterations: 3
 --- !u!1 &2127996451
 GameObject:
   m_ObjectHideFlags: 0

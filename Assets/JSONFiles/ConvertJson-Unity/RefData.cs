@@ -15,11 +15,11 @@ public class RefData
     public List<EnemyProperties> enemies;
     public List<ChestProperties> chest;
     public List<PlayerStats> player;
+    public List<WeaponProperties> weapon;
 
     //public List<NPC> NPCList;
     //public List<Enemy> EnemiesList;
     //public List<Enemy> EnemiesMovement;
-    //public List<Weapon> Weapon;
     //public List<Inventory> Inventory;
     //public List<Slot> Slot;
 }

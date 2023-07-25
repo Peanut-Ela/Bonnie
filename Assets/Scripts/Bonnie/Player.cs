@@ -63,6 +63,18 @@ public class Player : StateMachine
     internal Vector2 lastAnimDir; // Locked to 4 direction
 
     //public PlayerStats playerStats; // Store player stats using the defined struct
+    public bool InputRun => Input.GetKey(KeyCode.LeftShift);
+
+    #region Animation Keys
+    public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
+    public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
+    public static readonly int IdleKey = Animator.StringToHash("Idle");
+    public static readonly int WalkKey = Animator.StringToHash("Walk");
+    public static readonly int RunKey = Animator.StringToHash("Run");
+    public static readonly int AttackKey = Animator.StringToHash("Attack");
+    #endregion
+    public override BaseState StartState => new IdleState(this);
+    public override BaseState DefaultState => new IdleState(this);
 
 
     [Header("Inventory Settings")]
@@ -82,16 +94,6 @@ public class Player : StateMachine
     public float attackDuration = 0.5f;
     public float attackWindupDuration = 0.3f;
     public float damage;
-    //public CharacterStats Strength;
-
-
-
-
-
-
-
-
-    public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
     [Header("Dash Settings")]
     public float dashSpeed;
@@ -113,17 +115,6 @@ public class Player : StateMachine
     public int currentHealth;
     public int maxHealth;
 
-
-    #region Animation Keys
-    public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
-    public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
-    public static readonly int IdleKey = Animator.StringToHash("Idle");
-    public static readonly int WalkKey = Animator.StringToHash("Walk");
-    public static readonly int RunKey = Animator.StringToHash("Run");
-    public static readonly int AttackKey = Animator.StringToHash("Attack");
-    #endregion
-    public override BaseState StartState => new IdleState(this);
-    public override BaseState DefaultState => new IdleState(this);
 
 
     protected override void Awake()

@@ -11,12 +11,12 @@ public class GameAssets : MonoBehaviour
     public List<EnemyProperties> enemyPropertiesList = new();
     public List<ChestProperties> chestPropertiesList = new();
     public List<PlayerStats> playerStatsList;
+    public List<WeaponProperties> weaponPropertiesList = new();
 
     //public List<Player> PlayerList;
     //public List<NPC> NPCList;
     //public List<Enemy> EnemiesList;
     //public List<Enemy> EnemiesMovement;
-    //public List<Weapon> Weapon;
     //public List<Inventory> Inventory;
     //public List<Slot> Slot;
 
@@ -62,6 +62,8 @@ public class GameAssets : MonoBehaviour
             return -1; // Return an invalid value to indicate an error
         }
     }
+
+    public static EnemyProperties GetEnemyID(string id) => GameAssets.instance.enemyPropertiesList.Find(a => a.enemyId == id);
 
     //get dialogue data with npc openingdialogueid
 
