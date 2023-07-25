@@ -13,6 +13,7 @@ public class GameAssets : MonoBehaviour
     public List<PlayerStats> playerStatsList;
     public List<WeaponProperties> weaponPropertiesList = new();
     public List<ShieldProperties> shieldPropertiesList = new();
+    public List<NPCProperties> npcPropertiesList = new();
 
     //public List<Player> PlayerList;
     //public List<NPC> NPCList;
