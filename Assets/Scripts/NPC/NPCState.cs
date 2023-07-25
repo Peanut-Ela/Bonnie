@@ -50,7 +50,7 @@ namespace NPCStates
         public override void Update()
         {
             base.Update();
-            npc.visualCue.SetActive(npc.playerIsClose);
+            npc.visualCueIcon.SetActive(npc.playerIsClose);
         }
 
         public override void FixedUpdate()
@@ -87,7 +87,7 @@ namespace NPCStates
         public override void Update()
         {
             base.Update();
-            npc.visualCue.SetActive(npc.playerIsClose);
+            npc.visualCueIcon.SetActive(npc.playerIsClose);
         }
 
         public override void FixedUpdate()
@@ -110,7 +110,7 @@ namespace NPCStates
         {
             base.OnEnter();
             npc.animator.PlayInFixedTime(NPC.IdleKey);
-            npc.visualCue.SetActive(false);
+            npc.visualCueIcon.SetActive(false);
             DialogueManager.instance.dialoguePanel.SetActive(true);
             DialogueManager.instance.currentDialogue = DialogueManager.GetDialogueID(npc.openingDialogueId);
             DialogueManager.instance.StartTyping(npc);

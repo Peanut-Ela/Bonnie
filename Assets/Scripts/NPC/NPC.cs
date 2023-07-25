@@ -16,7 +16,7 @@ public struct NPCProperties
     public float dialogueRange;
     public string visualCueStr;
     public Sprite visualCue;
-    private static string visualUIPath = "Assets/Art/UI/Dialogue/{0}.png";
+    private static string visualUIPath = "Assets/Art/UI/Icon/{0}.png";
 
 
     [Header("Idle Settings")]
@@ -87,9 +87,9 @@ public class NPC : StateMachine
     protected override void Awake()
     {
         base.Awake();
+        visualSr = visualCueIcon.GetComponent<SpriteRenderer>();
         visualCueIcon.SetActive(false);
         sr = GetComponent<SpriteRenderer>();
-        visualSr = visualCueIcon.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -121,7 +121,7 @@ public class NPC : StateMachine
             // Load the npc sprite and set it to the SpriteRenderer (sr)
             NPCProperties.LoadIcon(npcProperties.visualCueStr, (Sprite visualCue) =>
             {
-                sr.sprite = visualCue;
+                visualSr.sprite = visualCue;
             });
         }
     }

@@ -260,19 +260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logStateTransfer: 0
-  visualCue: {fileID: 2580602590948067302}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  dialogueName: {fileID: 0}
-  speakerImage: {fileID: 0}
-  wordSpeed: 0.08
+  openingDialogueId: 
   dialogueRange: 3
-  contButton: {fileID: 0}
-  choiceBox: {fileID: 0}
-  typingSound: {fileID: 0}
-  pitchIncreaseInterval: 3
-  pitchVariance: 0.1
-  dialogueDataList: []
+  visualCueIcon: {fileID: 2580602590948067302}
   idleDurationMin: 1
   idleDurationMax: 3
   moveSpeed: 2

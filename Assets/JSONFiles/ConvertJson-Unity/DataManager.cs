@@ -64,7 +64,7 @@ public class DataManager : MonoBehaviour
         foreach (var refshield in data.shield)
             GameAssets.instance.shieldPropertiesList.Add(refshield);
 
-        foreach (var refnpc in data.npc)
+        foreach (var refnpc in data.NPC)
             GameAssets.instance.npcPropertiesList.Add(refnpc);
     }
 
