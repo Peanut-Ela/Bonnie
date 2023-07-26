@@ -39,15 +39,18 @@ public struct AnalyticsStats
 
 }
 
+public interface IAnalyticsObserver
+{
+    void UpdateAnalytics();
+}
+
 public class AnalyticsManager : MonoBehaviour
 {
+    private List<IAnalyticsObserver> observers = new List<IAnalyticsObserver>();
     public static AnalyticsManager instance;
     //public AnalyticsStats analyticsStats;
 
-    public TextMeshProUGUI itemText;
-    public TextMeshProUGUI chestCoinText;
-    public TextMeshProUGUI npcText;
-    public TextMeshProUGUI battleText;
+   
 
     [Header("Player Analytics")]
     public int playerId;
@@ -77,7 +80,26 @@ public class AnalyticsManager : MonoBehaviour
     public float timeTakenToCompleteLevel;
     public int noOfLevelsCompleted;
 
+    public void Subscribe(IAnalyticsObserver observer)
+    {
+        if (!observers.Contains(observer))
+            observers.Add(observer);
+    }
 
+    // Unsubscribe an Observer
+    public void Unsubscribe(IAnalyticsObserver observer)
+    {
+        observers.Remove(observer);
+    }
+
+    // Notify all Observers when the analytics data changes
+    private void NotifyObservers()
+    {
+        foreach (var observer in observers)
+        {
+            observer.UpdateAnalytics();
+        }
+    }
     void Awake()
     {
         if (instance == null)
@@ -86,6 +108,13 @@ public class AnalyticsManager : MonoBehaviour
             DontDestroyOnLoad(instance);
             SetProperties();
             //items = new int[playerStats.items.Length];
+
+            // Subscribe the UI controllers to the AnalyticsManager
+            YourUIController[] uiControllers = FindObjectsOfType<YourUIController>();
+            foreach (var uiController in uiControllers)
+            {
+                Subscribe(uiController);
+            }
         }
         else
         {
@@ -123,15 +152,32 @@ public class AnalyticsManager : MonoBehaviour
         }
     }
     // Initialize the analytics data
+
+    public class YourUIController : MonoBehaviour, IAnalyticsObserver
+    {
+        public TextMeshProUGUI itemText;
+        public TextMeshProUGUI chestCoinText;
+        public TextMeshProUGUI npcText;
+        public TextMeshProUGUI battleText;
+
+        // Called when the analytics data changes in the AnalyticsManager
+        public void UpdateAnalytics()
+        {
+            // Update the UI texts with new analytics data
+            itemText.text = instance.noOfItemsPickedUp.ToString() + "\n\n" + instance.noOfItemsDropped.ToString() + "\n\n" + instance.noOfHealthPotionsUsed.ToString() + "\n\n" + instance.noOfWeaponsUsed.ToString() + "\n\n" + instance.noOfShieldsUsed.ToString() + "\n\n" + instance.noOfMilkBottlesUsed.ToString();
+
+            chestCoinText.text = instance.coinEarned.ToString() + "\n\n" + instance.chestOpened.ToString();
+
+            npcText.text = instance.npcInteractions.ToString() + "\n\n" + instance.questReceived.ToString() + "\n\n" + instance.questDone.ToString();
+
+            battleText.text = instance.noOfHitsTaken.ToString() + "\n\n" + instance.enemyDefeatCount.ToString() + "\n\n" + instance.damageRecieved.ToString() + "\n\n" + instance.timeTakenToCompleteLevel.ToString() + "\n\n" + instance.noOfLevelsCompleted.ToString();
+            
+        }
+
+        // Other code...
+    }
     private void Update()
     {
-        itemText.text = noOfItemsPickedUp.ToString() + "\n\n" + noOfItemsDropped.ToString() + "\n\n" + noOfHealthPotionsUsed.ToString() + "\n\n" + noOfWeaponsUsed.ToString() + "\n\n" + noOfShieldsUsed.ToString() + "\n\n" + noOfMilkBottlesUsed.ToString();
-
-        chestCoinText.text = coinEarned.ToString() + "\n\n" + chestOpened.ToString();
-
-        npcText.text = npcInteractions.ToString() + "\n\n" + questReceived.ToString() + "\n\n" + questDone.ToString();
-
-        battleText.text = noOfHitsTaken.ToString() + "\n\n" + enemyDefeatCount.ToString() + "\n\n" + damageRecieved.ToString() + "\n\n" + timeTakenToCompleteLevel.ToString() + "\n\n" + noOfLevelsCompleted.ToString();
 
     }
 
