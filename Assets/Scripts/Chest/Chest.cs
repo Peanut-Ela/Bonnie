@@ -170,6 +170,8 @@ namespace ChestStates
             chest.anim.PlayInFixedTime(Chest.OpeningKey);
 
             chest.SpawnRandomLoot();
+
+            AnalyticsManager.instance.OnChestOpened();
         }
         public override void OnStateExpired()
         {

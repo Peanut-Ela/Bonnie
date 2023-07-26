@@ -108,7 +108,7 @@ public class Pickup : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -128,6 +128,7 @@ public class Pickup : MonoBehaviour
 
                         // Instantiate(itemButton, Player.instance.transform, false); // spawn the button so that the player can interact with it
                         Destroy(gameObject);
+                        AnalyticsManager.instance.OnItemPickUp();
                         break;
                     }
                 }

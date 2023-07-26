@@ -293,7 +293,7 @@ TextureImporter:
         width: 7
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,7 +314,7 @@ TextureImporter:
         width: 7
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,7 +335,7 @@ TextureImporter:
         width: 10
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,7 +356,7 @@ TextureImporter:
         width: 10
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,6 +364,48 @@ TextureImporter:
       bones: []
       spriteID: a1dde0b5843efc843888f77bb6c39db6
       internalID: 51559030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite sheet for Basic Pack_12
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 116
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc26dae735fd054aae3a19e3e07ca1c
+      internalID: 1706962835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite sheet for Basic Pack_13
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 116
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c5a242e4e393448ad42dd7afc14606
+      internalID: 1190770267
       vertices: []
       indices: 
       edges: []
@@ -382,10 +424,12 @@ TextureImporter:
       Sprite sheet for Basic Pack_7: -2128374602
       Sprite sheet for Basic Pack_6: 279661095
       Sprite sheet for Basic Pack_9: 508263379
+      Sprite sheet for Basic Pack_12: 1706962835
       Sprite sheet for Basic Pack_4: 2126485352
       Sprite sheet for Basic Pack_5: 256507839
       Sprite sheet for Basic Pack_0: 1827268761
       Sprite sheet for Basic Pack_8: 168081197
+      Sprite sheet for Basic Pack_13: 1190770267
       Sprite sheet for Basic Pack_3: 469701061
       Sprite sheet for Basic Pack_10: -1046360014
       Sprite sheet for Basic Pack_2: 274138536

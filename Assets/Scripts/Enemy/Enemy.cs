@@ -205,6 +205,7 @@ public class Enemy : StateMachine
     public void Despawn()
     {
         Destroy(gameObject);
+        AnalyticsManager.instance.OnEnemyDefeated();
     }
     IEnumerator Defeated()
     {

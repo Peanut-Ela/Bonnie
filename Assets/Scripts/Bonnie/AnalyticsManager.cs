@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 
@@ -12,6 +14,8 @@ public struct AnalyticsStats
 
 
     [Header("Item Analytics")]
+    public int noOfItemsPickedUp;
+    public int noOfItemsDropped;
     public int noOfHealthPotionsUsed;
     public int noOfWeaponsUsed;
     public int noOfShieldsUsed;
@@ -23,17 +27,13 @@ public struct AnalyticsStats
 
     [Header("NPC Analytics")]
     public int npcInteractions;
-    public int noOfHitsTaken;
-
-    [Header("Quest Analytics")]
     public int questReceived;
     public int questDone;
 
-    [Header("Enemy Analytics")]
+    [Header("Battle Analytics")]
+    public int noOfHitsTaken;
     public int enemyDefeatCount;
     public float damageRecieved;
-
-    [Header("Level Analytics")]
     public float timeTakenToCompleteLevel;
     public int noOfLevelsCompleted;
 
@@ -41,13 +41,138 @@ public struct AnalyticsStats
 
 public class AnalyticsManager : MonoBehaviour
 {
-    public AnalyticsStats analyticsStats;
+    public static AnalyticsManager instance;
+    //public AnalyticsStats analyticsStats;
 
-    // Initialize the analytics data
-    private void Start()
+    public TextMeshProUGUI itemText;
+    public TextMeshProUGUI chestCoinText;
+    public TextMeshProUGUI npcText;
+    public TextMeshProUGUI battleText;
+    // List of observers (UI elements) that will receive updates
+    private List<TextMeshProUGUI> uiObservers = new List<TextMeshProUGUI>();
+
+    [Header("Player Analytics")]
+    public int playerId;
+
+
+    [Header("Item Analytics")]
+    public int noOfItemsPickedUp;
+    public int noOfItemsDropped;
+    public int noOfHealthPotionsUsed;
+    public int noOfWeaponsUsed;
+    public int noOfShieldsUsed;
+    public int noOfMilkBottlesUsed;
+
+    [Header("Chest & Coin Analytics")]
+    public int coinEarned;
+    public int chestOpened;
+
+    [Header("NPC Analytics")]
+    public int npcInteractions;
+    public int questReceived;
+    public int questDone;
+
+    [Header("Battle Analytics")]
+    public int noOfHitsTaken;
+    public int enemyDefeatCount;
+    public float damageRecieved;
+    public float timeTakenToCompleteLevel;
+    public int noOfLevelsCompleted;
+
+
+    void Awake()
     {
-        analyticsStats = new AnalyticsStats();
-        // You can set the playerId and other initial values here
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+            SetProperties();
+            //items = new int[playerStats.items.Length];
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy the duplicate manager if it exists
+            return;
+        }
+    }
+
+    public void SetProperties()
+    {
+        if (GameAssets.instance != null)
+
+        {
+            AnalyticsStats statsProperties = GameAssets.instance.analyticsStatsList.Find(a => a.playerId == playerId);
+
+            noOfItemsPickedUp = statsProperties.noOfItemsPickedUp;
+            noOfItemsDropped = statsProperties.noOfItemsDropped;
+            noOfHealthPotionsUsed = statsProperties.noOfHealthPotionsUsed;
+            noOfWeaponsUsed = statsProperties.noOfWeaponsUsed;
+            noOfShieldsUsed = statsProperties.noOfShieldsUsed;
+            noOfMilkBottlesUsed = statsProperties.noOfMilkBottlesUsed;
+
+            coinEarned = statsProperties.coinEarned;
+            chestOpened = statsProperties.chestOpened;
+
+            npcInteractions = statsProperties.npcInteractions;
+            noOfHitsTaken = statsProperties.noOfHitsTaken;
+            questReceived = statsProperties.questReceived;
+            questDone = statsProperties.questDone;
+
+            enemyDefeatCount = statsProperties.enemyDefeatCount;
+            damageRecieved = statsProperties.damageRecieved;
+            timeTakenToCompleteLevel = statsProperties.timeTakenToCompleteLevel;
+            noOfLevelsCompleted = statsProperties.noOfLevelsCompleted;
+        }
+    }
+    // Initialize the analytics data
+
+    // Subscribe an observer to receive updates
+    public void Subscribe(TextMeshProUGUI observer)
+    {
+        if (!uiObservers.Contains(observer))
+        {
+            uiObservers.Add(observer);
+        }
+    }
+
+    // Unsubscribe an observer from updates
+    public void Unsubscribe(TextMeshProUGUI observer)
+    {
+        if (uiObservers.Contains(observer))
+        {
+            uiObservers.Remove(observer);
+        }
+    }
+
+    // Notify all observers that the analytics data has changed
+    private void NotifyObservers()
+    {
+        foreach (var observer in uiObservers)
+        {
+            UpdateUI(observer);
+        }
+    }
+
+    // Update the UI elements with the new analytics data
+    private void UpdateUI(TextMeshProUGUI observer)
+    {
+        observer.text = noOfItemsPickedUp.ToString() + "\n\n" + noOfItemsDropped.ToString() + "\n\n" + noOfHealthPotionsUsed.ToString() + "\n\n" + noOfWeaponsUsed.ToString() + "\n\n" + noOfShieldsUsed.ToString() + "\n\n" + noOfMilkBottlesUsed.ToString();
+        // Update other UI elements...
+    }
+    // Call this method whenever you want to update the UI with the latest analytics data
+    private void Update()
+    {
+        NotifyObservers();
+    }
+
+    public void OnItemPickUp()
+    {
+        noOfItemsPickedUp++;
+    }
+
+    public void OnItemsDropped()
+    {
+        noOfItemsDropped++;
     }
 
     // Call this method whenever an item is used (health potion, weapon, shield, milk bottle, etc.)
@@ -56,16 +181,16 @@ public class AnalyticsManager : MonoBehaviour
         switch (itemType)
         {
             case ItemType.HealthPotion:
-                analyticsStats.noOfHealthPotionsUsed++;
+                noOfHealthPotionsUsed++;
                 break;
             case ItemType.Weapon:
-                analyticsStats.noOfWeaponsUsed++;
+                noOfWeaponsUsed++;
                 break;
             case ItemType.Shield:
-                analyticsStats.noOfShieldsUsed++;
+                noOfShieldsUsed++;
                 break;
             case ItemType.MilkBottle:
-                analyticsStats.noOfMilkBottlesUsed++;
+                noOfMilkBottlesUsed++;
                 break;
         }
     }
@@ -73,55 +198,55 @@ public class AnalyticsManager : MonoBehaviour
     // Call this method whenever a chest is opened
     public void OnChestOpened()
     {
-        analyticsStats.chestOpened++;
+        chestOpened++;
     }
 
     // Call this method whenever a coin is earned
     public void OnCoinEarned(int coinAmount)
     {
-        analyticsStats.coinEarned += coinAmount;
+        coinEarned += coinAmount;
     }
 
     // Call this method whenever an NPC is interacted with
     public void OnNPCInteracted()
     {
-        analyticsStats.npcInteractions++;
+        npcInteractions++;
     }
 
     // Call this method whenever the player takes a hit
     public void OnHitTaken()
     {
-        analyticsStats.noOfHitsTaken++;
+        noOfHitsTaken++;
     }
 
     // Call this method whenever a quest is received
     public void OnQuestReceived()
     {
-        analyticsStats.questReceived++;
+        questReceived++;
     }
 
     // Call this method whenever a quest is completed
     public void OnQuestDone()
     {
-        analyticsStats.questDone++;
+        questDone++;
     }
 
     // Call this method whenever an enemy is defeated
     public void OnEnemyDefeated()
     {
-        analyticsStats.enemyDefeatCount++;
+        enemyDefeatCount++;
     }
 
     // Call this method whenever the player receives damage
     public void OnDamageReceived(float damageAmount)
     {
-        analyticsStats.damageRecieved += damageAmount;
+        damageRecieved += damageAmount;
     }
 
     // Call this method whenever a level is completed
     public void OnLevelCompleted(float timeTaken)
     {
-        analyticsStats.timeTakenToCompleteLevel = timeTaken;
-        analyticsStats.noOfLevelsCompleted++;
+        timeTakenToCompleteLevel = timeTaken;
+        noOfLevelsCompleted++;
     }
 }

@@ -212,6 +212,9 @@ public class Player : StateMachine
         int damageReceived = CalculateDamageReceived(damage);
         currentHealth -= damageReceived;
 
+        AnalyticsManager.instance.OnDamageReceived(damageReceived);
+        AnalyticsManager.instance.OnHitTaken();
+
         if (currentHealth <= 0)
         {
             // Player is dead, handle game over or respawn logic here
@@ -230,6 +233,8 @@ public class Player : StateMachine
         weapon.transform.SetParent(transform);
         weapon.transform.localPosition = Vector3.zero;
         damage = weapon.damageIncreaseAmount;
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.Weapon);
     }
 
     public void UnequipWeapon()
@@ -258,6 +263,8 @@ public class Player : StateMachine
         shield.transform.SetParent(transform);
         shield.transform.localPosition = Vector3.zero;
         defense = shield.defenseIncreaseAmount;
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.Shield);
     }
 
     public void UnequipShield()
@@ -286,6 +293,8 @@ public class Player : StateMachine
         speed.transform.SetParent(transform);
         speed.transform.localPosition = Vector3.zero;
         IncreaseSpeed(speed.walkSpeedIncreaseAmount, speed.runSpeedIncreaseAmount);
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.MilkBottle);
     }
 
     public void IncreaseSpeed(float walkAmount, float runAmount)
@@ -316,7 +325,8 @@ public class Player : StateMachine
     public void DropItem(int index)
     {
         items[index] = 0;
-        
+
+        AnalyticsManager.instance.OnItemsDropped();
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -342,6 +352,8 @@ public class Player : StateMachine
             {
                 Destroy(other.gameObject);
                 coinCount++;
+
+                AnalyticsManager.instance.OnCoinEarned(1);
             }
         }
 

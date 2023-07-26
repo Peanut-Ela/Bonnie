@@ -114,6 +114,8 @@ namespace NPCStates
             DialogueManager.instance.dialoguePanel.SetActive(true);
             DialogueManager.instance.currentDialogue = DialogueManager.GetDialogueID(npc.openingDialogueId);
             DialogueManager.instance.StartTyping(npc);
+
+            AnalyticsManager.instance.OnNPCInteracted();
         }
 
         public override void Update()

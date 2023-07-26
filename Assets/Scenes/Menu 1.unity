@@ -6514,6 +6514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTransition: {fileID: 1150989870}
   endTransition: {fileID: 1840941623}
+  playEnd: 0
   playSound: {fileID: 8300000, guid: edb8a4ee3d1d0de49be607dcb832f438, type: 3}
   audioSource: {fileID: 1123585326}
 --- !u!82 &1123585326
