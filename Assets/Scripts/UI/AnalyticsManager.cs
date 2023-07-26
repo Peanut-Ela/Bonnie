@@ -47,10 +47,11 @@ public interface IAnalyticsObserver
 public class AnalyticsManager : MonoBehaviour
 {
     private List<IAnalyticsObserver> observers = new List<IAnalyticsObserver>();
+
     public static AnalyticsManager instance;
     //public AnalyticsStats analyticsStats;
 
-   
+    public YourUIController uiObject;
 
     [Header("Player Analytics")]
     public int playerId;
@@ -109,6 +110,11 @@ public class AnalyticsManager : MonoBehaviour
             SetProperties();
             //items = new int[playerStats.items.Length];
 
+            if (uiObject != null)
+            {
+                uiObject.gameObject.SetActive(false);
+            }
+
             // Subscribe the UI controllers to the AnalyticsManager
             YourUIController[] uiControllers = FindObjectsOfType<YourUIController>();
             foreach (var uiController in uiControllers)
@@ -153,29 +159,8 @@ public class AnalyticsManager : MonoBehaviour
     }
     // Initialize the analytics data
 
-    public class YourUIController : MonoBehaviour, IAnalyticsObserver
-    {
-        public TextMeshProUGUI itemText;
-        public TextMeshProUGUI chestCoinText;
-        public TextMeshProUGUI npcText;
-        public TextMeshProUGUI battleText;
 
-        // Called when the analytics data changes in the AnalyticsManager
-        public void UpdateAnalytics()
-        {
-            // Update the UI texts with new analytics data
-            itemText.text = instance.noOfItemsPickedUp.ToString() + "\n\n" + instance.noOfItemsDropped.ToString() + "\n\n" + instance.noOfHealthPotionsUsed.ToString() + "\n\n" + instance.noOfWeaponsUsed.ToString() + "\n\n" + instance.noOfShieldsUsed.ToString() + "\n\n" + instance.noOfMilkBottlesUsed.ToString();
-
-            chestCoinText.text = instance.coinEarned.ToString() + "\n\n" + instance.chestOpened.ToString();
-
-            npcText.text = instance.npcInteractions.ToString() + "\n\n" + instance.questReceived.ToString() + "\n\n" + instance.questDone.ToString();
-
-            battleText.text = instance.noOfHitsTaken.ToString() + "\n\n" + instance.enemyDefeatCount.ToString() + "\n\n" + instance.damageRecieved.ToString() + "\n\n" + instance.timeTakenToCompleteLevel.ToString() + "\n\n" + instance.noOfLevelsCompleted.ToString();
-            
-        }
-
-        // Other code...
-    }
+    
     private void Update()
     {
 
