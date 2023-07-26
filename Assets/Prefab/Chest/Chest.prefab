@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3047592587289275133}
-  - component: {fileID: 5728887917656876562}
   - component: {fileID: 9112627554494923854}
+  - component: {fileID: 5728887917656876562}
+  - component: {fileID: 2203449630232093891}
   - component: {fileID: 1723076299148223105}
   - component: {fileID: 1495155686252282535}
   m_Layer: 0
@@ -35,24 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5728887917656876562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6589477493666046552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d5179148e9bf44ebcedc35bf3621a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logStateTransfer: 0
-  dropList:
-  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
-  - {fileID: 4927582668635254708, guid: fc75eb3e1c593244a8be030ee910f107, type: 3}
-  - {fileID: 6547847427182820243, guid: 4cf798c815b35d44387e287ea5e5f675, type: 3}
-  itemSpawnDist: 1.5
 --- !u!212 &9112627554494923854
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -105,6 +88,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5728887917656876562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589477493666046552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d5179148e9bf44ebcedc35bf3621a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logStateTransfer: 0
+  chestId: 0
+  chestType: 
+  dropList:
+  - {fileID: 8315037207353444210, guid: 57bbea04f9e70ac4895e924b089a2810, type: 3}
+  - {fileID: 4927582668635254708, guid: fc75eb3e1c593244a8be030ee910f107, type: 3}
+  - {fileID: 6547847427182820243, guid: 4cf798c815b35d44387e287ea5e5f675, type: 3}
+  itemSpawnDist: 1.5
+  minSpawnCount: 1
+  maxSpawnCount: 8
+--- !u!114 &2203449630232093891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589477493666046552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ccbb99b087a5c4a9e5ab2271974396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droplist: []
 --- !u!95 &1723076299148223105
 Animator:
   serializedVersion: 5

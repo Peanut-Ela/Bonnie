@@ -21,6 +21,30 @@ MonoBehaviour:
     m_Address: JSONData
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: ea0ea3d9bf4366a4ca3b830c044dfe83
+    m_Address: Assets/Art/UI/Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6145628e31b6f2a4f849ce23b80c3a20
+    m_Address: UI_Bonnie
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2b8c22fc002f25f4f99e995940b66b9f
+    m_Address: Assets/Art/Weapon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f6f01b855814312458e09aa65a419263
+    m_Address: Assets/Art/UI/Icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1680e11a6e9ae44439af8fae5a6db3c7
+    m_Address: Assets/Art/Objects/Items
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a55202fe1b405c04fa4f55c01aba3f90
+    m_Address: Assets/Prefab/Inventory
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b68d7e4200edc2f45a1184a3a319d02a, type: 2}
   m_SchemaSet:

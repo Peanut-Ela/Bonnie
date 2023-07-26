@@ -10,7 +10,12 @@ using static UnityEditor.Progress;
 public struct PlayerStats
 {
     [Header("ID Settings")]
-    public int playerID;
+    public int playerId;
+
+    [Header("Inventory Settings")]
+    public int inventorySlots;
+    public int items;
+    public int coinCount;
 
     [Header("Speed Settings")]
     public float walkSpeed;
@@ -30,27 +35,62 @@ public struct PlayerStats
     public float dashCoolDown;
 
     [Header("Color Settings")]
-    public Color playerColor; 
+    public string playerColorStr;
+    public Color playerColor;
+
+    [Header("Health Settings")]
+    public string currentHealth;
+    public string maxHealth;
+
+
+    public void Parse()
+    {
+        if (!string.IsNullOrEmpty(playerColorStr))
+        {
+            Color color;
+            ColorUtility.TryParseHtmlString(playerColorStr, out color);
+            playerColor = color;
+        }
+
+    }
 
 }
 
 public class Player : StateMachine
 {
-    public bool isCharacterSelect;
     public static Player instance;
     internal Rigidbody2D rb;
     internal SpriteRenderer sr;
     internal Animator animator;
     public GameObject weaponHitbox;
-    //public GameObject mouseSprite;
+    public Shield equippedShield;
+    public Weapon equippedWeapon;
+    public Speed milkDrank;
     internal Vector2 moveDirection;
-    internal Vector2 lastAnimDir; // Locked to 4 direction
+    internal Vector2 lastAnimDir; 
 
-    //public PlayerStats playerStats; // Store player stats using the defined struct
+    public bool isCharacterSelect;
+    public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
+    #region Animation Keys
+    public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
+    public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
+    public static readonly int IdleKey = Animator.StringToHash("Idle");
+    public static readonly int WalkKey = Animator.StringToHash("Walk");
+    public static readonly int RunKey = Animator.StringToHash("Run");
+    public static readonly int AttackKey = Animator.StringToHash("Attack");
+    #endregion
+    public override BaseState StartState => new IdleState(this);
+    public override BaseState DefaultState => new IdleState(this);
+
+    [Header("ID Settings")]
+    public int playerId;
+
+    [Header("Health Settings")]
+    public int currentHealth;
+    public int maxHealth;
 
     [Header("Inventory Settings")]
-    public Spawn spawnComponent;
     public int inventorySlots;
     public int[] items;
     public int coinCount;
@@ -66,16 +106,6 @@ public class Player : StateMachine
     public float attackDuration = 0.5f;
     public float attackWindupDuration = 0.3f;
     public float damage;
-    //public CharacterStats Strength;
-
-
-
-
-
-
-
-
-    public bool InputRun => Input.GetKey(KeyCode.LeftShift);
 
     [Header("Dash Settings")]
     public float dashSpeed;
@@ -87,27 +117,6 @@ public class Player : StateMachine
     public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
-
-    public Shield equippedShield;
-    public Weapon equippedWeapon;
-    public Speed milkDrank;
-    //private float baseDamage;
-
-    [Header("Health Settings")]
-    public int currentHealth;
-    public int maxHealth;
-
-
-    #region Animation Keys
-    public static readonly int HorizontalParameterKey = Animator.StringToHash("horizontal");
-    public static readonly int VerticalParameterKey = Animator.StringToHash("vertical");
-    public static readonly int IdleKey = Animator.StringToHash("Idle");
-    public static readonly int WalkKey = Animator.StringToHash("Walk");
-    public static readonly int RunKey = Animator.StringToHash("Run");
-    public static readonly int AttackKey = Animator.StringToHash("Attack");
-    #endregion
-    public override BaseState StartState => new IdleState(this);
-    public override BaseState DefaultState => new IdleState(this);
 
 
     protected override void Awake()
@@ -125,7 +134,7 @@ public class Player : StateMachine
                 instance = this;
                 DontDestroyOnLoad(instance);
                 SetProperties(); 
-                items = new int[inventorySlots];
+                //items = new int[playerStats.items.Length];
             }
             else
             {
@@ -150,6 +159,12 @@ public class Player : StateMachine
                 PlayerStats playerStats = GameAssets.instance.playerStatsList[playerID];
 
                 // Assign playerStats values to the corresponding Player properties
+                inventorySlots = playerStats.inventorySlots;
+
+                items = new int[playerStats.items];
+
+                playerId = playerStats.playerId;
+                coinCount = playerStats.coinCount;
                 walkSpeed = playerStats.walkSpeed;
                 runSpeed = playerStats.runSpeed;
                 defense = playerStats.defense;
@@ -197,6 +212,9 @@ public class Player : StateMachine
         int damageReceived = CalculateDamageReceived(damage);
         currentHealth -= damageReceived;
 
+        AnalyticsManager.instance.OnDamageReceived(damageReceived);
+        AnalyticsManager.instance.OnHitTaken();
+
         if (currentHealth <= 0)
         {
             // Player is dead, handle game over or respawn logic here
@@ -215,6 +233,8 @@ public class Player : StateMachine
         weapon.transform.SetParent(transform);
         weapon.transform.localPosition = Vector3.zero;
         damage = weapon.damageIncreaseAmount;
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.Weapon);
     }
 
     public void UnequipWeapon()
@@ -243,6 +263,8 @@ public class Player : StateMachine
         shield.transform.SetParent(transform);
         shield.transform.localPosition = Vector3.zero;
         defense = shield.defenseIncreaseAmount;
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.Shield);
     }
 
     public void UnequipShield()
@@ -271,6 +293,8 @@ public class Player : StateMachine
         speed.transform.SetParent(transform);
         speed.transform.localPosition = Vector3.zero;
         IncreaseSpeed(speed.walkSpeedIncreaseAmount, speed.runSpeedIncreaseAmount);
+
+        AnalyticsManager.instance.OnItemUsed(ItemType.MilkBottle);
     }
 
     public void IncreaseSpeed(float walkAmount, float runAmount)
@@ -301,7 +325,8 @@ public class Player : StateMachine
     public void DropItem(int index)
     {
         items[index] = 0;
-        
+
+        AnalyticsManager.instance.OnItemsDropped();
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)
@@ -327,6 +352,8 @@ public class Player : StateMachine
             {
                 Destroy(other.gameObject);
                 coinCount++;
+
+                AnalyticsManager.instance.OnCoinEarned(1);
             }
         }
 

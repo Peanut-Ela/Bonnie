@@ -7,27 +7,43 @@ using UnityEngine;
 [Serializable]
 public struct EnemyProperties
 {
-    public int enemy;
-    public float detectionRange;
+    [Header("General Settings")]
+    public string enemyId;
     public float health;
-    public int damage;
-    public float fadeDuration;
-    public int fadeIterations;
+    public string enemyColorStr;
+    public Color enemyColor;
+
+    [Header("Wander Settings")]
+    public float moveSpeed;
     public float idleDurationMin;
     public float idleDurationMax;
-    public float moveSpeed;
-    public float chargeCooldown;
+
+    [Header("Charge Settings")]
     public bool canCharge;
+    public float chargeCooldown;
+    public float detectionRange;
+
+    [Header("Attack Settings")]
+    public int damage;
     public float attackRange;
     public float attackDur;
+
+    [Header("Defeated Settings")]
+    public float fadeDuration;
+    public int fadeIterations;
+
+    public void Parse()
+    {
+        if (!string.IsNullOrEmpty(enemyColorStr))
+        {
+            Color color;
+            ColorUtility.TryParseHtmlString(enemyColorStr, out color);
+            enemyColor = color;
+        }
+    }
 }
 public class Enemy : StateMachine
 {
-    public float detectionRange = 10f;
-    public float health;
-    public int damage;
-    public float fadeDuration = 1f; // Duration of each fade
-    public int fadeIterations = 3; // Number of fade iterations
     public SpriteRenderer hand;
     public SpriteRenderer outerhand;
 
@@ -35,20 +51,6 @@ public class Enemy : StateMachine
     internal Animator animator;
     internal Rigidbody2D rb;
     internal Vector2 moveDirection => (Player.instance.transform.position - transform.position).normalized;
-
-    [Header("Idle Settings")]
-    public float idleDurationMin = 1f;
-    public float idleDurationMax = 3f;
-
-    [Header("Wander Settings")]
-    public float moveSpeed = 5f;
-
-    [Header("Charge Settings")]
-    public float chargeCooldown = 2f; // Cooldown duration before charging again
-    private bool canCharge = true; // Flag to determine if charging is allowed
-
-    public float attackRange;
-    public float attackDur = 0.5f;
     public bool InAttackRange => Vector2.Distance(Player.instance.transform.position, transform.position) < attackRange;
     #region Animation Keys
     public static readonly int IdleKey = Animator.StringToHash("Idle");
@@ -60,6 +62,57 @@ public class Enemy : StateMachine
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
     public virtual BaseState AttackState => new IdleState(this);
+
+    [Header("General Settings")]
+    public string enemyId;
+    public float health;
+
+    [Header("Wander Settings")]
+    public float moveSpeed;
+    public float idleDurationMin;
+    public float idleDurationMax;
+
+    [Header("Charge Settings")]
+    public bool canCharge;
+    public float chargeCooldown;
+    public float detectionRange;
+
+    [Header("Attack Settings")]
+    public int damage;
+    public float attackRange;
+    public float attackDur;
+
+    [Header("Defeated Settings")]
+    public float fadeDuration; // Duration of each fade
+    public int fadeIterations;
+
+    public void SetProperties()
+    {
+        if (GameAssets.instance != null)
+
+        {
+            EnemyProperties enemyProperties = GameAssets.instance.enemyPropertiesList.Find(a => a.enemyId == enemyId);
+
+
+
+            // Assign enemyProperties values to the corresponding Enemy properties
+            health = enemyProperties.health;
+            sr.color = enemyProperties.enemyColor;
+            moveSpeed = enemyProperties.moveSpeed;
+            idleDurationMin = enemyProperties.idleDurationMin;
+            idleDurationMax = enemyProperties.idleDurationMax;
+            canCharge = enemyProperties.canCharge;
+            chargeCooldown = enemyProperties.chargeCooldown;
+            detectionRange = enemyProperties.detectionRange;
+            damage = enemyProperties.damage;
+            attackRange = enemyProperties.attackRange;
+            attackDur = enemyProperties.attackDur;
+            fadeDuration = enemyProperties.fadeDuration;
+            fadeIterations = enemyProperties.fadeIterations;
+            
+        }
+    }
+
     public float Health
     {
         get
@@ -77,36 +130,47 @@ public class Enemy : StateMachine
         }
     }
 
+
+
     protected override void Awake()
     {
         base.Awake();
         sr = GetComponent<SpriteRenderer>();
-        animator= GetComponent<Animator>();
-        rb= GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        SetProperties();
+
+    }
+
+
 
     protected override void Update()
     {
         base.Update();
 
-        
-            // Check if player is in range
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                Vector2 playerPosition = player.transform.position;
-                float distanceToPlayer = Vector2.Distance(transform.position, playerPosition);
 
-                if (distanceToPlayer <= detectionRange && canCharge)
-                {
-                    // Play ChargeState if player is in range
-                    QueueState(new ChargeWindupState(this));
+        // Check if player is in range
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Vector2 playerPosition = player.transform.position;
+            float distanceToPlayer = Vector2.Distance(transform.position, playerPosition);
+
+            if (distanceToPlayer <= detectionRange && canCharge)
+            {
+                // Play ChargeState if player is in range
+                QueueState(new ChargeWindupState(this));
 
                 // Disable charging until cooldown is over
                 canCharge = false;
                 StartCoroutine(ChargeCooldown());
             }
-            }
+        }
     }
     private IEnumerator ChargeCooldown()
     {
@@ -116,10 +180,6 @@ public class Enemy : StateMachine
         canCharge = true;
     }
 
-    //public void TakeDamage(float damage)
-    //{
-    //    Health -= damage;
-    //}
 
     public void TakeDamage()
     {
@@ -145,6 +205,7 @@ public class Enemy : StateMachine
     public void Despawn()
     {
         Destroy(gameObject);
+        AnalyticsManager.instance.OnEnemyDefeated();
     }
     IEnumerator Defeated()
     {

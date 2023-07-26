@@ -25,16 +25,6 @@ namespace EnemyStates
         }
     }
 
-    // States to make:
-    // idle
-    // wander - move in random direction over a period
-    // attack windup - goes into attack state after ending windup
-    // attack
-    // damaged - take knockback
-    // death
-    // explode - later
-    // shoot - later
-    // 
 
     public class IdleState : EnemyState
     {
@@ -232,12 +222,6 @@ namespace EnemyStates
             base.OnExit();
             enemy.hand.gameObject.SetActive(false);
 
-            //// Apply knockback to the player
-            //Vector3 knockbackDirection = (Player.instance.transform.position - enemy.transform.position).normalized;
-            //Player.instance.ApplyKnockback(knockbackDirection);
-
-            //// Deal damage to the player
-            //Player.instance.TakeDamage(enemy.damage);
         }
     }
 
@@ -340,12 +324,6 @@ namespace EnemyStates
 
         }
 
-        //public override void OnExit()
-        //{
-        //    base.OnExit();
-
-
-        //}
 
         public override void OnStateExpired()
         {

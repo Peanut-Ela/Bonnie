@@ -4,27 +4,47 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
+
+[Serializable]
+
+public struct NPCProperties
+{
+    [Header("Dialogue Settings")]
+    public string npcId;
+    public float dialogueRange;
+    public string visualCueStr;
+    public Sprite visualCue;
+    private static string visualUIPath = "Assets/Art/UI/Icon/{0}.png";
+
+
+    [Header("Idle Settings")]
+    public float idleDurationMin;
+    public float idleDurationMax;
+
+    [Header("Wander Settings")]
+    public float moveSpeed;
+
+    public static void LoadIcon(string npcIconName, System.Action<Sprite> onLoaded)
+    {
+        var asyncHandle = Addressables.LoadAssetAsync<Sprite>(string.Format(visualUIPath, npcIconName));
+        asyncHandle.Completed += (loadedUI) =>
+        {
+            onLoaded?.Invoke(loadedUI.Result);
+            Addressables.Release(loadedUI);
+        };
+    }
+}
+
 public class NPC : StateMachine
 {
-    [Header("Visual Cue")]
-    [SerializeField] public GameObject visualCue;
-    public bool playerIsClose => Vector2.Distance(transform.position, Player.instance.transform.position) < dialogueRange;
-    public float dialogueRange = 3f;
-
-
+    internal SpriteRenderer visualSr;
     internal SpriteRenderer sr;
     internal Animator animator;
     internal Rigidbody2D rb;
     internal Vector2 moveDirection;
-
-
-    [Header("Idle Settings")]
-    public float idleDurationMin = 1f;
-    public float idleDurationMax = 3f;
-
-    [Header("Wander Settings")]
-    public float moveSpeed = 5f;
+    public bool playerIsClose => Vector2.Distance(transform.position, Player.instance.transform.position) < dialogueRange;
 
     #region Animation Keys
     public static readonly int IdleKey = Animator.StringToHash("Idle");
@@ -50,18 +70,25 @@ public class NPC : StateMachine
     public override BaseState StartState => new IdleState(this);
     public override BaseState DefaultState => new IdleState(this);
 
-
-    [SerializeField]
-    [Header("Dialogue Data")]
-    public int index;
+    [Header("Dialogue Settings")]
     public string openingDialogueId;
+    public float dialogueRange;
+    public GameObject visualCueIcon;
 
-    //Transfer couroutines to dialoguemanager
+
+    [Header("Idle Settings")]
+    public float idleDurationMin;
+    public float idleDurationMax;
+
+    [Header("Wander Settings")]
+    public float moveSpeed;
+
 
     protected override void Awake()
     {
         base.Awake();
-        visualCue.SetActive(false);
+        visualSr = visualCueIcon.GetComponent<SpriteRenderer>();
+        visualCueIcon.SetActive(false);
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -72,10 +99,31 @@ public class NPC : StateMachine
         base.Update();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        SetProperties();
+    }
 
-    
+    public void SetProperties()
+    {
+        if (GameAssets.instance != null)
 
+        {
+            NPCProperties npcProperties = GameAssets.instance.npcPropertiesList.Find(a => a.npcId == openingDialogueId);
 
-    
+            // Assign npcProperties values to the corresponding npc properties
+            dialogueRange = npcProperties.dialogueRange;
+            idleDurationMin = npcProperties.idleDurationMin;
+            idleDurationMax = npcProperties.idleDurationMax;
+            moveSpeed = npcProperties.moveSpeed;
+
+            // Load the npc sprite and set it to the SpriteRenderer (sr)
+            NPCProperties.LoadIcon(npcProperties.visualCueStr, (Sprite visualCue) =>
+            {
+                visualSr.sprite = visualCue;
+            });
+        }
+    }
 
 }

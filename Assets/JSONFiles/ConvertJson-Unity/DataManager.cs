@@ -37,16 +37,51 @@ public class DataManager : MonoBehaviour
 
     private void ProcessData(RefData data)
     {
-        foreach (var refdialogue in data.dialogueData) {
+
+        GameAssets.instance.playerStatsList = new();
+
+        foreach (var refplayer in data.player)
+        {
+            refplayer.Parse();
+            GameAssets.instance.playerStatsList.Add(refplayer);
+        }
+
+        foreach (var refenemy in data.enemies) 
+        {
+            refenemy.Parse(); 
+            GameAssets.instance.enemyPropertiesList.Add(refenemy);
+        }
+
+        foreach (var refweapon in data.weapon)
+            GameAssets.instance.weaponPropertiesList.Add(refweapon);
+
+        foreach (var refshield in data.shield)
+            GameAssets.instance.shieldPropertiesList.Add(refshield);
+
+
+
+        foreach (var refdialogue in data.dialogueData) 
+        {
             refdialogue.Parse();
             GameAssets.instance.dialogueList.Add(refdialogue);
         }
 
-        foreach (var item in data.enemies)
-            GameAssets.instance.enemyPropertiesList.Add(item);
+        foreach (var refnpc in data.NPC)
+            GameAssets.instance.npcPropertiesList.Add(refnpc);
 
-        foreach (var item in data.chestProperties)
-            GameAssets.instance.chestProperties.Add(item);
+
+
+        foreach (var refitem in data.item)
+            GameAssets.instance.itemPropertiesList.Add(refitem);
+
+        foreach (var refchest in data.chest) {
+            refchest.Parse();
+            GameAssets.instance.chestPropertiesList.Add(refchest);
+        }
+
+        foreach (var refstats in data.analytics)
+            GameAssets.instance.analyticsStatsList.Add(refstats);
+
     }
 
     //private void ProcessEnemyData(EnemyData Enemy)

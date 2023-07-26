@@ -37,7 +37,7 @@ public class Spawn : MonoBehaviour
         Pickup pickupScript = newItem.GetComponent<Pickup>();
         if (pickupScript != null)
         {
-            pickupScript.itemID = itemID;
+            pickupScript.itemId = itemID;
         }
     }
 }

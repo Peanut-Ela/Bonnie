@@ -7,22 +7,25 @@ public class GameAssets : MonoBehaviour
     public static GameAssets instance;
 
     DataManager dataManager;
-    public List<DialogueData> dialogueList = new();
+
+    public List<PlayerStats> playerStatsList;
+    public List<AnalyticsStats> analyticsStatsList = new();
+
     public List<EnemyProperties> enemyPropertiesList = new();
-    public List<ChestProperties> chestProperties = new();
-    //public List<Player> PlayerList;
-    //public List<NPC> NPCList;
-    //public List<Enemy> EnemiesList;
-    //public List<Enemy> EnemiesMovement;
-    //public List<Weapon> Weapon;
-    //public List<Inventory> Inventory;
-    //public List<Slot> Slot;
+    public List<WeaponProperties> weaponPropertiesList = new();
+    public List<ShieldProperties> shieldPropertiesList = new();
+
+    public List<DialogueData> dialogueList = new();
+    public List<NPCProperties> npcPropertiesList = new();
+
+    public List<ItemProperties> itemPropertiesList = new();
+    public List<ChestProperties> chestPropertiesList = new();
 
     //list of dialogues
 
     public static int selectedCharacter;
 
-    public List<PlayerStats> playerStatsList = new List<PlayerStats>();
+    //public List<PlayerStats> playerStatsList = new List<PlayerStats>();
 
     // Start is called before the first frame update
     private void Awake()
@@ -52,7 +55,7 @@ public class GameAssets : MonoBehaviour
     {
         if (selectedCharacter >= 0 && selectedCharacter < playerStatsList.Count)
         {
-            return playerStatsList[selectedCharacter].playerID;
+            return playerStatsList[selectedCharacter].playerId;
         }
         else
         {
@@ -60,6 +63,8 @@ public class GameAssets : MonoBehaviour
             return -1; // Return an invalid value to indicate an error
         }
     }
+
+    public static EnemyProperties GetEnemyID(string id) => GameAssets.instance.enemyPropertiesList.Find(a => a.enemyId == id);
 
     //get dialogue data with npc openingdialogueid
 
