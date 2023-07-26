@@ -117,6 +117,7 @@ public class Player : StateMachine
     public float ghostSpawnInterval = 0.1f; // Time between spawning each ghost
     public PlayerGhost ghostPrefab;
     public System.Action OnTakeDamage;
+    public System.Action OnDeath;
 
 
     protected override void Awake()
@@ -217,9 +218,12 @@ public class Player : StateMachine
 
         if (currentHealth <= 0)
         {
+            OnDeath?.Invoke();
             // Player is dead, handle game over or respawn logic here
         }
     }
+
+
 
     public void EquipWeapon(Weapon weapon)
     {

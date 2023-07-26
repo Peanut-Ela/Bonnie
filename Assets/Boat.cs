@@ -24,6 +24,11 @@ public class Boat : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void OnDestroy()
+    {
+        objectToActivate.SetActive(false);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)

@@ -6,24 +6,34 @@ public class Pause : MonoBehaviour
 {
     public static Pause instance;
 
-    public GameObject settingsPanel;
-    public GameObject analyticsPanel;
-    public GameObject itemPanel;
-    public GameObject chestPanel;
-    public GameObject npcPanel;
-    public GameObject battlePanel;
+    public SettingsUI settingsPanel;
+    public AnalyticsUI analyticsPanel;
+    public ItemUI itemPanel;
+    public ChestCoinUI chestPanel;
+    public NPCUI npcPanel;
+    public BattleUI battlePanel;
 
     private float originalPitch; // To store the original pitch value of the audio
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     void OnEnable()
     {
         // Pause the game when the UI controller is enabled
-        settingsPanel.SetActive(true);
-        analyticsPanel.SetActive(false);
-        itemPanel.SetActive(false);
-        chestPanel.SetActive(false);
-        npcPanel.SetActive(false);
-        battlePanel.SetActive(false);
-        GameManager.instance.PauseGame();
+        settingsPanel.gameObject.SetActive(true);
+        analyticsPanel.gameObject.SetActive(false);
+        itemPanel.gameObject.SetActive(false);
+        chestPanel.gameObject.SetActive(false);
+        npcPanel.gameObject.SetActive(false);
+        battlePanel.gameObject.SetActive(false);
+
 
         // Decrease the pitch of the audio
         originalPitch = AudioListener.volume;
@@ -32,7 +42,6 @@ public class Pause : MonoBehaviour
 
     void OnDisable()
     {
-        GameManager.instance.ResumeGame();
 
         // Restore the original pitch of the audio
         AudioListener.volume = originalPitch;

@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ItemUI : MonoBehaviour
 {
+    public Button cancelButton;
 
     public TextMeshProUGUI itemText;
+    private void Awake()
+    {
+        cancelButton.onClick.AddListener(() => {
+            GameManager.isPaused = false; //this unpauses game and goes back
+        });
+    }
+
 
     private void OnEnable()
     {

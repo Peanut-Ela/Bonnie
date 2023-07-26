@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour
         //black.SetActive(true);
         StartCoroutine(WaitAndExecute(1f));
         //video.SetActive(false);
+
     }
 
     public void PlaySound()
@@ -41,5 +42,6 @@ public class MainMenu : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(time);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        startTransition.SetActive(false);
     }
 }

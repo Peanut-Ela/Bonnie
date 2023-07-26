@@ -22,6 +22,7 @@ public class LoadLevel : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);
         SavePlayerPosition();
         SceneManager.LoadScene(loadScene, LoadSceneMode.Single);
+        startTransition.SetActive(false);
     }
 
     void SavePlayerPosition()

@@ -14,6 +14,7 @@ public class GameAssets : MonoBehaviour
     public List<EnemyProperties> enemyPropertiesList = new();
     public List<WeaponProperties> weaponPropertiesList = new();
     public List<ShieldProperties> shieldPropertiesList = new();
+    public List<SpeedProperties> speedPropertiesList = new();
 
     public List<DialogueData> dialogueList = new();
     public List<NPCProperties> npcPropertiesList = new();

@@ -29,7 +29,7 @@ public struct WeaponProperties
     }
 }
 
-public class Weapon : StateMachine
+public class Weapon : MonoBehaviour
 {
     internal SpriteRenderer sr;
     internal Rigidbody2D rb;
@@ -44,17 +44,14 @@ public class Weapon : StateMachine
     public float damageIncreaseAmount;
 
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         sr = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         SetProperties();
     }
 
@@ -79,7 +76,7 @@ public class Weapon : StateMachine
 
 
     // OnTriggerEnter2D is called when a collider enters the trigger
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

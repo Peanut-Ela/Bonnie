@@ -39,19 +39,13 @@ public struct AnalyticsStats
 
 }
 
-public interface IAnalyticsObserver
-{
-    void UpdateAnalytics();
-}
 
 public class AnalyticsManager : MonoBehaviour
 {
-    private List<IAnalyticsObserver> observers = new List<IAnalyticsObserver>();
 
     public static AnalyticsManager instance;
     //public AnalyticsStats analyticsStats;
 
-    public YourUIController uiObject;
 
     [Header("Player Analytics")]
     public int playerId;
@@ -81,26 +75,7 @@ public class AnalyticsManager : MonoBehaviour
     public float timeTakenToCompleteLevel;
     public int noOfLevelsCompleted;
 
-    public void Subscribe(IAnalyticsObserver observer)
-    {
-        if (!observers.Contains(observer))
-            observers.Add(observer);
-    }
-
-    // Unsubscribe an Observer
-    public void Unsubscribe(IAnalyticsObserver observer)
-    {
-        observers.Remove(observer);
-    }
-
-    // Notify all Observers when the analytics data changes
-    private void NotifyObservers()
-    {
-        foreach (var observer in observers)
-        {
-            observer.UpdateAnalytics();
-        }
-    }
+    
     void Awake()
     {
         if (instance == null)
@@ -109,18 +84,6 @@ public class AnalyticsManager : MonoBehaviour
             DontDestroyOnLoad(instance);
             SetProperties();
             //items = new int[playerStats.items.Length];
-
-            if (uiObject != null)
-            {
-                uiObject.gameObject.SetActive(false);
-            }
-
-            // Subscribe the UI controllers to the AnalyticsManager
-            YourUIController[] uiControllers = FindObjectsOfType<YourUIController>();
-            foreach (var uiController in uiControllers)
-            {
-                Subscribe(uiController);
-            }
         }
         else
         {

@@ -12,6 +12,7 @@ public class RefData
     public List<EnemyProperties> enemies;
     public List<WeaponProperties> weapon;
     public List<ShieldProperties> shield;
+    public List<SpeedProperties> speed;
 
     public List<DialogueData> dialogueData;
     public List<NPCProperties> NPC;

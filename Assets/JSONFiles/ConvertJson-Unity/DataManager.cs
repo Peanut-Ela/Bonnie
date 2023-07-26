@@ -58,6 +58,9 @@ public class DataManager : MonoBehaviour
         foreach (var refshield in data.shield)
             GameAssets.instance.shieldPropertiesList.Add(refshield);
 
+        foreach (var refspeed in data.speed)
+            GameAssets.instance.speedPropertiesList.Add(refspeed);
+
 
 
         foreach (var refdialogue in data.dialogueData) 

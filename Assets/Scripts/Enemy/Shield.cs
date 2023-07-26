@@ -28,7 +28,7 @@ public struct ShieldProperties
     }
 }
 
-public class Shield : StateMachine
+public class Shield : MonoBehaviour
 {
 
     internal SpriteRenderer sr;
@@ -44,17 +44,14 @@ public class Shield : StateMachine
     public float defenseIncreaseAmount;
 
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         sr = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         SetProperties();
     }
 
@@ -77,7 +74,7 @@ public class Shield : StateMachine
     }
 
     // OnTriggerEnter2D is called when a collider enters the trigger
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

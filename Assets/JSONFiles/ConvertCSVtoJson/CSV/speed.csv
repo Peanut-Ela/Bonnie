@@ -1,0 +1,4 @@
+speedId,speedName,speedSpriteStr,walkSpeedIncreaseAmount,runSpeedIncreaseAmount
+Speed_0,Speedy Newbie,Speed_0,0.5,0.5
+Speed_1,Mediocre Booties,Speed_1,1,1
+Speed_2,Epic Flying Power!!!,Speed_2,2,2
