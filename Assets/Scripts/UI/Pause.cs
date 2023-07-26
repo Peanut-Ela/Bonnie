@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
+    public static Pause instance;
+
     public GameObject settingsPanel;
     public GameObject analyticsPanel;
     public GameObject itemPanel;

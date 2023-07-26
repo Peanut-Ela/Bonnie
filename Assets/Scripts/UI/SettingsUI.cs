@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SettingsUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+
+        Pause.instance.analyticsPanel.SetActive(false);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
     }
 }
