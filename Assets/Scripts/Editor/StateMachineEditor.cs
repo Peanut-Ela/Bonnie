@@ -12,7 +12,7 @@ public class StateMachineEditor : Editor
         StateMachine machine = (StateMachine)target;
         if (machine.currentState == null)
         {
-            EditorGUILayout.LabelField("Current State", "nothing lol");
+            EditorGUILayout.LabelField("Current State", "null");
         }
         else
         {
@@ -21,7 +21,7 @@ public class StateMachineEditor : Editor
         }
         if (machine.bufferedState == null)
         {
-            EditorGUILayout.LabelField("Buffered State", "nothing lol");
+            EditorGUILayout.LabelField("Buffered State", "null");
         }
         else
         {
