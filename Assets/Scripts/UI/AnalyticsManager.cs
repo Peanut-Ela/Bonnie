@@ -48,8 +48,6 @@ public class AnalyticsManager : MonoBehaviour
     public TextMeshProUGUI chestCoinText;
     public TextMeshProUGUI npcText;
     public TextMeshProUGUI battleText;
-    // List of observers (UI elements) that will receive updates
-    private List<TextMeshProUGUI> uiObservers = new List<TextMeshProUGUI>();
 
     [Header("Player Analytics")]
     public int playerId;
@@ -114,10 +112,10 @@ public class AnalyticsManager : MonoBehaviour
             chestOpened = statsProperties.chestOpened;
 
             npcInteractions = statsProperties.npcInteractions;
-            noOfHitsTaken = statsProperties.noOfHitsTaken;
             questReceived = statsProperties.questReceived;
             questDone = statsProperties.questDone;
 
+            noOfHitsTaken = statsProperties.noOfHitsTaken;
             enemyDefeatCount = statsProperties.enemyDefeatCount;
             damageRecieved = statsProperties.damageRecieved;
             timeTakenToCompleteLevel = statsProperties.timeTakenToCompleteLevel;
@@ -125,44 +123,16 @@ public class AnalyticsManager : MonoBehaviour
         }
     }
     // Initialize the analytics data
-
-    // Subscribe an observer to receive updates
-    public void Subscribe(TextMeshProUGUI observer)
-    {
-        if (!uiObservers.Contains(observer))
-        {
-            uiObservers.Add(observer);
-        }
-    }
-
-    // Unsubscribe an observer from updates
-    public void Unsubscribe(TextMeshProUGUI observer)
-    {
-        if (uiObservers.Contains(observer))
-        {
-            uiObservers.Remove(observer);
-        }
-    }
-
-    // Notify all observers that the analytics data has changed
-    private void NotifyObservers()
-    {
-        foreach (var observer in uiObservers)
-        {
-            UpdateUI(observer);
-        }
-    }
-
-    // Update the UI elements with the new analytics data
-    private void UpdateUI(TextMeshProUGUI observer)
-    {
-        observer.text = noOfItemsPickedUp.ToString() + "\n\n" + noOfItemsDropped.ToString() + "\n\n" + noOfHealthPotionsUsed.ToString() + "\n\n" + noOfWeaponsUsed.ToString() + "\n\n" + noOfShieldsUsed.ToString() + "\n\n" + noOfMilkBottlesUsed.ToString();
-        // Update other UI elements...
-    }
-    // Call this method whenever you want to update the UI with the latest analytics data
     private void Update()
     {
-        NotifyObservers();
+        itemText.text = noOfItemsPickedUp.ToString() + "\n\n" + noOfItemsDropped.ToString() + "\n\n" + noOfHealthPotionsUsed.ToString() + "\n\n" + noOfWeaponsUsed.ToString() + "\n\n" + noOfShieldsUsed.ToString() + "\n\n" + noOfMilkBottlesUsed.ToString();
+
+        chestCoinText.text = coinEarned.ToString() + "\n\n" + chestOpened.ToString();
+
+        npcText.text = npcInteractions.ToString() + "\n\n" + questReceived.ToString() + "\n\n" + questDone.ToString();
+
+        battleText.text = noOfHitsTaken.ToString() + "\n\n" + enemyDefeatCount.ToString() + "\n\n" + damageRecieved.ToString() + "\n\n" + timeTakenToCompleteLevel.ToString() + "\n\n" + noOfLevelsCompleted.ToString();
+
     }
 
     public void OnItemPickUp()
